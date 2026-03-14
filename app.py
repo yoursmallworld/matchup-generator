@@ -4,6 +4,9 @@ from pathlib import Path
 from datetime import datetime
 import io
 import base64
+import zipfile
+import re
+import csv
 
 # Configuration
 BASE_DIR = Path(__file__).parent
@@ -218,6 +221,94 @@ def generate_matchup_graphic(home_team, away_team, sport, game_date, gender="Boy
     return img
 
 
+def parse_title(title):
+    """Parse a title like 'Boys Basketball: Concord at Ygnacio Valley' into components.
+    Returns (gender, sport, away_team, home_team) or None if can't parse.
+
+    Title format: '{Gender} {Sport}: {Away Team} at {Home Team}'
+    Also handles: 'Girls Soccer: Mt. Diablo at Concord'
+    """
+    # Match pattern: Gender Sport: Team1 at Team2
+    match = re.match(
+        r"^(Boys|Girls)\s+(.+?):\s+(.+?)\s+at\s+(.+?)$",
+        title.strip(),
+        re.IGNORECASE
+    )
+    if match:
+        gender = match.group(1).title()
+        sport = match.group(2).strip()
+        away_team = match.group(3).strip()
+        home_team = match.group(4).strip()
+        return gender, sport, away_team, home_team
+    return None
+
+
+def team_name_to_id(name):
+    """Convert a display team name to a logo-friendly ID.
+    e.g., 'Ygnacio Valley' -> 'ygnacio_valley'
+    """
+    return name.lower().strip().replace(" ", "_").replace(".", "").replace("'", "")
+
+
+def parse_date_from_string(date_str):
+    """Parse various date formats from the spreadsheet."""
+    if not date_str or str(date_str).strip() == "":
+        return None
+    date_str = str(date_str).strip()
+    # Try common formats
+    formats = [
+        "%m/%d/%Y %H:%M:%S",
+        "%m/%d/%Y %H:%M",
+        "%m/%d/%Y",
+        "%Y-%m-%d %H:%M:%S",
+        "%Y-%m-%d",
+        "%m-%d-%Y",
+        "%B %d, %Y",
+        "%b %d, %Y",
+    ]
+    for fmt in formats:
+        try:
+            return datetime.strptime(date_str, fmt)
+        except ValueError:
+            continue
+    # Try pandas-style if it looks like a timestamp
+    try:
+        # Handle "1/26/2026 22:00:00" style
+        parts = date_str.split()
+        if len(parts) >= 1:
+            date_part = parts[0]
+            for fmt in ["%m/%d/%Y", "%Y-%m-%d", "%m-%d-%Y"]:
+                try:
+                    return datetime.strptime(date_part, fmt)
+                except ValueError:
+                    continue
+    except:
+        pass
+    return None
+
+
+def parse_csv_data(text):
+    """Parse CSV/TSV text into rows of dicts."""
+    lines = text.strip().split("\n")
+    if not lines:
+        return []
+
+    # Detect delimiter
+    first_line = lines[0]
+    if "\t" in first_line:
+        delimiter = "\t"
+    elif "," in first_line:
+        delimiter = ","
+    else:
+        delimiter = ","
+
+    reader = csv.DictReader(lines, delimiter=delimiter)
+    rows = []
+    for row in reader:
+        rows.append(row)
+    return rows
+
+
 # ========== STREAMLIT APP ==========
 
 st.set_page_config(page_title="Matchup Generator", page_icon="🏆", layout="centered")
@@ -232,7 +323,7 @@ team_display = {t: format_team_name(t) for t in available_teams}
 # Add option for custom team name
 team_options = sorted(team_display.values())
 
-tab1, tab2 = st.tabs(["Generate Graphic", "Manage Logos"])
+tab1, tab2, tab3 = st.tabs(["Generate Graphic", "Batch Generate", "Manage Logos"])
 
 with tab1:
     col1, col2 = st.columns(2)
@@ -290,6 +381,191 @@ with tab1:
         )
 
 with tab2:
+    st.subheader("Batch Generate from Spreadsheet")
+    st.markdown("""
+    Upload a CSV or paste spreadsheet data to generate multiple matchup graphics at once.
+
+    **Required columns:** **Title** and **Date/Time (EST) Start**
+
+    The Title column should follow the format: `Boys Basketball: Concord at Ygnacio Valley`
+
+    All other columns (Number, CMS, Topic, Priority, Hosted By, etc.) are kept for your reference but aren't needed for image generation.
+    """)
+
+    input_method = st.radio(
+        "Input method",
+        ["Paste from spreadsheet", "Upload CSV file"],
+        horizontal=True,
+        key="batch_input_method"
+    )
+
+    raw_data = None
+
+    if input_method == "Upload CSV file":
+        uploaded_file = st.file_uploader("Upload CSV", type=["csv", "tsv", "txt"], key="batch_csv")
+        if uploaded_file:
+            raw_data = uploaded_file.getvalue().decode("utf-8")
+    else:
+        raw_data = st.text_area(
+            "Paste your spreadsheet data here (copy rows from Google Sheets/Excel — tab-separated)",
+            height=200,
+            placeholder="Title\tTopic\tPriority\tDate/Time (EST) Start\nBoys Basketball: Concord at Ygnacio Valley\tSports\tMinor\t1/26/2026 22:00:00",
+            key="batch_paste"
+        )
+
+    if raw_data and raw_data.strip():
+        rows = parse_csv_data(raw_data)
+
+        if not rows:
+            st.error("Couldn't parse the data. Make sure it has a header row.")
+        else:
+            # Find the Title and Date columns (flexible matching)
+            sample_keys = list(rows[0].keys())
+            title_col = None
+            date_col = None
+
+            for k in sample_keys:
+                kl = k.strip().lower()
+                if kl == "title":
+                    title_col = k
+                elif "date" in kl and "start" in kl:
+                    date_col = k
+                elif "date" in kl and "end" not in kl and date_col is None:
+                    date_col = k
+
+            if not title_col:
+                st.error("Could not find a **Title** column. Make sure your header row includes 'Title'.")
+            else:
+                # Parse matchups from titles
+                matchups = []
+                skipped = []
+
+                for i, row in enumerate(rows):
+                    title = row.get(title_col, "").strip()
+                    if not title:
+                        continue
+
+                    parsed = parse_title(title)
+                    if parsed is None:
+                        skipped.append((i + 2, title))  # +2 for header row + 1-indexed
+                        continue
+
+                    gender, sport, away_team, home_team = parsed
+
+                    # Get date
+                    game_date = None
+                    if date_col:
+                        game_date = parse_date_from_string(row.get(date_col, ""))
+
+                    matchups.append({
+                        "gender": gender,
+                        "sport": sport,
+                        "away_team": away_team,
+                        "home_team": home_team,
+                        "away_id": team_name_to_id(away_team),
+                        "home_id": team_name_to_id(home_team),
+                        "date": game_date,
+                        "date_str": game_date.strftime("%Y-%m-%d") if game_date else "",
+                        "title": title,
+                        "has_home_logo": find_logo(team_name_to_id(away_team).replace("_", " ")) is not None or find_logo(team_name_to_id(away_team)) is not None,
+                        "has_away_logo": find_logo(team_name_to_id(home_team).replace("_", " ")) is not None or find_logo(team_name_to_id(home_team)) is not None,
+                    })
+
+                # Show summary
+                st.success(f"Found **{len(matchups)}** matchups ready to generate")
+
+                if skipped:
+                    with st.expander(f"{len(skipped)} rows skipped (non-matchup events)"):
+                        for row_num, title in skipped:
+                            st.write(f"Row {row_num}: {title}")
+
+                # Preview table
+                if matchups:
+                    with st.expander("Preview matchups", expanded=True):
+                        preview_data = []
+                        for m in matchups:
+                            home_logo = "✅" if find_logo(m["home_id"]) else "❌"
+                            away_logo = "✅" if find_logo(m["away_id"]) else "❌"
+                            preview_data.append({
+                                "Sport": f"{m['gender']} {m['sport']}",
+                                "Away": m["away_team"],
+                                "Away Logo": away_logo,
+                                "Home": m["home_team"],
+                                "Home Logo": home_logo,
+                                "Date": m["date"].strftime("%m/%d/%Y") if m["date"] else "No date",
+                            })
+                        st.dataframe(preview_data, use_container_width=True, hide_index=True)
+
+                    # Generate button
+                    if st.button("Generate All Matchup Graphics", type="primary", use_container_width=True, key="batch_generate"):
+                        progress_bar = st.progress(0)
+                        status_text = st.empty()
+
+                        generated_images = []
+
+                        for i, m in enumerate(matchups):
+                            status_text.text(f"Generating {i+1}/{len(matchups)}: {m['away_team']} vs {m['home_team']}...")
+                            progress_bar.progress((i + 1) / len(matchups))
+
+                            img = generate_matchup_graphic(
+                                m["home_id"],
+                                m["away_id"],
+                                m["sport"].lower(),
+                                m["date_str"] if m["date_str"] else datetime.now().strftime("%Y-%m-%d"),
+                                m["gender"]
+                            )
+
+                            # Save to buffer
+                            buf = io.BytesIO()
+                            img.save(buf, format="PNG")
+                            buf.seek(0)
+
+                            filename = f"{m['away_team']}_vs_{m['home_team']}_{m['gender']}_{m['sport']}_{m['date_str']}.png"
+                            filename = re.sub(r'[^\w\-_.]', '_', filename)
+
+                            generated_images.append((filename, buf.getvalue(), img))
+
+                        status_text.text(f"Done! Generated {len(generated_images)} images.")
+                        progress_bar.progress(1.0)
+
+                        # Show generated images in a grid
+                        st.divider()
+                        cols_per_row = 3
+                        for i in range(0, len(generated_images), cols_per_row):
+                            cols = st.columns(cols_per_row)
+                            for j, col in enumerate(cols):
+                                idx = i + j
+                                if idx < len(generated_images):
+                                    fname, data, img_obj = generated_images[idx]
+                                    with col:
+                                        st.image(img_obj, use_container_width=True)
+                                        st.download_button(
+                                            label=f"Download",
+                                            data=data,
+                                            file_name=fname,
+                                            mime="image/png",
+                                            key=f"dl_{idx}",
+                                            use_container_width=True
+                                        )
+
+                        # Download all as ZIP
+                        st.divider()
+                        zip_buf = io.BytesIO()
+                        with zipfile.ZipFile(zip_buf, "w", zipfile.ZIP_DEFLATED) as zf:
+                            for fname, data, _ in generated_images:
+                                zf.writestr(fname, data)
+                        zip_buf.seek(0)
+
+                        st.download_button(
+                            label=f"⬇️ Download All ({len(generated_images)} images as ZIP)",
+                            data=zip_buf,
+                            file_name=f"matchup_graphics_{datetime.now().strftime('%Y%m%d')}.zip",
+                            mime="application/zip",
+                            use_container_width=True,
+                            key="download_zip"
+                        )
+
+with tab3:
     st.subheader("Current Logos")
 
     if available_teams:
