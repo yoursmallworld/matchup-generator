@@ -333,25 +333,41 @@ with tab1:
     with col2:
         sport = st.selectbox("Sport", [s.title() for s in SPORTS])
 
+    # Team selection: dropdown with known teams + option to type a custom name
+    team_options_with_custom = ["-- Type a custom name --"] + team_options
+
     col3, col4 = st.columns(2)
 
     with col3:
-        home_input = st.selectbox("Home Team", team_options, index=0, key="home")
+        home_select = st.selectbox("Home Team", team_options_with_custom, index=1 if len(team_options_with_custom) > 1 else 0, key="home")
+        if home_select == "-- Type a custom name --":
+            home_custom = st.text_input("Enter home team name", key="custom_home")
+        else:
+            home_custom = ""
+
     with col4:
-        away_input = st.selectbox("Away Team", team_options, index=min(1, len(team_options)-1), key="away")
+        away_select = st.selectbox("Away Team", team_options_with_custom, index=min(2, len(team_options_with_custom)-1), key="away")
+        if away_select == "-- Type a custom name --":
+            away_custom = st.text_input("Enter away team name", key="custom_away")
+        else:
+            away_custom = ""
 
     game_date = st.date_input("Game Date", value=datetime.now())
 
-    # Allow custom team names
-    with st.expander("Use a custom team name?"):
-        custom_home = st.text_input("Custom Home Team (leave blank to use dropdown)", key="custom_home")
-        custom_away = st.text_input("Custom Away Team (leave blank to use dropdown)", key="custom_away")
-
     # Determine final team names for logo check
-    home_team = custom_home.strip().lower().replace(" ", "_") if custom_home.strip() else \
-        [k for k, v in team_display.items() if v == home_input][0] if team_options else ""
-    away_team = custom_away.strip().lower().replace(" ", "_") if custom_away.strip() else \
-        [k for k, v in team_display.items() if v == away_input][0] if team_options else ""
+    if home_select == "-- Type a custom name --" and home_custom.strip():
+        home_team = home_custom.strip().lower().replace(" ", "_")
+    elif home_select != "-- Type a custom name --":
+        home_team = [k for k, v in team_display.items() if v == home_select][0] if team_options else ""
+    else:
+        home_team = ""
+
+    if away_select == "-- Type a custom name --" and away_custom.strip():
+        away_team = away_custom.strip().lower().replace(" ", "_")
+    elif away_select != "-- Type a custom name --":
+        away_team = [k for k, v in team_display.items() if v == away_select][0] if team_options else ""
+    else:
+        away_team = ""
 
     # Check for missing logos
     home_logo_exists = find_logo(home_team) is not None if home_team else False
