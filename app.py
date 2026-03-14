@@ -333,39 +333,54 @@ with tab1:
     with col2:
         sport = st.selectbox("Sport", [s.title() for s in SPORTS])
 
-    # Team selection: dropdown with known teams + option to type a custom name
-    team_options_with_custom = ["-- Type a custom name --"] + team_options
-
+    # Team selection: text input that doubles as search + free text
+    # Users can type any name — if it matches a known team, the logo is used
     col3, col4 = st.columns(2)
 
     with col3:
-        home_select = st.selectbox("Home Team", team_options_with_custom, index=1 if len(team_options_with_custom) > 1 else 0, key="home")
-        if home_select == "-- Type a custom name --":
-            home_custom = st.text_input("Enter home team name", key="custom_home")
-        else:
-            home_custom = ""
+        home_input = st.selectbox(
+            "Home Team",
+            [""] + team_options,
+            index=1 if team_options else 0,
+            key="home",
+            format_func=lambda x: "Select a team or type below..." if x == "" else x
+        )
+        home_custom = st.text_input(
+            "Or type any team name",
+            key="custom_home",
+            placeholder="e.g. Liberty High"
+        )
 
     with col4:
-        away_select = st.selectbox("Away Team", team_options_with_custom, index=min(2, len(team_options_with_custom)-1), key="away")
-        if away_select == "-- Type a custom name --":
-            away_custom = st.text_input("Enter away team name", key="custom_away")
-        else:
-            away_custom = ""
+        away_input = st.selectbox(
+            "Away Team",
+            [""] + team_options,
+            index=min(2, len(team_options)) if team_options else 0,
+            key="away",
+            format_func=lambda x: "Select a team or type below..." if x == "" else x
+        )
+        away_custom = st.text_input(
+            "Or type any team name",
+            key="custom_away",
+            placeholder="e.g. Liberty High"
+        )
+
+    st.caption("Typed names override the dropdown. Leave the text field blank to use the dropdown selection.")
 
     game_date = st.date_input("Game Date", value=datetime.now())
 
-    # Determine final team names for logo check
-    if home_select == "-- Type a custom name --" and home_custom.strip():
+    # Determine final team names — typed name takes priority over dropdown
+    if home_custom.strip():
         home_team = home_custom.strip().lower().replace(" ", "_")
-    elif home_select != "-- Type a custom name --":
-        home_team = [k for k, v in team_display.items() if v == home_select][0] if team_options else ""
+    elif home_input:
+        home_team = [k for k, v in team_display.items() if v == home_input][0] if team_options else ""
     else:
         home_team = ""
 
-    if away_select == "-- Type a custom name --" and away_custom.strip():
+    if away_custom.strip():
         away_team = away_custom.strip().lower().replace(" ", "_")
-    elif away_select != "-- Type a custom name --":
-        away_team = [k for k, v in team_display.items() if v == away_select][0] if team_options else ""
+    elif away_input:
+        away_team = [k for k, v in team_display.items() if v == away_input][0] if team_options else ""
     else:
         away_team = ""
 
