@@ -347,13 +347,33 @@ with tab1:
         custom_home = st.text_input("Custom Home Team (leave blank to use dropdown)", key="custom_home")
         custom_away = st.text_input("Custom Away Team (leave blank to use dropdown)", key="custom_away")
 
-    if st.button("Generate Matchup Graphic", type="primary", use_container_width=True):
-        # Determine final team names
-        home_team = custom_home.strip().lower().replace(" ", "_") if custom_home.strip() else \
-            [k for k, v in team_display.items() if v == home_input][0]
-        away_team = custom_away.strip().lower().replace(" ", "_") if custom_away.strip() else \
-            [k for k, v in team_display.items() if v == away_input][0]
+    # Determine final team names for logo check
+    home_team = custom_home.strip().lower().replace(" ", "_") if custom_home.strip() else \
+        [k for k, v in team_display.items() if v == home_input][0] if team_options else ""
+    away_team = custom_away.strip().lower().replace(" ", "_") if custom_away.strip() else \
+        [k for k, v in team_display.items() if v == away_input][0] if team_options else ""
 
+    # Check for missing logos
+    home_logo_exists = find_logo(home_team) is not None if home_team else False
+    away_logo_exists = find_logo(away_team) is not None if away_team else False
+    missing_logos = []
+    if home_team and not home_logo_exists:
+        missing_logos.append(format_team_name(home_team))
+    if away_team and not away_logo_exists:
+        missing_logos.append(format_team_name(away_team))
+
+    # Show missing logo warning
+    if missing_logos:
+        st.warning(
+            f"**Missing logo{'s' if len(missing_logos) > 1 else ''}:** {', '.join(missing_logos)}. "
+            f"These teams will use a placeholder (initials in a circle). "
+            f"You can add logos in the **Manage Logos** tab."
+        )
+        proceed_single = st.checkbox("Generate anyway with placeholder logos", key="proceed_single")
+    else:
+        proceed_single = True
+
+    if st.button("Generate Matchup Graphic", type="primary", use_container_width=True, disabled=bool(missing_logos and not proceed_single)):
         date_str = game_date.strftime("%Y-%m-%d")
 
         with st.spinner("Generating..."):
@@ -496,8 +516,30 @@ with tab2:
                             })
                         st.dataframe(preview_data, use_container_width=True, hide_index=True)
 
+                    # Check for missing logos across all matchups
+                    all_missing = set()
+                    for m in matchups:
+                        if not find_logo(m["home_id"]):
+                            all_missing.add(m["home_team"])
+                        if not find_logo(m["away_id"]):
+                            all_missing.add(m["away_team"])
+
+                    proceed_batch = True
+                    if all_missing:
+                        sorted_missing = sorted(all_missing)
+                        st.warning(
+                            f"**{len(all_missing)} school{'s' if len(all_missing) > 1 else ''} missing logos:** "
+                            f"{', '.join(sorted_missing)}. "
+                            f"These will use placeholder graphics (initials in a circle). "
+                            f"You can add logos in the **Manage Logos** tab first, or proceed anyway."
+                        )
+                        proceed_batch = st.checkbox(
+                            f"Generate anyway with placeholders for {len(all_missing)} missing logo{'s' if len(all_missing) > 1 else ''}",
+                            key="proceed_batch"
+                        )
+
                     # Generate button
-                    if st.button("Generate All Matchup Graphics", type="primary", use_container_width=True, key="batch_generate"):
+                    if st.button("Generate All Matchup Graphics", type="primary", use_container_width=True, key="batch_generate", disabled=bool(all_missing and not proceed_batch)):
                         progress_bar = st.progress(0)
                         status_text = st.empty()
 
