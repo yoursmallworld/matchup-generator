@@ -142,6 +142,21 @@ def fetch_schedule(school_slug, sport_url):
         return None, f"error: {str(e)}"
 
 
+def safe_get(obj, key, default=None):
+    """Get a value from a list or dict by index/key."""
+    try:
+        if isinstance(obj, list):
+            if isinstance(key, int) and 0 <= key < len(obj):
+                val = obj[key]
+                return val if val is not None else default
+            return default
+        elif isinstance(obj, dict):
+            return obj.get(key, obj.get(str(key), default))
+        return default
+    except (IndexError, KeyError, TypeError):
+        return default
+
+
 def extract_games(schedule_data, school_name, school_slug):
     """Extract future games from parsed schedule data."""
     if not schedule_data:
@@ -159,12 +174,12 @@ def extract_games(schedule_data, school_name, school_slug):
         # c[17] = isLeague, c[18] = game URL, c[21] = type
         # c[28] = state description, c[29] = human description
 
-        game_dt_str = c.get(11) or c.get("11")
+        game_dt_str = safe_get(c, 11)
         if not game_dt_str:
             continue
 
         try:
-            game_dt = datetime.fromisoformat(game_dt_str)
+            game_dt = datetime.fromisoformat(str(game_dt_str))
         except (ValueError, TypeError):
             continue
 
@@ -173,19 +188,19 @@ def extract_games(schedule_data, school_name, school_slug):
             continue
 
         # Skip non-game entries
-        state = str(c.get(28, ""))
+        state = str(safe_get(c, 28, ""))
         if "Pregame" not in state and "InProgress" not in state:
             # Check if it's a future game without state info
             if game_dt < now:
                 continue
 
-        home_away_code = c.get(15) or c.get("15", 0)
+        home_away_code = safe_get(c, 15, 0)
         is_home = home_away_code == 1
         is_away = home_away_code == 2
         home_away = "Home" if is_home else ("Away" if is_away else "")
 
-        game_url = c.get(18) or c.get("18", "")
-        description = c.get(29) or c.get("29", "")
+        game_url = safe_get(c, 18, "")
+        description = safe_get(c, 29, "")
 
         # Get opponent name
         opponent = parse_opponent_from_url(game_url, school_slug)
@@ -200,22 +215,28 @@ def extract_games(schedule_data, school_name, school_slug):
         else:
             title = f"{gender} {sport}: {opponent} at {school_name}"
 
-        time_str = game_dt.strftime("%-I:%M%p").lower().replace(":00", "")
-        if time_str.endswith("m"):
-            time_str = time_str[:-1] + time_str[-1]
+        try:
+            time_str = game_dt.strftime("%-I:%M%p").lower()
+        except ValueError:
+            time_str = game_dt.strftime("%I:%M%p").lstrip("0").lower()
+
+        try:
+            date_display = game_dt.strftime("%-m/%-d/%Y")
+        except ValueError:
+            date_display = f"{game_dt.month}/{game_dt.day}/{game_dt.year}"
 
         games.append({
             "title": title,
             "school": school_name,
             "gender": gender,
             "sport": sport,
-            "date": game_dt.strftime("%-m/%-d/%Y"),
+            "date": date_display,
             "date_sort": game_dt.strftime("%Y-%m-%d"),
-            "time": game_dt.strftime("%-I:%M%p").lower(),
+            "time": time_str,
             "home_away": home_away,
             "opponent": opponent,
             "game_url": game_url,
-            "is_league": bool(c.get(17) or c.get("17")),
+            "is_league": bool(safe_get(c, 17)),
         })
 
     return games
