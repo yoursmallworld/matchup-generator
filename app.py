@@ -1,17 +1,23 @@
 import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 import io
 import base64
 import zipfile
 import re
 import csv
+import json
+import threading
+import time as time_module
 
 # Configuration
 BASE_DIR = Path(__file__).parent
 LOGOS_DIR = BASE_DIR / "logos"
 FONTS_DIR = BASE_DIR / "fonts"
+CACHE_DIR = BASE_DIR / "cache"
+CACHE_FILE = CACHE_DIR / "schedule_cache.json"
+AUTO_REFRESH_HOURS = 24  # Re-scrape if cache is older than this
 
 # Image dimensions (16:9)
 IMAGE_WIDTH = 1200
@@ -323,7 +329,7 @@ team_display = {t: format_team_name(t) for t in available_teams}
 # Add option for custom team name
 team_options = sorted(team_display.values())
 
-tab1, tab2, tab3 = st.tabs(["Generate Graphic", "Batch Generate", "Manage Logos"])
+tab1, tab2, tab4, tab3 = st.tabs(["Generate Graphic", "Batch Generate", "Upcoming Games", "Manage Logos"])
 
 with tab1:
     col1, col2 = st.columns(2)
@@ -637,6 +643,302 @@ with tab2:
                             use_container_width=True,
                             key="download_zip"
                         )
+
+with tab4:
+    st.subheader("Upcoming Games")
+    st.caption("Auto-scraped from MaxPreps. Select games to generate matchup graphics.")
+
+    # --- Cache / Scraper Logic ---
+    def load_schedule_cache():
+        try:
+            with open(CACHE_FILE, "r") as f:
+                return json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return None
+
+    def get_cache_age():
+        cached = load_schedule_cache()
+        if not cached or "cached_at" not in cached:
+            return None
+        try:
+            cached_dt = datetime.fromisoformat(cached["cached_at"])
+            return (datetime.now() - cached_dt).total_seconds() / 3600
+        except (ValueError, TypeError):
+            return None
+
+    def run_scrape():
+        try:
+            from scraper import scrape_all_schools, save_cached_data
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            games, verification = scrape_all_schools(
+                progress_callback=lambda cur, tot, school, sport:
+                    st.session_state.update({"scrape_progress": cur / tot, "scrape_status": f"{school} — {sport}"})
+            )
+            save_cached_data(str(CACHE_FILE), games, verification)
+            return games, verification
+        except ImportError:
+            st.error("Scraper module not found. Make sure `scraper.py` is in the app directory.")
+            return [], {}
+        except Exception as e:
+            st.error(f"Scrape failed: {e}")
+            return [], {}
+
+    # Auto-refresh check
+    cache_age = get_cache_age()
+    cached_data = load_schedule_cache()
+    needs_refresh = cache_age is None or cache_age > AUTO_REFRESH_HOURS
+
+    # Controls row
+    ctrl_col1, ctrl_col2, ctrl_col3 = st.columns([2, 1, 1])
+    with ctrl_col1:
+        if cached_data:
+            age_str = f"{cache_age:.1f} hours ago" if cache_age and cache_age < 48 else (
+                f"{cache_age/24:.1f} days ago" if cache_age else "unknown"
+            )
+            st.caption(f"Last updated: {age_str}")
+        else:
+            st.caption("No cached data — click Refresh to scrape MaxPreps")
+
+    with ctrl_col2:
+        refresh_clicked = st.button("🔄 Refresh Now", use_container_width=True)
+
+    with ctrl_col3:
+        auto_refresh = st.toggle("Auto-refresh", value=True, help=f"Re-scrape every {AUTO_REFRESH_HOURS}h")
+
+    # Run scrape if needed
+    games = []
+    verification = {}
+
+    if refresh_clicked or (needs_refresh and auto_refresh and not cached_data):
+        with st.spinner("Scraping MaxPreps schedules..."):
+            progress_bar = st.progress(0)
+            status_text = st.empty()
+
+            # Override progress callback to update UI
+            def ui_progress(cur, tot, school, sport):
+                progress_bar.progress(cur / tot)
+                status_text.text(f"Scraping {school} — {sport}...")
+
+            try:
+                from scraper import scrape_all_schools, save_cached_data
+                CACHE_DIR.mkdir(parents=True, exist_ok=True)
+                games, verification = scrape_all_schools(progress_callback=ui_progress)
+                save_cached_data(str(CACHE_FILE), games, verification)
+                status_text.text(f"Done! Found {len(games)} upcoming games.")
+                progress_bar.progress(1.0)
+            except Exception as e:
+                st.error(f"Scrape failed: {e}")
+
+    elif cached_data:
+        games = cached_data.get("games", [])
+        verification = cached_data.get("verification", {})
+
+    # --- Display Games ---
+    if games:
+        # Filters
+        filter_col1, filter_col2, filter_col3 = st.columns(3)
+        all_schools = sorted({g["school"] for g in games})
+        all_sports = sorted({f"{g['gender']} {g['sport']}" for g in games})
+
+        with filter_col1:
+            selected_schools = st.multiselect("Filter by school", all_schools, default=all_schools, key="ug_schools")
+        with filter_col2:
+            selected_sports = st.multiselect("Filter by sport", all_sports, default=all_sports, key="ug_sports")
+        with filter_col3:
+            date_range = st.selectbox("Time range", ["Next 7 days", "Next 14 days", "Next 30 days", "All"], index=3, key="ug_range")
+
+        # Apply filters
+        filtered = games
+        if selected_schools:
+            filtered = [g for g in filtered if g["school"] in selected_schools]
+        if selected_sports:
+            filtered = [g for g in filtered if f"{g['gender']} {g['sport']}" in selected_sports]
+        if date_range != "All":
+            days = int(date_range.split()[1])
+            cutoff = (datetime.now() + timedelta(days=days)).strftime("%Y-%m-%d")
+            filtered = [g for g in filtered if g.get("date_sort", "9999") <= cutoff]
+
+        st.write(f"**{len(filtered)}** games shown")
+
+        # Build display table with selection checkboxes
+        if filtered:
+            # Show as dataframe
+            display_data = []
+            for g in filtered:
+                has_home_logo = "✅" if find_logo(team_name_to_id(g["school"])) else "❌"
+                has_opp_logo = "✅" if find_logo(team_name_to_id(g["opponent"])) else "❌"
+                display_data.append({
+                    "Select": False,
+                    "Date": g["date"],
+                    "Time": g["time"],
+                    "Sport": f"{g['gender']} {g['sport']}",
+                    "School": g["school"],
+                    "H/A": g["home_away"],
+                    "Opponent": g["opponent"],
+                    "Our Logo": has_home_logo,
+                    "Opp Logo": has_opp_logo,
+                    "League": "⭐" if g.get("is_league") else "",
+                })
+
+            edited_df = st.data_editor(
+                display_data,
+                column_config={
+                    "Select": st.column_config.CheckboxColumn("Select", default=False),
+                },
+                disabled=["Date", "Time", "Sport", "School", "H/A", "Opponent", "Our Logo", "Opp Logo", "League"],
+                use_container_width=True,
+                hide_index=True,
+                key="games_editor",
+            )
+
+            # Generate graphics for selected games
+            selected_indices = [i for i, row in enumerate(edited_df) if row.get("Select")]
+
+            if selected_indices:
+                st.write(f"**{len(selected_indices)}** games selected")
+
+                # Check missing logos
+                selected_games = [filtered[i] for i in selected_indices]
+                all_missing = set()
+                for g in selected_games:
+                    if not find_logo(team_name_to_id(g["school"])):
+                        all_missing.add(g["school"])
+                    if not find_logo(team_name_to_id(g["opponent"])):
+                        all_missing.add(g["opponent"])
+
+                proceed_upcoming = True
+                if all_missing:
+                    st.warning(
+                        f"**{len(all_missing)} school{'s' if len(all_missing) > 1 else ''} missing logos:** "
+                        f"{', '.join(sorted(all_missing))}. Placeholders will be used."
+                    )
+                    proceed_upcoming = st.checkbox("Generate anyway with placeholders", key="proceed_upcoming")
+
+                if st.button(
+                    f"Generate {len(selected_indices)} Matchup Graphic{'s' if len(selected_indices) > 1 else ''}",
+                    type="primary",
+                    use_container_width=True,
+                    disabled=bool(all_missing and not proceed_upcoming),
+                    key="gen_upcoming"
+                ):
+                    progress_bar = st.progress(0)
+                    generated_images = []
+
+                    for idx, g in enumerate(selected_games):
+                        progress_bar.progress((idx + 1) / len(selected_games))
+
+                        # Determine home/away teams
+                        if g["home_away"] == "Home":
+                            home_id = team_name_to_id(g["school"])
+                            away_id = team_name_to_id(g["opponent"])
+                        else:
+                            home_id = team_name_to_id(g["opponent"])
+                            away_id = team_name_to_id(g["school"])
+
+                        try:
+                            game_dt = datetime.strptime(g["date_sort"], "%Y-%m-%d")
+                            date_str = game_dt.strftime("%Y-%m-%d")
+                        except (ValueError, KeyError):
+                            date_str = datetime.now().strftime("%Y-%m-%d")
+
+                        img = generate_matchup_graphic(
+                            home_id, away_id, g["sport"].lower(), date_str, g["gender"]
+                        )
+
+                        buf = io.BytesIO()
+                        img.save(buf, format="PNG")
+                        buf.seek(0)
+                        fname = re.sub(r'[^\w\-_.]', '_', f"{g['title']}_{date_str}.png")
+                        generated_images.append((fname, buf.getvalue(), img))
+
+                    progress_bar.progress(1.0)
+
+                    # Show grid
+                    cols_per_row = 3
+                    for i in range(0, len(generated_images), cols_per_row):
+                        cols = st.columns(cols_per_row)
+                        for j, col in enumerate(cols):
+                            idx = i + j
+                            if idx < len(generated_images):
+                                fname, data, img_obj = generated_images[idx]
+                                with col:
+                                    st.image(img_obj, use_container_width=True)
+                                    st.download_button(
+                                        label="Download",
+                                        data=data,
+                                        file_name=fname,
+                                        mime="image/png",
+                                        key=f"dl_upcoming_{idx}",
+                                        use_container_width=True,
+                                    )
+
+                    # ZIP download
+                    if len(generated_images) > 1:
+                        zip_buf = io.BytesIO()
+                        with zipfile.ZipFile(zip_buf, "w", zipfile.ZIP_DEFLATED) as zf:
+                            for fname, data, _ in generated_images:
+                                zf.writestr(fname, data)
+                        zip_buf.seek(0)
+                        st.download_button(
+                            label=f"⬇️ Download All ({len(generated_images)} images as ZIP)",
+                            data=zip_buf,
+                            file_name=f"matchup_graphics_{datetime.now().strftime('%Y%m%d')}.zip",
+                            mime="application/zip",
+                            use_container_width=True,
+                            key="download_zip_upcoming",
+                        )
+
+        # --- Verification Report ---
+        if verification:
+            with st.expander("📋 Verification Report", expanded=False):
+                status = verification.get("status", "Unknown")
+                if status == "CLEAN":
+                    st.success(f"✅ **{status}** — No issues found")
+                else:
+                    st.warning(f"⚠️ **{status}**")
+
+                vcol1, vcol2 = st.columns(2)
+                with vcol1:
+                    st.metric("Total Games", verification.get("total_games", 0))
+                    st.metric("Schools Scraped", verification.get("schools_scraped", 0))
+                with vcol2:
+                    st.metric("Sports Found", len(verification.get("sports_found", [])))
+                    st.metric("Issues", len(verification.get("verification_issues", [])))
+
+                # Games per school
+                gps = verification.get("games_per_school", {})
+                if gps:
+                    st.write("**Games per school:**")
+                    for school, count in sorted(gps.items()):
+                        st.write(f"  {school}: {count}")
+
+                # Issues
+                issues = verification.get("verification_issues", [])
+                if issues:
+                    st.write("**Issues found:**")
+                    for issue in issues:
+                        if "MISMATCH" in issue or "CONFLICT" in issue:
+                            st.error(issue)
+                        elif "DUPLICATE" in issue:
+                            st.warning(issue)
+                        else:
+                            st.info(issue)
+
+                # Scrape errors
+                errs = verification.get("scrape_errors", [])
+                if errs:
+                    st.write("**Scrape errors:**")
+                    for err in errs:
+                        st.error(err)
+
+                # Full scrape log
+                log = verification.get("scrape_log", [])
+                if log:
+                    with st.expander("Full scrape log"):
+                        for entry in log:
+                            st.text(entry)
+    else:
+        st.info("No schedule data yet. Click **Refresh Now** to scrape MaxPreps for upcoming games.")
 
 with tab3:
     st.subheader("Current Logos")
