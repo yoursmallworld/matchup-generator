@@ -762,13 +762,27 @@ with tab4:
 
         # Build display table with selection checkboxes
         if filtered:
+            # Select All / Deselect All
+            sel_col1, sel_col2, sel_col3 = st.columns([1, 1, 4])
+            with sel_col1:
+                select_all = st.button("Select All", use_container_width=True, key="select_all")
+            with sel_col2:
+                deselect_all = st.button("Deselect All", use_container_width=True, key="deselect_all")
+
+            if select_all:
+                st.session_state["all_selected"] = True
+            if deselect_all:
+                st.session_state["all_selected"] = False
+
+            default_selected = st.session_state.get("all_selected", False)
+
             # Show as dataframe
             display_data = []
             for g in filtered:
                 has_home_logo = "✅" if find_logo(team_name_to_id(g["school"])) else "❌"
                 has_opp_logo = "✅" if find_logo(team_name_to_id(g["opponent"])) else "❌"
                 display_data.append({
-                    "Select": False,
+                    "Select": default_selected,
                     "Date": g["date"],
                     "Time": g["time"],
                     "Sport": f"{g['gender']} {g['sport']}",
