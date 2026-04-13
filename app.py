@@ -102,7 +102,7 @@ def find_logo(team_name):
     for logo_file in LOGOS_DIR.glob("*"):
         if logo_file.suffix.lower() in [".png", ".jpg", ".jpeg"]:
             file_normalized = logo_file.stem.lower().replace(" ", "_").replace("-", "_")
-            if file_normalized == normalized or normalized in file_normalized:
+            if file_normalized == normalized or normalized in file_normalized or file_normalized in normalized:
                 return logo_file
     return None
 
