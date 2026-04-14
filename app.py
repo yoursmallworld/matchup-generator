@@ -189,18 +189,30 @@ def generate_matchup_graphic(home_team, away_team, sport, game_date, gender="Boy
     vs_y = logo_y + logo_size[1] // 2 - vs_height // 2
     draw.text((vs_x, vs_y), "vs.", font=vs_font, fill=BLACK)
 
-    # Team names
-    team_font = get_title_font(42)
+    # Team names — auto-shrink to fit within half the content width
+    max_name_width = CONTENT_WIDTH // 2 - 20  # max width per team name
 
     home_name = format_team_name(home_team)
+    home_font_size = 42
+    team_font = get_title_font(home_font_size)
     home_bbox = draw.textbbox((0, 0), home_name, font=team_font)
+    while home_bbox[2] - home_bbox[0] > max_name_width and home_font_size > 20:
+        home_font_size -= 2
+        team_font = get_title_font(home_font_size)
+        home_bbox = draw.textbbox((0, 0), home_name, font=team_font)
     home_text_width = home_bbox[2] - home_bbox[0]
     home_logo_center = home_x + logo_size[0] // 2
     home_text_x = home_logo_center - home_text_width // 2
     draw.text((home_text_x, logo_y + logo_size[1] + 15), home_name, font=team_font, fill=BLACK)
 
     away_name = format_team_name(away_team)
+    away_font_size = 42
+    team_font = get_title_font(away_font_size)
     away_bbox = draw.textbbox((0, 0), away_name, font=team_font)
+    while away_bbox[2] - away_bbox[0] > max_name_width and away_font_size > 20:
+        away_font_size -= 2
+        team_font = get_title_font(away_font_size)
+        away_bbox = draw.textbbox((0, 0), away_name, font=team_font)
     away_text_width = away_bbox[2] - away_bbox[0]
     away_logo_center = away_x + logo_size[0] // 2
     away_text_x = away_logo_center - away_text_width // 2
@@ -427,7 +439,7 @@ with tab1:
 
         home_display = format_team_name(home_team)
         away_display = format_team_name(away_team)
-        filename = f"{away_display}_vs_{home_display}_{gender}_{sport}_{date_str}.png"
+        filename = f"{date_str}_{away_display}_vs_{home_display}_{gender}_{sport}.png"
 
         st.download_button(
             label="⬇️ Download Image",
@@ -599,7 +611,7 @@ with tab2:
                             img.save(buf, format="PNG")
                             buf.seek(0)
 
-                            filename = f"{m['away_team']}_vs_{m['home_team']}_{m['gender']}_{m['sport']}_{m['date_str']}.png"
+                            filename = f"{m['date_str']}_{m['away_team']}_vs_{m['home_team']}_{m['gender']}_{m['sport']}.png"
                             filename = re.sub(r'[^\w\-_.]', '_', filename)
 
                             generated_images.append((filename, buf.getvalue(), img))
@@ -863,7 +875,7 @@ with tab4:
                         buf = io.BytesIO()
                         img.save(buf, format="PNG")
                         buf.seek(0)
-                        fname = re.sub(r'[^\w\-_.]', '_', f"{g['title']}_{date_str}.png")
+                        fname = re.sub(r'[^\w\-_.]', '_', f"{date_str}_{g['title']}.png")
                         generated_images.append((fname, buf.getvalue(), img))
 
                     progress_bar.progress(1.0)
