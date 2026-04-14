@@ -829,7 +829,8 @@ with tab4:
             if selected_game_idx is not None:
                 g = filtered[selected_game_idx]
                 copy_cols = st.columns(3)
-                hosted_by = g.get("school", "") if g.get("home_away") == "Home" else g.get("opponent", "")
+                hosted_by_raw = g.get("school", "") if g.get("home_away") == "Home" else g.get("opponent", "")
+                hosted_by = f"{hosted_by_raw} High School" if hosted_by_raw and "High School" not in hosted_by_raw else hosted_by_raw
                 fields = [
                     ("Title", g.get("title", "")),
                     ("Hosted By", hosted_by),
