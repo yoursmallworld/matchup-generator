@@ -815,11 +815,23 @@ with tab4:
                 display_data,
                 column_config={
                     "Select": st.column_config.CheckboxColumn("Select", default=False),
+                    "MaxPreps": st.column_config.LinkColumn("MaxPreps", display_text="Link"),
                 },
                 disabled=["Date", "Time", "Sport", "School", "H/A", "Opponent", "Venue", "MaxPreps", "Our Logo", "Opp Logo", "League"],
                 use_container_width=True,
                 hide_index=True,
                 key="games_editor",
+            )
+
+            # CSV download for easy copying
+            import pandas as pd
+            csv_data = pd.DataFrame([{k: v for k, v in row.items() if k != "Select"} for row in display_data])
+            st.download_button(
+                "📋 Download as CSV",
+                data=csv_data.to_csv(index=False),
+                file_name=f"upcoming_games_{datetime.now().strftime('%Y%m%d')}.csv",
+                mime="text/csv",
+                use_container_width=True,
             )
 
             # Generate graphics for selected games
