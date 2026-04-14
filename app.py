@@ -843,7 +843,16 @@ with tab4:
                 hosted_by_raw = g.get("school", "") if g.get("home_away") == "Home" else g.get("opponent", "")
                 hosted_by = f"{hosted_by_raw} High School" if hosted_by_raw and "High School" not in hosted_by_raw else hosted_by_raw
                 # Venue always matches the hosted-by school
-                venue = KNOWN_ADDRESSES.get(hosted_by_raw, g.get("venue", ""))
+                # Use known address if available; for unknown opponents, only use
+                # scraped venue if it doesn't belong to one of our tracked schools
+                venue = KNOWN_ADDRESSES.get(hosted_by_raw, "")
+                if not venue:
+                    scraped_venue = g.get("venue", "")
+                    our_school = g.get("school", "")
+                    our_address = KNOWN_ADDRESSES.get(our_school, "")
+                    # Only use scraped venue if it's not our own school's address
+                    if scraped_venue and scraped_venue != our_address:
+                        venue = scraped_venue
                 fields = [
                     ("Title", g.get("title", "")),
                     ("Hosted By", hosted_by),
