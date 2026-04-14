@@ -81,6 +81,8 @@ def format_team_name(team_id):
     name = name.replace("'S", "'s")
     name = name.replace("Justin Siena", "Justin-Siena")
     name = name.replace("St Patrick St Vincent", "St. Patrick-St. Vincent")
+    # Shorten display names
+    name = name.replace("Clayton Valley Charter", "Clayton Valley")
     return name
 
 
@@ -189,30 +191,31 @@ def generate_matchup_graphic(home_team, away_team, sport, game_date, gender="Boy
     vs_y = logo_y + logo_size[1] // 2 - vs_height // 2
     draw.text((vs_x, vs_y), "vs.", font=vs_font, fill=BLACK)
 
-    # Team names — auto-shrink to fit within half the content width
-    max_name_width = CONTENT_WIDTH // 2 - 20  # max width per team name
+    # Team names — auto-shrink to fit, both names use the same font size
+    max_name_width = CONTENT_WIDTH // 2 - 20
 
     home_name = format_team_name(home_team)
-    home_font_size = 42
-    team_font = get_title_font(home_font_size)
+    away_name = format_team_name(away_team)
+
+    # Find the smallest font size needed for either name
+    font_size = 42
+    while font_size > 20:
+        team_font = get_title_font(font_size)
+        home_w = draw.textbbox((0, 0), home_name, font=team_font)[2] - draw.textbbox((0, 0), home_name, font=team_font)[0]
+        away_w = draw.textbbox((0, 0), away_name, font=team_font)[2] - draw.textbbox((0, 0), away_name, font=team_font)[0]
+        if home_w <= max_name_width and away_w <= max_name_width:
+            break
+        font_size -= 2
+
+    team_font = get_title_font(font_size)
+
     home_bbox = draw.textbbox((0, 0), home_name, font=team_font)
-    while home_bbox[2] - home_bbox[0] > max_name_width and home_font_size > 20:
-        home_font_size -= 2
-        team_font = get_title_font(home_font_size)
-        home_bbox = draw.textbbox((0, 0), home_name, font=team_font)
     home_text_width = home_bbox[2] - home_bbox[0]
     home_logo_center = home_x + logo_size[0] // 2
     home_text_x = home_logo_center - home_text_width // 2
     draw.text((home_text_x, logo_y + logo_size[1] + 15), home_name, font=team_font, fill=BLACK)
 
-    away_name = format_team_name(away_team)
-    away_font_size = 42
-    team_font = get_title_font(away_font_size)
     away_bbox = draw.textbbox((0, 0), away_name, font=team_font)
-    while away_bbox[2] - away_bbox[0] > max_name_width and away_font_size > 20:
-        away_font_size -= 2
-        team_font = get_title_font(away_font_size)
-        away_bbox = draw.textbbox((0, 0), away_name, font=team_font)
     away_text_width = away_bbox[2] - away_bbox[0]
     away_logo_center = away_x + logo_size[0] // 2
     away_text_x = away_logo_center - away_text_width // 2
