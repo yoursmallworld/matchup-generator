@@ -33,6 +33,7 @@ SPORTS = [
 
 # Known school addresses for venue lookup
 KNOWN_ADDRESSES = {
+    # Our 6 tracked schools
     "Concord": "4200 Concord Blvd, Concord, CA 94521",
     "Ygnacio Valley": "755 Oak Grove Rd, Concord, CA 94518",
     "Mt. Diablo": "2450 Grant St, Concord, CA 94520",
@@ -40,6 +41,39 @@ KNOWN_ADDRESSES = {
     "Clayton Valley": "1101 Alberta Way, Concord, CA 94521",
     "De La Salle": "1130 Winton Dr, Concord, CA 94518",
     "Carondelet": "1133 Winton Dr, Concord, CA 94518",
+    # Opponent schools
+    "Acalanes": "1200 Pleasant Hill Rd, Lafayette, CA 94549",
+    "Alhambra": "150 E St, Martinez, CA 94553",
+    "Amador Valley": "1155 Santa Rita Rd, Pleasanton, CA 94566",
+    "Antioch": "700 W 18th St, Antioch, CA 94509",
+    "Athenian": "2100 Mt Diablo Scenic Blvd, Danville, CA 94506",
+    "Benicia": "1101 Military West, Benicia, CA 94510",
+    "Berean Christian": "245 El Divisadero Ave, Walnut Creek, CA 94598",
+    "Berkeley": "1980 Allston Way, Berkeley, CA 94704",
+    "California": "9870 Broadmoor Dr, San Ramon, CA 94583",
+    "Campolindo": "300 Moraga Rd, Moraga, CA 94556",
+    "College Park": "201 Viking Dr, Pleasant Hill, CA 94523",
+    "De Anza": "5000 Valley View Rd, Richmond, CA 94803",
+    "Dougherty Valley": "10550 Albion Rd, San Ramon, CA 94582",
+    "Dublin": "8151 Village Pkwy, Dublin, CA 94568",
+    "Foothill": "4375 Foothill Rd, Pleasanton, CA 94588",
+    "Freedom": "1050 Neroly Rd, Oakley, CA 94561",
+    "Granada": "400 Wall St, Livermore, CA 94550",
+    "Hayward": "1633 East Ave, Hayward, CA 94541",
+    "Hercules": "1900 Refugio Valley Rd, Hercules, CA 94547",
+    "Las Lomas": "1460 S Main St, Walnut Creek, CA 94596",
+    "Liberty": "850 2nd St, Brentwood, CA 94513",
+    "Livermore": "600 Maple St, Livermore, CA 94550",
+    "Making Waves Academy": "4123 Lakeside Dr, Richmond, CA 94804",
+    "Marin Catholic": "675 Sir Francis Drake Blvd, Kentfield, CA 94904",
+    "Miramonte": "750 Moraga Way, Orinda, CA 94563",
+    "Monte Vista": "3131 Stone Valley Rd, Danville, CA 94526",
+    "Northgate": "425 Castle Rock Rd, Walnut Creek, CA 94598",
+    "San Lorenzo": "50 E Lewelling Blvd, San Lorenzo, CA 94580",
+    "San Ramon Valley": "501 Danville Blvd, Danville, CA 94526",
+    "Stevenson": "3152 Forest Lake Rd, Pebble Beach, CA 93953",
+    "Tennyson": "27035 Whitman Rd, Hayward, CA 94544",
+    "Vallejo": "840 Nebraska St, Vallejo, CA 94590",
 }
 
 
