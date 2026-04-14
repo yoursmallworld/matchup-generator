@@ -31,6 +31,17 @@ SPORTS = [
     "softball", "tennis", "wrestling", "track", "swimming"
 ]
 
+# Known school addresses for venue lookup
+KNOWN_ADDRESSES = {
+    "Concord": "4200 Concord Blvd, Concord, CA 94521",
+    "Ygnacio Valley": "755 Oak Grove Rd, Concord, CA 94518",
+    "Mt. Diablo": "2450 Grant St, Concord, CA 94520",
+    "Clayton Valley Charter": "1101 Alberta Way, Concord, CA 94521",
+    "Clayton Valley": "1101 Alberta Way, Concord, CA 94521",
+    "De La Salle": "1130 Winton Dr, Concord, CA 94518",
+    "Carondelet": "1133 Winton Dr, Concord, CA 94518",
+}
+
 
 def get_title_font(size):
     """Get Chunk Five font if available, else fallback."""
@@ -831,6 +842,8 @@ with tab4:
                 copy_cols = st.columns(3)
                 hosted_by_raw = g.get("school", "") if g.get("home_away") == "Home" else g.get("opponent", "")
                 hosted_by = f"{hosted_by_raw} High School" if hosted_by_raw and "High School" not in hosted_by_raw else hosted_by_raw
+                # Venue always matches the hosted-by school
+                venue = KNOWN_ADDRESSES.get(hosted_by_raw, g.get("venue", ""))
                 fields = [
                     ("Title", g.get("title", "")),
                     ("Hosted By", hosted_by),
@@ -839,7 +852,7 @@ with tab4:
                     ("Time", g.get("time", "")),
                     ("H/A", g.get("home_away", "")),
                     ("Opponent", g.get("opponent", "")),
-                    ("Venue", g.get("venue", "")),
+                    ("Venue", venue),
                     ("MaxPreps", g.get("game_url", "")),
                 ]
                 for i, (label, value) in enumerate(fields):
