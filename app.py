@@ -823,16 +823,28 @@ with tab4:
                 key="games_editor",
             )
 
-            # CSV download for easy copying
-            import pandas as pd
-            csv_data = pd.DataFrame([{k: v for k, v in row.items() if k != "Select"} for row in display_data])
-            st.download_button(
-                "📋 Download as CSV",
-                data=csv_data.to_csv(index=False),
-                file_name=f"upcoming_games_{datetime.now().strftime('%Y%m%d')}.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
+            # Quick-copy section
+            game_labels = [f"{g['date']} — {g['gender']} {g['sport']}: {g['school']} vs {g['opponent']}" for g in filtered]
+            selected_game_idx = st.selectbox("📋 Copy game details", range(len(game_labels)), format_func=lambda i: game_labels[i], key="copy_picker")
+            if selected_game_idx is not None:
+                g = filtered[selected_game_idx]
+                copy_cols = st.columns(3)
+                fields = [
+                    ("Title", g.get("title", "")),
+                    ("School", g.get("school", "")),
+                    ("Sport", f"{g['gender']} {g['sport']}"),
+                    ("Date", g.get("date", "")),
+                    ("Time", g.get("time", "")),
+                    ("H/A", g.get("home_away", "")),
+                    ("Opponent", g.get("opponent", "")),
+                    ("Venue", g.get("venue", "")),
+                    ("MaxPreps", g.get("game_url", "")),
+                ]
+                for i, (label, value) in enumerate(fields):
+                    if value:
+                        with copy_cols[i % 3]:
+                            st.caption(label)
+                            st.code(value, language=None)
 
             # Generate graphics for selected games
             selected_indices = [i for i, row in enumerate(edited_df) if row.get("Select")]
