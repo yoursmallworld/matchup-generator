@@ -805,6 +805,7 @@ with tab4:
                     "H/A": g["home_away"],
                     "Opponent": g["opponent"],
                     "Venue": g.get("venue", ""),
+                    "MaxPreps": g.get("game_url", ""),
                     "Our Logo": has_home_logo,
                     "Opp Logo": has_opp_logo,
                     "League": "⭐" if g.get("is_league") else "",
@@ -815,7 +816,7 @@ with tab4:
                 column_config={
                     "Select": st.column_config.CheckboxColumn("Select", default=False),
                 },
-                disabled=["Date", "Time", "Sport", "School", "H/A", "Opponent", "Venue", "Our Logo", "Opp Logo", "League"],
+                disabled=["Date", "Time", "Sport", "School", "H/A", "Opponent", "Venue", "MaxPreps", "Our Logo", "Opp Logo", "League"],
                 use_container_width=True,
                 hide_index=True,
                 key="games_editor",
