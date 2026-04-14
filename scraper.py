@@ -15,6 +15,9 @@ HEADERS = {
                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
+# Cache of school addresses keyed by slug
+_address_cache = {}
+
 # Schools config: slug, display name, gender filter
 SCHOOLS = [
     {"slug": "concord-bears", "name": "Concord", "genders": ["boys", "girls"]},
@@ -102,6 +105,121 @@ def parse_opponent_from_description(desc, school_name):
     return None
 
 
+def extract_address_from_next_data(data):
+    """Extract school address from __NEXT_DATA__ JSON.
+    Looks in teamContext.data and schoolContext.schoolInfo.
+    Returns formatted address string or None.
+    """
+    props = data.get("props", {}).get("pageProps", {})
+
+    # Try teamContext.data (schedule pages)
+    team_ctx = props.get("teamContext", {})
+    if isinstance(team_ctx, dict):
+        team_data = team_ctx.get("data", {})
+        if isinstance(team_data, dict):
+            addr = team_data.get("schoolAddress", "")
+            city = team_data.get("schoolCity", "")
+            state = team_data.get("schoolState", "CA")
+            zipcode = team_data.get("schoolZipCode", "")
+            if addr and city:
+                return f"{addr}, {city}, {state} {zipcode}".strip()
+
+    # Try schoolContext.schoolInfo (school main pages)
+    school_ctx = props.get("schoolContext", {})
+    if isinstance(school_ctx, dict):
+        school_info = school_ctx.get("schoolInfo", {})
+        if isinstance(school_info, dict):
+            addr = school_info.get("address", "")
+            city = school_info.get("city", "")
+            state = school_info.get("state", "CA")
+            zipcode = school_info.get("zip", "")
+            if addr and city:
+                return f"{addr}, {city}, {state} {zipcode}".strip()
+
+    return None
+
+
+def fetch_school_address(school_url):
+    """Fetch a school's address from their MaxPreps page.
+    school_url should be like: https://www.maxpreps.com/ca/concord/concord-bears/baseball/
+    We'll derive the school main page from it.
+    Returns address string or None.
+    """
+    # Derive school main page URL from sport URL
+    # e.g., /ca/concord/concord-bears/baseball/ -> /ca/concord/concord-bears/
+    try:
+        # Extract the slug from the URL
+        match = re.search(r'maxpreps\.com(/[a-z]{2}/[\w-]+/[\w-]+)', school_url)
+        if not match:
+            return None
+        base_path = match.group(1)
+        slug = base_path.split('/')[-1]
+
+        # Check cache first
+        if slug in _address_cache:
+            return _address_cache[slug]
+
+        # Try the schedule page URL first (already fetched, address available)
+        schedule_url = f"https://www.maxpreps.com{base_path}/football/schedule/"
+        resp = requests.get(schedule_url, headers=HEADERS, timeout=15)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            script = soup.find("script", id="__NEXT_DATA__")
+            if script:
+                data = json.loads(script.string)
+                address = extract_address_from_next_data(data)
+                if address:
+                    _address_cache[slug] = address
+                    return address
+
+        # Fallback: try the main school page
+        main_url = f"https://www.maxpreps.com{base_path}/"
+        resp = requests.get(main_url, headers=HEADERS, timeout=15)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            script = soup.find("script", id="__NEXT_DATA__")
+            if script:
+                data = json.loads(script.string)
+                address = extract_address_from_next_data(data)
+                if address:
+                    _address_cache[slug] = address
+                    return address
+
+    except Exception:
+        pass
+
+    return None
+
+
+def get_opponent_url_from_contest(contest, school_slug):
+    """Extract the opponent's MaxPreps URL from a contest entry.
+    Contest field 0 contains array of 2 teams, each with URLs.
+    Fields 37 and 38 may also contain individual team URLs.
+    """
+    # Try fields 37 and 38 first (simpler)
+    for field_idx in [37, 38]:
+        url = safe_get(contest, field_idx)
+        if url and isinstance(url, str) and "maxpreps.com" in url:
+            if school_slug not in url:
+                return url
+
+    # Try field 0 (array of 2 teams)
+    teams = safe_get(contest, 0)
+    if isinstance(teams, list):
+        for team in teams:
+            if isinstance(team, list):
+                # Look for a URL string in the team data
+                for item in team:
+                    if isinstance(item, str) and "maxpreps.com" in item and school_slug not in item:
+                        return item
+            elif isinstance(team, dict):
+                for val in team.values():
+                    if isinstance(val, str) and "maxpreps.com" in val and school_slug not in val:
+                        return val
+
+    return None
+
+
 def fetch_schedule(school_slug, sport_url):
     """Fetch and parse a single schedule page, returning game data."""
     url = f"https://www.maxpreps.com/ca/concord/{school_slug}/{sport_url}"
@@ -125,11 +243,17 @@ def fetch_schedule(school_slug, sport_url):
         gender = tracking.get("gender", "")
         sport = tracking.get("sportName", "")
 
+        # Extract this school's address from the page
+        school_address = extract_address_from_next_data(data)
+        if school_address and school_slug not in _address_cache:
+            _address_cache[school_slug] = school_address
+
         return {
             "contests": contests,
             "gender": gender,
             "sport": sport,
             "url": url,
+            "school_address": school_address,
         }, "ok"
 
     except requests.exceptions.Timeout:
@@ -165,6 +289,7 @@ def extract_games(schedule_data, school_name, school_slug):
     contests = schedule_data["contests"]
     gender = schedule_data["gender"]
     sport = schedule_data["sport"]
+    school_address = schedule_data.get("school_address", "")
     now = datetime.now()
     games = []
 
@@ -209,6 +334,17 @@ def extract_games(schedule_data, school_name, school_slug):
         if not opponent:
             opponent = "TBA"
 
+        # Determine venue address (address of the hosting school)
+        venue = ""
+        if is_home:
+            # We're hosting — use our school's address
+            venue = school_address or _address_cache.get(school_slug, "")
+        elif is_away:
+            # Opponent is hosting — try to get their address
+            opp_url = get_opponent_url_from_contest(c, school_slug)
+            if opp_url:
+                venue = fetch_school_address(opp_url) or ""
+
         # Build title in the format the matchup generator expects
         if is_away:
             title = f"{gender} {sport}: {school_name} at {opponent}"
@@ -237,6 +373,7 @@ def extract_games(schedule_data, school_name, school_slug):
             "opponent": opponent,
             "game_url": game_url,
             "is_league": bool(safe_get(c, 17)),
+            "venue": venue,
         })
 
     return games
@@ -383,9 +520,15 @@ def run_verification(games, scrape_errors, log_entries):
 
 def load_cached_data(cache_path):
     """Load previously scraped data from cache file."""
+    global _address_cache
     try:
         with open(cache_path, "r") as f:
-            return json.load(f)
+            data = json.load(f)
+        # Restore address cache from saved data
+        saved_addrs = data.get("address_cache", {})
+        if saved_addrs:
+            _address_cache.update(saved_addrs)
+        return data
     except (FileNotFoundError, json.JSONDecodeError):
         return None
 
@@ -396,6 +539,7 @@ def save_cached_data(cache_path, games, verification):
         "games": games,
         "verification": verification,
         "cached_at": datetime.now().isoformat(),
+        "address_cache": _address_cache,
     }
     Path(cache_path).parent.mkdir(parents=True, exist_ok=True)
     with open(cache_path, "w") as f:
