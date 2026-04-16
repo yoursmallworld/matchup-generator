@@ -869,10 +869,13 @@ with tab4:
             )
 
             # Quick-copy section
-            game_labels = [f"{g['date']} — {g['gender']} {g['sport']}: {g['school']} vs {g['opponent']}" for g in filtered]
-            selected_game_idx = st.selectbox("📋 Copy game details", range(len(game_labels)), format_func=lambda i: game_labels[i], key="copy_picker")
-            if selected_game_idx is not None:
-                g = filtered[selected_game_idx]
+            # Sort games by date then sport for the copy dropdown
+            sorted_copy_games = sorted(enumerate(filtered), key=lambda x: (x[1].get("date_sort", ""), x[1].get("sport", ""), x[1].get("gender", "")))
+            copy_labels = [f"{filtered[i]['date']} — {filtered[i]['gender']} {filtered[i]['sport']}: {filtered[i]['school']} vs {filtered[i]['opponent']}" for i, _ in sorted_copy_games]
+            selected_copy_pos = st.selectbox("📋 Copy game details", range(len(copy_labels)), format_func=lambda i: copy_labels[i], key="copy_picker")
+            if selected_copy_pos is not None:
+                orig_idx, _ = sorted_copy_games[selected_copy_pos]
+                g = filtered[orig_idx]
                 copy_cols = st.columns(3)
                 hosted_by_raw = g.get("school", "") if g.get("home_away") == "Home" else g.get("opponent", "")
                 hosted_by = f"{hosted_by_raw} High School" if hosted_by_raw and "High School" not in hosted_by_raw else hosted_by_raw
