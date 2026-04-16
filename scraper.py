@@ -322,28 +322,28 @@ def extract_games(schedule_data, school_name, school_slug):
         game_url = safe_get(c, 18, "")
         description = safe_get(c, 29, "")
 
-        # Determine home/away — prefer description text (most reliable),
-        # fall back to field 15 (home=1, away=2)
-        desc_str = str(description).lower() if description else ""
+        # Determine home/away from description text.
+        # Description format: "The {TeamName} varsity {sport} team has an away game @ {OtherTeam}"
+        # If OUR school is the subject ("The Concord varsity...has an away") → we're AWAY
+        # If OPPONENT is the subject ("The Berean Christian...has an away @ Concord") → we're HOME
+        desc_str = str(description) if description else ""
         is_home = False
         is_away = False
-        if "has a home" in desc_str or " vs. " in desc_str or " vs " in desc_str:
-            is_home = True
-        elif "has an away" in desc_str or "@ " in desc_str:
-            is_away = True
-        else:
-            home_away_code = safe_get(c, 15, 0)
-            is_home = home_away_code == 1
-            is_away = home_away_code == 2
-        # Also check game URL pattern: team1-vs-team2, first team is usually away
-        if not is_home and not is_away and game_url:
-            url_match = re.search(r'/([\w-]+)-vs-([\w-]+)\.htm', str(game_url))
-            if url_match:
-                school_base = school_slug.split('-')[0]
-                if school_base in url_match.group(1):
+        if desc_str:
+            school_lower = school_name.lower()
+            # Check if description mentions our school after "@" → we're HOME
+            at_match = re.search(r'@\s+(.+?)(?:\s*\(|$)', desc_str)
+            if at_match and school_lower in at_match.group(1).lower():
+                is_home = True
+            # Check if description starts with our school name → use "away"/"home" keyword
+            elif desc_str.lower().startswith(f"the {school_lower}"):
+                if "has an away" in desc_str.lower():
                     is_away = True
-                elif school_base in url_match.group(2):
+                elif "has a home" in desc_str.lower():
                     is_home = True
+            # If description starts with another team and says "away @ somewhere" → we're HOME
+            elif "has an away" in desc_str.lower():
+                is_home = True
         home_away = "Home" if is_home else ("Away" if is_away else "")
 
         # Get opponent name
