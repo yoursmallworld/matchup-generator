@@ -319,13 +319,32 @@ def extract_games(schedule_data, school_name, school_slug):
             if game_dt < now:
                 continue
 
-        home_away_code = safe_get(c, 15, 0)
-        is_home = home_away_code == 1
-        is_away = home_away_code == 2
-        home_away = "Home" if is_home else ("Away" if is_away else "")
-
         game_url = safe_get(c, 18, "")
         description = safe_get(c, 29, "")
+
+        # Determine home/away — prefer description text (most reliable),
+        # fall back to field 15 (home=1, away=2)
+        desc_str = str(description).lower() if description else ""
+        is_home = False
+        is_away = False
+        if "has a home" in desc_str or " vs. " in desc_str or " vs " in desc_str:
+            is_home = True
+        elif "has an away" in desc_str or "@ " in desc_str:
+            is_away = True
+        else:
+            home_away_code = safe_get(c, 15, 0)
+            is_home = home_away_code == 1
+            is_away = home_away_code == 2
+        # Also check game URL pattern: team1-vs-team2, first team is usually away
+        if not is_home and not is_away and game_url:
+            url_match = re.search(r'/([\w-]+)-vs-([\w-]+)\.htm', str(game_url))
+            if url_match:
+                school_base = school_slug.split('-')[0]
+                if school_base in url_match.group(1):
+                    is_away = True
+                elif school_base in url_match.group(2):
+                    is_home = True
+        home_away = "Home" if is_home else ("Away" if is_away else "")
 
         # Get opponent name
         opponent = parse_opponent_from_url(game_url, school_slug)
