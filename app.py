@@ -11,6 +11,8 @@ import json
 import threading
 import time as time_module
 
+import smallworld_push
+
 # Configuration
 BASE_DIR = Path(__file__).parent
 LOGOS_DIR = BASE_DIR / "logos"
@@ -389,7 +391,7 @@ team_display = {t: format_team_name(t) for t in available_teams}
 # Add option for custom team name
 team_options = sorted(team_display.values())
 
-tab1, tab2, tab4, tab3 = st.tabs(["Generate Graphic", "Batch Generate", "Upcoming Games", "Manage Logos"])
+tab1, tab2, tab4, tab5, tab3 = st.tabs(["Generate Graphic", "Batch Generate", "Upcoming Games", "Push to Smallworld", "Manage Logos"])
 
 with tab1:
     col1, col2 = st.columns(2)
@@ -1055,6 +1057,24 @@ with tab4:
                             st.text(entry)
     else:
         st.info("No schedule data yet. Click **Refresh Now** to scrape MaxPreps for upcoming games.")
+
+with tab5:
+    # Read the same schedule cache that the Upcoming Games tab uses,
+    # so Push to Smallworld works even if the user hasn't opened tab4
+    # in this session yet.
+    _push_cache = None
+    try:
+        with open(CACHE_FILE, "r") as _f:
+            _push_cache = json.load(_f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+    _push_games = _push_cache.get("games", []) if _push_cache else []
+
+    smallworld_push.render(
+        games=_push_games,
+        generate_matchup_graphic=generate_matchup_graphic,
+        team_name_to_id=team_name_to_id,
+    )
 
 with tab3:
     st.subheader("Current Logos")
