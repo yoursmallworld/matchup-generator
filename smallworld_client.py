@@ -312,9 +312,15 @@ def list_admin_events(
     *,
     page: int = 1,
     page_size: int = 100,
+    status: Optional[str] = None,
 ) -> List[Dict[str, Any]]:
     """
     GET /v1/admin/events — return one page of admin events.
+
+    `status` filters by event status (e.g. "PUBLISHED", "DRAFT"). The admin
+    endpoint defaults to published-only, so callers that want drafts must
+    pass status="DRAFT" explicitly (see list_all_admin_events which fetches
+    both statuses and merges).
 
     Path is inferred by symmetry with the POST endpoint and matches typical
     REST conventions; if the CMS uses a different path, this will need to be
@@ -322,12 +328,14 @@ def list_admin_events(
     defensively ({data: [...]} or {data: {items: [...]}}).
     """
     # Try a few common pagination param names; the API may ignore unknowns.
-    params = {
+    params: Dict[str, Any] = {
         "page": page,
         "pageSize": page_size,
         "limit": page_size,
         "offset": (page - 1) * page_size,
     }
+    if status:
+        params["status"] = status
     res = requests.get(
         f"{session.api_base()}/v1/admin/events",
         headers=_auth_headers(session),
@@ -356,31 +364,43 @@ def list_all_admin_events(
     *,
     max_pages: int = 10,
     page_size: int = 100,
+    statuses: tuple = ("PUBLISHED", "DRAFT"),
 ) -> List[Dict[str, Any]]:
-    """Paginate list_admin_events until we hit an empty page or max_pages."""
+    """
+    Fetch every event in `statuses` and merge the results.
+
+    The admin endpoint filters to PUBLISHED by default (confirmed empirically
+    against stg — drafts never appeared in the response). So to surface
+    drafts in the 'Already on Smallworld' column, we have to request each
+    status separately and combine. Deduped by id in case any event appears
+    in more than one call (shouldn't happen, but cheap insurance).
+    """
     out: List[Dict[str, Any]] = []
     seen_ids: set = set()
-    for page in range(1, max_pages + 1):
-        items = list_admin_events(session, page=page, page_size=page_size)
-        if not items:
-            break
-        # Guard against endpoints that ignore paging and return the same
-        # rows every time — dedupe by id and stop once we stop gaining new ones.
-        new_count = 0
-        for it in items:
-            ident = it.get("id") if isinstance(it, dict) else None
-            if ident is None:
-                # No stable id — just append, accept possible duplicates
+    for status in statuses:
+        for page in range(1, max_pages + 1):
+            items = list_admin_events(
+                session, page=page, page_size=page_size, status=status
+            )
+            if not items:
+                break
+            # Guard against endpoints that ignore paging — dedupe by id and
+            # stop once we stop gaining new events.
+            new_count = 0
+            for it in items:
+                ident = it.get("id") if isinstance(it, dict) else None
+                if ident is None:
+                    # No stable id — just append, accept possible duplicates
+                    out.append(it)
+                    new_count += 1
+                    continue
+                if ident in seen_ids:
+                    continue
+                seen_ids.add(ident)
                 out.append(it)
                 new_count += 1
-                continue
-            if ident in seen_ids:
-                continue
-            seen_ids.add(ident)
-            out.append(it)
-            new_count += 1
-        if new_count == 0 or len(items) < page_size:
-            break
+            if new_count == 0 or len(items) < page_size:
+                break
     return out
 
 
