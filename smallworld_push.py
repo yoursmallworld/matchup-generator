@@ -681,7 +681,17 @@ def render(
                 "Status breakdown: "
                 + ", ".join(f"{s}={n}" for s, n in sorted(status_counts.items()))
             )
-            # Compact table of the events
+            # Sort so drafts float to the top (they're rarer and usually
+            # what we're debugging), then by createdAt desc within each group
+            # — the event you just pushed will be near the top of the table.
+            sorted_events = sorted(
+                remote_events,
+                key=lambda e: (
+                    0 if _event_status(e) == "DRAFT" else 1,
+                    # Newer first → flip the string comparison with a trick
+                    tuple(-ord(c) for c in (e.get("createdAt") or ""))[:24],
+                ),
+            )
             compact = [
                 {
                     "id": ev.get("id"),
@@ -691,11 +701,14 @@ def render(
                     "createdAt": ev.get("createdAt"),
                     "updatedAt": ev.get("updatedAt"),
                 }
-                for ev in remote_events[:50]
+                for ev in sorted_events[:50]
             ]
             st.dataframe(compact, use_container_width=True, hide_index=True)
-            if len(remote_events) > 50:
-                st.caption(f"Showing first 50 of {len(remote_events)}.")
+            if len(sorted_events) > 50:
+                st.caption(
+                    f"Showing first 50 of {len(sorted_events)} "
+                    "(drafts sorted to top, then newest first)."
+                )
 
     rows = _build_grid_rows(games, remote_events)
 
