@@ -307,6 +307,83 @@ def create_event(
     return res.json()
 
 
+def list_admin_events(
+    session: SmallworldSession,
+    *,
+    page: int = 1,
+    page_size: int = 100,
+) -> List[Dict[str, Any]]:
+    """
+    GET /v1/admin/events — return one page of admin events.
+
+    Path is inferred by symmetry with the POST endpoint and matches typical
+    REST conventions; if the CMS uses a different path, this will need to be
+    adjusted after capturing the real request. Response shape is handled
+    defensively ({data: [...]} or {data: {items: [...]}}).
+    """
+    # Try a few common pagination param names; the API may ignore unknowns.
+    params = {
+        "page": page,
+        "pageSize": page_size,
+        "limit": page_size,
+        "offset": (page - 1) * page_size,
+    }
+    res = requests.get(
+        f"{session.api_base()}/v1/admin/events",
+        headers=_auth_headers(session),
+        params=params,
+        timeout=20,
+    )
+    if res.status_code != 200:
+        raise SmallworldError(
+            f"list_admin_events failed ({res.status_code})",
+            status=res.status_code,
+            body=res.text,
+        )
+    body = res.json()
+    data = body.get("data", body) if isinstance(body, dict) else body
+    if isinstance(data, dict):
+        items = data.get("items") or data.get("events") or data.get("results") or []
+    elif isinstance(data, list):
+        items = data
+    else:
+        items = []
+    return items if isinstance(items, list) else []
+
+
+def list_all_admin_events(
+    session: SmallworldSession,
+    *,
+    max_pages: int = 10,
+    page_size: int = 100,
+) -> List[Dict[str, Any]]:
+    """Paginate list_admin_events until we hit an empty page or max_pages."""
+    out: List[Dict[str, Any]] = []
+    seen_ids: set = set()
+    for page in range(1, max_pages + 1):
+        items = list_admin_events(session, page=page, page_size=page_size)
+        if not items:
+            break
+        # Guard against endpoints that ignore paging and return the same
+        # rows every time — dedupe by id and stop once we stop gaining new ones.
+        new_count = 0
+        for it in items:
+            ident = it.get("id") if isinstance(it, dict) else None
+            if ident is None:
+                # No stable id — just append, accept possible duplicates
+                out.append(it)
+                new_count += 1
+                continue
+            if ident in seen_ids:
+                continue
+            seen_ids.add(ident)
+            out.append(it)
+            new_count += 1
+        if new_count == 0 or len(items) < page_size:
+            break
+    return out
+
+
 def delete_event(session: SmallworldSession, event_id: str | int) -> None:
     """
     DELETE /v1/admin/events/{id}. Used for push-log rollback.
