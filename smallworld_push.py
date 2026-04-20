@@ -662,6 +662,41 @@ def render(
                 f"({_format_relative_time(last_fetched.isoformat())})."
             )
 
+    # Debug expander — surfaces what the GET /v1/admin/events call actually
+    # returned, so we can tell whether a missing 'Already on Smallworld' marker
+    # is a fetch issue (event not returned by the API, e.g. drafts filtered
+    # out) or a match-heuristic issue (event returned but didn't match the
+    # title/date checks).
+    if remote_events:
+        with st.expander(
+            f"🔍 Debug: inspect the {len(remote_events)} events the API returned",
+            expanded=False,
+        ):
+            # Summary counts by status
+            status_counts: Dict[str, int] = {}
+            for ev in remote_events:
+                s = _event_status(ev) or "(none)"
+                status_counts[s] = status_counts.get(s, 0) + 1
+            st.caption(
+                "Status breakdown: "
+                + ", ".join(f"{s}={n}" for s, n in sorted(status_counts.items()))
+            )
+            # Compact table of the events
+            compact = [
+                {
+                    "id": ev.get("id"),
+                    "status": _event_status(ev),
+                    "startAt (UTC date)": _event_start_date(ev),
+                    "title": _event_title(ev),
+                    "createdAt": ev.get("createdAt"),
+                    "updatedAt": ev.get("updatedAt"),
+                }
+                for ev in remote_events[:50]
+            ]
+            st.dataframe(compact, use_container_width=True, hide_index=True)
+            if len(remote_events) > 50:
+                st.caption(f"Showing first 50 of {len(remote_events)}.")
+
     rows = _build_grid_rows(games, remote_events)
 
     # Summary caption above the grid
