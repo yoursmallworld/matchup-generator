@@ -19,7 +19,7 @@ from __future__ import annotations
 import io
 import time
 import traceback
-from datetime import datetime, time as dtime, timedelta
+from datetime import datetime, time as dtime, timedelta, timezone
 from typing import Any, Callable, Dict, List, Optional
 
 import streamlit as st
@@ -31,6 +31,7 @@ from smallworld_client import (
     SmallworldSession,
     create_event,
     fetch_event_topics,
+    list_all_admin_events,
     sign_in,
     upload_image,
 )
@@ -41,6 +42,190 @@ SS_TOPICS = "sw_topics"
 SS_PUSH_LOG = "sw_push_log"
 SS_SELECTED_TOPIC = "sw_selected_topic"
 SS_PROD_ACK = "sw_prod_ack"
+
+# Remote-events cache — populated by a single GET /v1/admin/events call so the
+# grid reflects what's already in the backend (pushed by anyone on the team,
+# or created directly in the CMS), not just what this local install pushed.
+SS_REMOTE_EVENTS = "sw_remote_events"     # dict: {env: [event, ...]}
+SS_REMOTE_FETCHED_AT = "sw_remote_fetched_at"  # dict: {env: datetime}
+SS_REMOTE_ERROR = "sw_remote_error"       # dict: {env: str}
+
+
+# ---- Remote event matching ------------------------------------------------
+
+
+def _event_title(event: Dict[str, Any]) -> str:
+    """Pull the title out of a backend event, wherever it happens to live."""
+    if not isinstance(event, dict):
+        return ""
+    # Matches the POST payload shape (content.title) plus common flat fallbacks.
+    content = event.get("content")
+    if isinstance(content, dict) and content.get("title"):
+        return str(content["title"])
+    return str(event.get("title") or event.get("name") or "")
+
+
+def _event_start_date(event: Dict[str, Any]) -> Optional[str]:
+    """Return the YYYY-MM-DD portion of the event's startAt, or None."""
+    start = event.get("startAt") if isinstance(event, dict) else None
+    if not start:
+        return None
+    try:
+        # "2026-01-26T03:00:00.000Z" -> "2026-01-26". Good enough for same-day
+        # matching; we also accept ±1 day to absorb UTC/PT boundary drift.
+        return str(start)[:10]
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _event_status(event: Dict[str, Any]) -> str:
+    """Return 'PUBLISHED' / 'DRAFT' / '' from the event dict."""
+    if not isinstance(event, dict):
+        return ""
+    status = event.get("status") or ""
+    return str(status).upper()
+
+
+def _dates_match(event_date: Optional[str], game_date: Optional[str]) -> bool:
+    """Same day, or adjacent day (to handle UTC ↔ PT boundary crossings)."""
+    if not event_date or not game_date:
+        return False
+    if event_date == game_date:
+        return True
+    try:
+        ed = datetime.strptime(event_date, "%Y-%m-%d").date()
+        gd = datetime.strptime(game_date, "%Y-%m-%d").date()
+        return abs((ed - gd).days) <= 1
+    except ValueError:
+        return False
+
+
+def _match_event_for_game(
+    events: List[Dict[str, Any]], game: Dict[str, Any]
+) -> Optional[Dict[str, Any]]:
+    """
+    Find a backend event that plausibly represents this scraped game.
+
+    Heuristic (all case-insensitive, all substring-in-title):
+      1. Same day (±1 for TZ boundary drift)
+      2. Both school names appear in the title
+      3. Sport appears in the title
+      4. Gender appears in the title
+
+    Requiring sport + gender prevents false positives when the same two
+    schools play each other multiple times on one day — e.g. Friday double-
+    headers with boys + girls basketball, or football + volleyball between
+    the same rivals. Our own pushed titles always include gender + sport
+    (format: "{gender} {sport}: {home} vs {away}"), so we never miss our
+    own pushes; CMS-hand-created events need to follow the same convention
+    to be detected.
+    """
+    school = (game.get("school") or "").strip().lower()
+    opponent = (game.get("opponent") or "").strip().lower()
+    sport = (game.get("sport") or "").strip().lower()
+    gender = (game.get("gender") or "").strip().lower()
+    game_date = game.get("date_sort") or ""
+    if not school or not opponent or not game_date:
+        return None
+
+    candidates: List[Dict[str, Any]] = []
+    for ev in events:
+        if not _dates_match(_event_start_date(ev), game_date):
+            continue
+        title = _event_title(ev).lower()
+        if not title:
+            continue
+        if school not in title or opponent not in title:
+            continue
+        # Require sport + gender when we have them, to disambiguate
+        # same-day rematches in different sports / different genders.
+        if sport and sport not in title:
+            continue
+        if gender and gender not in title:
+            continue
+        candidates.append(ev)
+
+    if not candidates:
+        return None
+    # Prefer published > draft; break ties by most recent updatedAt/createdAt.
+    def sort_key(ev: Dict[str, Any]):
+        status_rank = 0 if _event_status(ev) == "PUBLISHED" else 1
+        stamp = ev.get("updatedAt") or ev.get("createdAt") or ""
+        return (status_rank, "" if stamp is None else str(stamp))
+
+    candidates.sort(key=sort_key, reverse=True)
+    # sort_key ranks PUBLISHED=0 first, so reverse=True would flip it —
+    # recompute without reverse, picking min by status_rank then max by stamp.
+    candidates.sort(key=lambda e: _event_status(e) != "PUBLISHED")
+    return candidates[0]
+
+
+def _format_relative_time(iso_str: str) -> str:
+    try:
+        dt = datetime.fromisoformat(iso_str.replace("Z", "+00:00"))
+        delta = datetime.now(timezone.utc) - dt.astimezone(timezone.utc)
+        secs = delta.total_seconds()
+        if secs < 60:
+            return "just now"
+        if secs < 3600:
+            return f"{int(secs // 60)}m ago"
+        if secs < 86400:
+            return f"{int(secs // 3600)}h ago"
+        return f"{int(secs // 86400)}d ago"
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def _format_status_cell(event: Optional[Dict[str, Any]]) -> str:
+    """Render the value shown in the 'Already on Smallworld' grid column."""
+    if not event:
+        return ""
+    status = _event_status(event)
+    label = "Published" if status == "PUBLISHED" else ("Draft" if status == "DRAFT" else status.title() or "Exists")
+    # Use updatedAt if available, else createdAt, else blank.
+    stamp = event.get("updatedAt") or event.get("createdAt") or ""
+    rel = _format_relative_time(str(stamp)) if stamp else ""
+    return f"{label} — {rel}" if rel else label
+
+
+# ---- Remote events cache helpers -----------------------------------------
+
+
+def _get_remote_events(env: str) -> List[Dict[str, Any]]:
+    store = st.session_state.get(SS_REMOTE_EVENTS) or {}
+    return store.get(env, [])
+
+
+def _set_remote_events(env: str, events: List[Dict[str, Any]]) -> None:
+    store = st.session_state.get(SS_REMOTE_EVENTS) or {}
+    store[env] = events
+    st.session_state[SS_REMOTE_EVENTS] = store
+    fetched = st.session_state.get(SS_REMOTE_FETCHED_AT) or {}
+    fetched[env] = datetime.now(timezone.utc)
+    st.session_state[SS_REMOTE_FETCHED_AT] = fetched
+    errs = st.session_state.get(SS_REMOTE_ERROR) or {}
+    errs.pop(env, None)
+    st.session_state[SS_REMOTE_ERROR] = errs
+
+
+def _set_remote_error(env: str, msg: str) -> None:
+    errs = st.session_state.get(SS_REMOTE_ERROR) or {}
+    errs[env] = msg
+    st.session_state[SS_REMOTE_ERROR] = errs
+
+
+def _refresh_remote_events(session: SmallworldSession) -> None:
+    """Fetch the latest events list from the backend and stash in session_state."""
+    try:
+        events = list_all_admin_events(session, max_pages=10, page_size=100)
+        _set_remote_events(session.env, events)
+    except SmallworldError as e:
+        _set_remote_error(
+            session.env,
+            f"{e} — server said: {(e.body or '')[:200]}",
+        )
+    except Exception as e:  # noqa: BLE001
+        _set_remote_error(session.env, f"{type(e).__name__}: {e}")
 
 
 # ---- Helpers --------------------------------------------------------------
@@ -74,6 +259,28 @@ def _parse_game_datetime(date_str: str, time_str: str) -> datetime:
         parsed_date = datetime.now().date()
 
     return datetime.combine(parsed_date, parsed_time)
+
+
+def _hosted_by_name(school: str) -> str:
+    """
+    Format the school name for the event's 'Hosted by' field.
+
+    Scraper returns bare names like 'Concord' or 'Monte Vista'; the public
+    event page should show 'Concord High School'. If the name already ends
+    in 'High School' / 'HS' / 'Academy' / 'Prep' / etc., leave it alone.
+    """
+    if not school:
+        return school
+    lower = school.lower().strip()
+    # Already includes a school-type suffix — don't double-tag
+    suffixes = ("high school", "academy", "prep", "college prep", "school")
+    if any(lower.endswith(s) for s in suffixes):
+        return school
+    # Short-form "HS" / "H.S." → expand to "High School"
+    for short in (" H.S.", " H.S", " HS", " hs", " h.s.", " h.s"):
+        if school.endswith(short):
+            return school[: -len(short)] + " High School"
+    return f"{school} High School"
 
 
 def _default_title(g: Dict[str, Any]) -> str:
@@ -214,20 +421,29 @@ def _render_topic_picker(session: SmallworldSession) -> Optional[int]:
 # ---- Grid builder ---------------------------------------------------------
 
 
-def _build_grid_rows(games: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Transform scraper game dicts into the editable grid row shape."""
+def _build_grid_rows(
+    games: List[Dict[str, Any]],
+    remote_events: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """Transform scraper game dicts into the editable grid row shape.
+
+    `remote_events` is the latest list pulled from GET /v1/admin/events; each
+    game is matched against it to populate the 'Already on Smallworld' column.
+    """
     rows = []
     for g in games:
         start_dt = _parse_game_datetime(g.get("date", ""), g.get("time", ""))
+        match = _match_event_for_game(remote_events, g)
         rows.append(
             {
                 "Push": False,
+                "Already on Smallworld": _format_status_cell(match),
                 "Title": _default_title(g),
                 "Description": _default_description(g),
                 "Start": start_dt,
                 "Duration (hrs)": 2.0,
                 "Location": g.get("venue", ""),
-                "Hosted by": g["school"],
+                "Hosted by": _hosted_by_name(g["school"]),
                 "Details URL": g.get("game_url", ""),
                 "Special instructions": "",
                 # Hidden context columns used when we generate the image
@@ -403,12 +619,73 @@ def render(
                 "Edit any field below, then tick **Push** on the rows you want "
                 "to send.")
 
-    rows = _build_grid_rows(games)
+    # Fetch the remote events list on first render of this env so the grid
+    # can show what's already on Smallworld (from anyone on the team, via
+    # this tool OR the CMS). The user can refresh on demand.
+    fetched_at_map = st.session_state.get(SS_REMOTE_FETCHED_AT) or {}
+    last_fetched: Optional[datetime] = fetched_at_map.get(env)
+    err_map = st.session_state.get(SS_REMOTE_ERROR) or {}
+    last_error: Optional[str] = err_map.get(env)
+
+    col_r1, col_r2 = st.columns([3, 1])
+    with col_r2:
+        refresh_clicked = st.button(
+            "🔄 Refresh existing events",
+            key="sw_refresh_remote",
+            use_container_width=True,
+            help=(
+                "Re-fetch GET /v1/admin/events so the 'Already on Smallworld' "
+                "column reflects anything pushed by teammates or created in "
+                "the CMS since you opened this tab."
+            ),
+        )
+
+    if refresh_clicked or (last_fetched is None and last_error is None):
+        with st.spinner("Fetching existing events from Smallworld…"):
+            _refresh_remote_events(session)
+        last_fetched = (st.session_state.get(SS_REMOTE_FETCHED_AT) or {}).get(env)
+        last_error = (st.session_state.get(SS_REMOTE_ERROR) or {}).get(env)
+
+    remote_events = _get_remote_events(env)
+
+    with col_r1:
+        if last_error:
+            st.error(
+                f"Couldn't load existing events — the 'Already on Smallworld' "
+                f"column will be blank until this is fixed.\n\n`{last_error}`"
+            )
+        elif last_fetched:
+            st.caption(
+                f"📡 Pulled **{len(remote_events)}** existing events from "
+                f"{env.upper()} at "
+                f"{last_fetched.strftime('%H:%M:%S UTC')} "
+                f"({_format_relative_time(last_fetched.isoformat())})."
+            )
+
+    rows = _build_grid_rows(games, remote_events)
+
+    # Summary caption above the grid
+    pushed_count = sum(1 for r in rows if r["Already on Smallworld"])
+    if pushed_count:
+        st.caption(
+            f"🗂 **{pushed_count}** of these {len(rows)} games already exist on "
+            f"{env.upper()} (shown in the *Already on Smallworld* column). "
+            "Anything created via the CMS or pushed by a teammate will appear here."
+        )
 
     edited = st.data_editor(
         rows,
         column_config={
             "Push": st.column_config.CheckboxColumn("Push", default=False),
+            "Already on Smallworld": st.column_config.TextColumn(
+                "Already on Smallworld",
+                width="small",
+                help=(
+                    "Whether a matching event already exists in the selected "
+                    "environment — from this tool, a teammate, or a manual CMS "
+                    "entry. Match is same-day + both team names in the title."
+                ),
+            ),
             "Title": st.column_config.TextColumn("Title", width="large"),
             "Description": st.column_config.TextColumn("Description", width="large"),
             "Start": st.column_config.DatetimeColumn(
@@ -432,7 +709,11 @@ def render(
             "_home_away": None,
             "_date_sort": None,
         },
-        disabled=["_sport", "_gender", "_school", "_opponent", "_home_away", "_date_sort"],
+        disabled=[
+            "Already on Smallworld",
+            "_sport", "_gender", "_school", "_opponent", "_home_away",
+            "_date_sort",
+        ],
         hide_index=True,
         use_container_width=True,
         num_rows="fixed",
@@ -501,6 +782,14 @@ def render(
         # Append to the running session log so the user can see all pushes
         existing_log = st.session_state.get(SS_PUSH_LOG, [])
         st.session_state[SS_PUSH_LOG] = existing_log + log
+
+        # If anything succeeded, re-pull the remote events list so the grid
+        # immediately reflects the newly created events (no manual refresh
+        # needed, and teammates on other Streamlit instances will see them
+        # the next time they click Refresh).
+        if any(e["status"] == "ok" for e in log):
+            with st.spinner("Refreshing existing-events list…"):
+                _refresh_remote_events(session)
 
     # Push log ---------------------------------------------------------------
     full_log = st.session_state.get(SS_PUSH_LOG, [])
