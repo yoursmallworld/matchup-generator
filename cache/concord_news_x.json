@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-04-21T18:22:41+00:00",
+  "fetched_at": "2026-04-21T18:56:56+00:00",
   "sources": {
     "contra_costa_fire_x": {
       "name": "Con Fire PIO (X)",
       "ok": true,
-      "count": 2,
+      "count": 1,
       "error": null
     },
     "chp_contra_costa_x": {
