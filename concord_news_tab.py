@@ -235,8 +235,9 @@ def render() -> None:
     st.caption(
         "Daily sweep of local news so you don't miss anything. "
         "**RSS** (City of Concord, Patch, Claycord, Google News) and "
-        "**X** (@ContraCostaFire, @CHP_ContraCosta) refresh automatically "
-        "every morning on a GitHub Actions cron — no Mac required. "
+        "**X** (@ContraCostaFire, @CHP_ContraCosta, @CHPAlerts — filtered "
+        "for Concord / Contra Costa mentions) refresh automatically every "
+        "morning on a GitHub Actions cron — no Mac required. "
         "**Facebook** (Concord PD, City of Concord) arrives via the "
         "Claude-in-Chrome task on days the Mac is awake. "
         "The button below re-runs RSS only; X and FB stay on their own schedules."
