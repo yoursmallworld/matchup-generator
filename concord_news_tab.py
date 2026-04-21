@@ -47,6 +47,7 @@ SS_WINDOW_HOURS = "cn_window_hours"
 
 FB_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_fb.json"
 X_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_x.json"
+PULSEPOINT_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_pulsepoint.json"
 
 # Time-window options for "how far back to show". Default: 72 hours.
 WINDOW_OPTIONS: Dict[str, Optional[int]] = {
@@ -72,7 +73,8 @@ def _load_json_cache(path: Path) -> Dict[str, Any]:
 
 
 def _load_all_findings() -> Dict[str, Any]:
-    """Read the RSS, FB, and X caches, merge them, return a combined payload."""
+    """Read the RSS, FB, X, and PulsePoint caches, merge them, return a
+    combined payload."""
     rss = concord_news.load_cached() or {
         "fetched_at": None,
         "sources": {},
@@ -80,11 +82,13 @@ def _load_all_findings() -> Dict[str, Any]:
     }
     fb_payload = _load_json_cache(FB_CACHE_FILE)
     x_payload = _load_json_cache(X_CACHE_FILE)
+    pp_payload = _load_json_cache(PULSEPOINT_CACHE_FILE)
 
     merged = (
         list(rss.get("findings", []))
         + list(fb_payload.get("findings", []))
         + list(x_payload.get("findings", []))
+        + list(pp_payload.get("findings", []))
     )
 
     # Final cross-cache dedupe by URL → title.
@@ -112,6 +116,7 @@ def _load_all_findings() -> Dict[str, Any]:
     sources = dict(rss.get("sources") or {})
     sources.update(fb_payload.get("sources") or {})
     sources.update(x_payload.get("sources") or {})
+    sources.update(pp_payload.get("sources") or {})
 
     return {
         "findings": deduped,
@@ -119,6 +124,7 @@ def _load_all_findings() -> Dict[str, Any]:
         "rss_fetched_at": rss.get("fetched_at"),
         "fb_fetched_at": fb_payload.get("fetched_at"),
         "x_fetched_at": x_payload.get("fetched_at"),
+        "pp_fetched_at": pp_payload.get("fetched_at"),
     }
 
 
@@ -234,13 +240,16 @@ def render() -> None:
     st.subheader("Concord News")
     st.caption(
         "Daily sweep of local news so you don't miss anything. "
-        "**RSS** (City of Concord, Patch, Claycord, Google News) and "
+        "**RSS** (City of Concord, Patch, Claycord, Google News), "
         "**X** (@ContraCostaFire, @CHP_ContraCosta, @CHPAlerts — filtered "
-        "for Concord / Contra Costa mentions) refresh automatically every "
-        "morning on a GitHub Actions cron — no Mac required. "
+        "for Concord / Contra Costa mentions), and **PulsePoint** (live "
+        "ConFire dispatch feed — filtered for newsworthy incidents inside "
+        "Concord, same source Patch reporters watch) refresh automatically "
+        "every morning on a GitHub Actions cron — no Mac required. "
         "**Facebook** (Concord PD, City of Concord) arrives via the "
         "Claude-in-Chrome task on days the Mac is awake. "
-        "The button below re-runs RSS only; X and FB stay on their own schedules."
+        "The button below re-runs RSS only; X, PulsePoint, and FB stay on "
+        "their own schedules."
     )
 
     col_refresh, col_window, col_toggle, col_clear = st.columns([1, 1, 1, 1])
@@ -287,9 +296,11 @@ def render() -> None:
     rss_ts = payload.get("rss_fetched_at")
     fb_ts = payload.get("fb_fetched_at")
     x_ts = payload.get("x_fetched_at")
+    pp_ts = payload.get("pp_fetched_at")
     st.caption(
         f"RSS: **{_human_timestamp(rss_ts)}** · "
         f"X: **{_human_timestamp(x_ts)}** · "
+        f"PulsePoint: **{_human_timestamp(pp_ts)}** · "
         f"FB: **{_human_timestamp(fb_ts)}** · "
         f"{len(visible)} of {len(in_window)} in window "
         f"({len(findings)} total, {len(dismissed)} dismissed)"
