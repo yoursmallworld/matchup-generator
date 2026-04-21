@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 from datetime import datetime, timedelta
+import hmac
 import io
 import base64
 import zipfile
@@ -381,6 +382,54 @@ def parse_csv_data(text):
 # ========== STREAMLIT APP ==========
 
 st.set_page_config(page_title="Smallworld Secondary CMS", page_icon="🏆", layout="centered")
+
+
+# ---- Password gate ------------------------------------------------------
+# Shared-password protection for the whole app. The password is stored in
+# Streamlit Cloud secrets under `app_password` (Settings → Secrets). Sessions
+# stay authed via session_state until the tab closes or the user logs out
+# via the sidebar button.
+def _require_password() -> None:
+    if st.session_state.get("password_ok"):
+        return
+
+    expected = st.secrets.get("app_password") if hasattr(st, "secrets") else None
+    if not expected:
+        st.title("Smallworld Secondary CMS")
+        st.error(
+            "App password is not configured. Set `app_password` in "
+            "Streamlit Cloud → Settings → Secrets, or in `.streamlit/secrets.toml` locally."
+        )
+        st.stop()
+
+    st.title("Smallworld Secondary CMS")
+    st.caption("Enter the shared password to continue.")
+
+    with st.form("login", clear_on_submit=False):
+        pw = st.text_input("Password", type="password")
+        submitted = st.form_submit_button("Sign in")
+
+    if submitted:
+        # hmac.compare_digest is constant-time, which mitigates timing-attack
+        # password guesses. Both sides must be bytes/str of the same type.
+        if hmac.compare_digest(str(pw), str(expected)):
+            st.session_state["password_ok"] = True
+            st.rerun()
+        else:
+            st.error("Incorrect password.")
+
+    st.stop()
+
+
+_require_password()
+
+
+# ---- Sidebar logout -----------------------------------------------------
+with st.sidebar:
+    if st.button("Sign out", use_container_width=True):
+        st.session_state["password_ok"] = False
+        st.rerun()
+
 
 st.title("Smallworld Secondary CMS")
 st.caption("Graphic generation, schedule push, and Concord news for Smallworld")
