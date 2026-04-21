@@ -6,15 +6,19 @@ no Mac, no Chrome, no Claude desktop required.
 
 Accounts scraped
 ----------------
-- @ContraCostaFire   (Con Fire PIO)           → relevance-filtered on "concord"
-- @CHP_ContraCosta   (CHP Contra Costa)       → relevance-filtered on "concord"
+- @ContraCostaFire   (Con Fire PIO)           → relevance-filtered
+- @CHP_ContraCosta   (CHP Contra Costa)       → relevance-filtered
+- @CHPAlerts         (CHP statewide alerts)   → relevance-filtered
 
 Why a relevance filter
 ----------------------
-Both accounts cover the whole county, so unrelated East County traffic
-alerts and far-side incidents would flood the UI. The filter keeps only
-tweets whose text mentions "concord" (case-insensitive). If we ever want
-a wider net, widen the KEYWORDS set below.
+All three accounts cover a wider area than Concord (the first two are
+county-wide, @CHPAlerts is statewide), so unfiltered they'd flood the
+UI with far-side incidents. The filter keeps only tweets whose text
+mentions one of our KEYWORDS (case-insensitive). "contra costa" catches
+county-wide alerts that don't name Concord specifically — important
+for statewide-issued stuff like Amber/Ebony alerts where our region is
+named at the county level.
 
 Auth
 ----
@@ -57,13 +61,14 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 CACHE = REPO_ROOT / "cache" / "concord_news_x.json"
 TMP = CACHE.with_suffix(".json.tmp")
 
-# (source_key, source_name, profile_url, require_concord_keyword)
+# (source_key, source_name, profile_url, apply_relevance_filter)
 ACCOUNTS: List[Tuple[str, str, str, bool]] = [
     ("contra_costa_fire_x", "Con Fire PIO (X)", "https://x.com/ContraCostaFire", True),
     ("chp_contra_costa_x", "CHP Contra Costa (X)", "https://x.com/CHP_ContraCosta", True),
+    ("chp_alerts_x", "CHP Alerts (X)", "https://x.com/CHPAlerts", True),
 ]
 
-KEYWORDS = {"concord"}
+KEYWORDS = {"concord", "contra costa"}
 MAX_FINDINGS = 400
 NAV_TIMEOUT_MS = 30_000
 TWEET_WAIT_MS = 15_000
