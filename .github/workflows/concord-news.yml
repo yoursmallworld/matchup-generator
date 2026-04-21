@@ -1,13 +1,19 @@
 name: Concord News Sweep
 
-# Runs daily at 14:00 UTC. That's 7am PDT (summer) / 6am PST (winter).
-# GitHub Actions cron is UTC-only, so the local time drifts by 1 hour twice
-# a year when DST flips — acceptable for a 7am "morning catch-up" job.
+# Runs hourly at the top of the hour (UTC). PulsePoint's "recent" bucket
+# only holds cleared incidents for ~1-2 hours, so hourly sweeps give us
+# solid coverage — anything that goes active or clears between runs will
+# still be in that bucket when we next poll. Public repos get unlimited
+# Actions minutes, so there's no cost tradeoff.
+#
+# Commits only land when the cache actually changes (the commit step has
+# a `git diff --cached --quiet` guard), so main won't get 24 no-op commits
+# a day — only commits when the RSS/X/PulsePoint caches actually change.
 #
 # You can also trigger it manually from the Actions tab via workflow_dispatch.
 on:
   schedule:
-    - cron: "0 14 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 # Required so the workflow can push the updated cache JSON back to main.
