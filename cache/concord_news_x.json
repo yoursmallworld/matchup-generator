@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-21T18:56:56+00:00",
+  "fetched_at": "2026-04-21T19:30:04+00:00",
   "sources": {
     "contra_costa_fire_x": {
       "name": "Con Fire PIO (X)",
@@ -12,9 +12,26 @@
       "ok": true,
       "count": 0,
       "error": null
+    },
+    "chp_alerts_x": {
+      "name": "CHP Alerts (X)",
+      "ok": true,
+      "count": 1,
+      "error": null
     }
   },
   "findings": [
+    {
+      "id": "9d4824248ea12dc3",
+      "title": "EBONY ALERT - Contra Costa County\nLast seen: Diamond Bar Blvd.",
+      "summary": "and Galaxy Ave., Concord\n\n@AntiochPolice\n\n\nIF SEEN, CALL 9-1-1",
+      "url": "https://x.com/CHPAlerts/status/2045955890621325564",
+      "source_key": "chp_alerts_x",
+      "source_name": "CHP Alerts (X)",
+      "published_at": "2026-04-19T20:01:11.000Z",
+      "fetched_at": "2026-04-21T19:30:04+00:00",
+      "raw_pub": null
+    },
     {
       "id": "4a053e6bd606e5fa",
       "title": "Con Fire is on scene of a hazardous materials incident on Bisso Lane in Concord due to an accidental spill of organo phosphorus.",
