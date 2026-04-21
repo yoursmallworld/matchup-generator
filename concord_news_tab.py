@@ -29,7 +29,7 @@ Design posture
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -43,9 +43,19 @@ SS_DISMISSED = "cn_dismissed_ids"
 SS_LAST_REFRESH = "cn_last_refresh"
 SS_REFRESH_ERROR = "cn_refresh_error"
 SS_SHOW_DISMISSED = "cn_show_dismissed"
+SS_WINDOW_HOURS = "cn_window_hours"
 
 FB_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_fb.json"
 X_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_x.json"
+
+# Time-window options for "how far back to show". Default: 72 hours.
+WINDOW_OPTIONS: Dict[str, Optional[int]] = {
+    "Last 24 hours": 24,
+    "Last 72 hours": 72,
+    "Last 7 days": 24 * 7,
+    "All": None,
+}
+DEFAULT_WINDOW = "Last 72 hours"
 
 
 # ---- helpers -------------------------------------------------------------
@@ -151,6 +161,36 @@ def _human_published(iso: Optional[str]) -> str:
     return local.strftime("%b %d")
 
 
+def _finding_timestamp(f: Dict[str, Any]) -> Optional[datetime]:
+    """Best-effort parse of a finding's publish time. Falls back to
+    fetched_at so cache items without a publish date don't vanish."""
+    for key in ("published_at", "fetched_at"):
+        raw = f.get(key)
+        if not raw:
+            continue
+        try:
+            dt = datetime.fromisoformat(raw)
+        except ValueError:
+            continue
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt
+    return None
+
+
+def _within_window(f: Dict[str, Any], hours: Optional[int]) -> bool:
+    """Show everything if hours is None (All). Otherwise drop items older
+    than `hours`. Items with no parseable timestamp are shown (we'd rather
+    over-include than hide something new that lacks a date)."""
+    if hours is None:
+        return True
+    dt = _finding_timestamp(f)
+    if dt is None:
+        return True
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    return dt >= cutoff
+
+
 def _load_dismissed() -> set:
     if SS_DISMISSED in st.session_state:
         return st.session_state[SS_DISMISSED]
@@ -202,12 +242,22 @@ def render() -> None:
         "The button below re-runs RSS only; X and FB stay on their own schedules."
     )
 
-    col_refresh, col_toggle, col_clear = st.columns([1, 2, 2])
+    col_refresh, col_window, col_toggle, col_clear = st.columns([1, 1, 1, 1])
     with col_refresh:
         if st.button("Refresh RSS now", key="cn_refresh_btn"):
             with st.spinner("Fetching sources…"):
                 _refresh_rss()
             st.rerun()
+    with col_window:
+        window_choice = st.selectbox(
+            "Show",
+            options=list(WINDOW_OPTIONS.keys()),
+            index=list(WINDOW_OPTIONS.keys()).index(
+                st.session_state.get(SS_WINDOW_HOURS, DEFAULT_WINDOW)
+            ),
+            key="cn_window_select",
+        )
+        st.session_state[SS_WINDOW_HOURS] = window_choice
     with col_toggle:
         st.session_state[SS_SHOW_DISMISSED] = st.toggle(
             "Show dismissed",
@@ -227,8 +277,10 @@ def render() -> None:
     findings = payload["findings"]
     dismissed = _load_dismissed()
     show_dismissed = st.session_state.get(SS_SHOW_DISMISSED, False)
+    window_hours = WINDOW_OPTIONS[window_choice]
 
-    visible = [f for f in findings if show_dismissed or f.get("id") not in dismissed]
+    in_window = [f for f in findings if _within_window(f, window_hours)]
+    visible = [f for f in in_window if show_dismissed or f.get("id") not in dismissed]
 
     # Status line
     rss_ts = payload.get("rss_fetched_at")
@@ -238,8 +290,8 @@ def render() -> None:
         f"RSS: **{_human_timestamp(rss_ts)}** · "
         f"X: **{_human_timestamp(x_ts)}** · "
         f"FB: **{_human_timestamp(fb_ts)}** · "
-        f"{len(visible)} of {len(findings)} showing "
-        f"({len(dismissed)} dismissed)"
+        f"{len(visible)} of {len(in_window)} in window "
+        f"({len(findings)} total, {len(dismissed)} dismissed)"
     )
 
     if not findings:
@@ -249,8 +301,15 @@ def render() -> None:
         )
         return
 
+    if not in_window:
+        st.info(
+            f"Nothing from the **{window_choice.lower()}** window. Widen the "
+            "**Show** dropdown or dismiss fewer things."
+        )
+        return
+
     if not visible:
-        st.info("Everything is dismissed. Toggle **Show dismissed** to see them again.")
+        st.info("Everything in this window is dismissed. Toggle **Show dismissed** to see them again.")
         return
 
     # Render each finding as a compact card
