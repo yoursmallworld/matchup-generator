@@ -1,0 +1,277 @@
+"""
+Streamlit tab: surface recent Concord news so Seth can tell at a glance
+whether anything happened in town he should know about.
+
+Data flow
+---------
+- `concord_news.py` fetches RSS sources (city, Patch, Claycord, Google News)
+  into `cache/concord_news.json`.
+- A separate scheduled Claude-in-Chrome task writes Concord PD Facebook
+  posts into `cache/concord_news_fb.json` (same Finding shape).
+- This tab reads both files, merges them, dedupes, sorts newest-first,
+  and filters out items the user has dismissed.
+
+Design posture
+--------------
+- Read-only UI. Refresh button re-runs the RSS fetcher inline (fast —
+  6 HTTP calls). The FB cache is never fetched live from the tab, since
+  that requires Claude-in-Chrome which the scheduled task owns.
+- Dismissals are persisted to `cache/concord_news_dismissed.json` so
+  they survive refreshes and app reboots.
+- Nothing in this tab ever writes to the Smallworld backend. It's a
+  read-only situational-awareness panel for now.
+"""
+
+from __future__ import annotations
+
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import streamlit as st
+
+import concord_news
+
+# session_state keys — prefixed to avoid collisions with the push tab
+SS_CACHED = "cn_cached_payload"
+SS_DISMISSED = "cn_dismissed_ids"
+SS_LAST_REFRESH = "cn_last_refresh"
+SS_REFRESH_ERROR = "cn_refresh_error"
+SS_SHOW_DISMISSED = "cn_show_dismissed"
+
+FB_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_fb.json"
+
+
+# ---- helpers -------------------------------------------------------------
+
+
+def _load_all_findings() -> Dict[str, Any]:
+    """Read the RSS cache and the FB cache, merge them, return a combined payload."""
+    rss = concord_news.load_cached() or {
+        "fetched_at": None,
+        "sources": {},
+        "findings": [],
+    }
+    fb_payload: Dict[str, Any] = {"fetched_at": None, "sources": {}, "findings": []}
+    if FB_CACHE_FILE.exists():
+        try:
+            fb_payload = json.loads(FB_CACHE_FILE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            fb_payload = {"fetched_at": None, "sources": {}, "findings": []}
+
+    merged = list(rss.get("findings", [])) + list(fb_payload.get("findings", []))
+
+    # Final cross-cache dedupe by URL → title.
+    seen_urls: set = set()
+    seen_titles: set = set()
+    deduped: List[Dict[str, Any]] = []
+    for f in merged:
+        url_key = (f.get("url") or "").strip().lower()
+        title_key = (f.get("title") or "").strip().lower()
+        if url_key and url_key in seen_urls:
+            continue
+        if title_key and title_key in seen_titles:
+            continue
+        if url_key:
+            seen_urls.add(url_key)
+        if title_key:
+            seen_titles.add(title_key)
+        deduped.append(f)
+
+    deduped.sort(
+        key=lambda f: (f.get("published_at") or f.get("fetched_at") or "", 0 if f.get("published_at") else 1),
+        reverse=True,
+    )
+
+    sources = dict(rss.get("sources") or {})
+    sources.update(fb_payload.get("sources") or {})
+
+    return {
+        "findings": deduped,
+        "sources": sources,
+        "rss_fetched_at": rss.get("fetched_at"),
+        "fb_fetched_at": fb_payload.get("fetched_at"),
+    }
+
+
+def _human_timestamp(iso: Optional[str]) -> str:
+    if not iso:
+        return "never"
+    try:
+        dt = datetime.fromisoformat(iso)
+    except ValueError:
+        return iso
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    local = dt.astimezone()  # local timezone of the Streamlit host
+    return local.strftime("%b %d, %Y %I:%M %p %Z").strip()
+
+
+def _human_published(iso: Optional[str]) -> str:
+    if not iso:
+        return "date unknown"
+    try:
+        dt = datetime.fromisoformat(iso)
+    except ValueError:
+        return iso
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    local = dt.astimezone()
+    now = datetime.now(local.tzinfo)
+    delta = now - local
+    if delta.total_seconds() < 60:
+        return "just now"
+    minutes = int(delta.total_seconds() // 60)
+    if minutes < 60:
+        return f"{minutes} min ago"
+    hours = minutes // 60
+    if hours < 24:
+        return f"{hours}h ago"
+    days = hours // 24
+    if days < 14:
+        return f"{days}d ago"
+    return local.strftime("%b %d")
+
+
+def _load_dismissed() -> set:
+    if SS_DISMISSED in st.session_state:
+        return st.session_state[SS_DISMISSED]
+    ids = concord_news.load_dismissed_ids()
+    st.session_state[SS_DISMISSED] = ids
+    return ids
+
+
+def _dismiss(finding_id: str) -> None:
+    ids = _load_dismissed()
+    ids.add(finding_id)
+    st.session_state[SS_DISMISSED] = ids
+    concord_news.save_dismissed_ids(ids)
+
+
+def _undismiss(finding_id: str) -> None:
+    ids = _load_dismissed()
+    ids.discard(finding_id)
+    st.session_state[SS_DISMISSED] = ids
+    concord_news.save_dismissed_ids(ids)
+
+
+def _clear_dismissed() -> None:
+    st.session_state[SS_DISMISSED] = set()
+    concord_news.save_dismissed_ids(set())
+
+
+def _refresh_rss() -> None:
+    try:
+        concord_news.fetch_and_save()
+        st.session_state[SS_LAST_REFRESH] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        st.session_state[SS_REFRESH_ERROR] = None
+    except Exception as exc:  # noqa: BLE001 — surface any failure to the UI
+        st.session_state[SS_REFRESH_ERROR] = f"{type(exc).__name__}: {exc}"
+
+
+# ---- render -------------------------------------------------------------
+
+
+def render() -> None:
+    st.subheader("Concord News")
+    st.caption(
+        "Daily sweep of local news so you don't miss anything. Sources: City of "
+        "Concord, Concord Patch, Claycord, Google News. Concord PD Facebook "
+        "posts arrive via the scheduled Claude-in-Chrome task when it runs."
+    )
+
+    col_refresh, col_toggle, col_clear = st.columns([1, 2, 2])
+    with col_refresh:
+        if st.button("Refresh RSS now", key="cn_refresh_btn"):
+            with st.spinner("Fetching sources…"):
+                _refresh_rss()
+            st.rerun()
+    with col_toggle:
+        st.session_state[SS_SHOW_DISMISSED] = st.toggle(
+            "Show dismissed",
+            value=st.session_state.get(SS_SHOW_DISMISSED, False),
+            key="cn_show_dismissed_toggle",
+        )
+    with col_clear:
+        if st.button("Clear all dismissals", key="cn_clear_dismissed_btn"):
+            _clear_dismissed()
+            st.rerun()
+
+    err = st.session_state.get(SS_REFRESH_ERROR)
+    if err:
+        st.error(f"Last refresh failed — {err}")
+
+    payload = _load_all_findings()
+    findings = payload["findings"]
+    dismissed = _load_dismissed()
+    show_dismissed = st.session_state.get(SS_SHOW_DISMISSED, False)
+
+    visible = [f for f in findings if show_dismissed or f.get("id") not in dismissed]
+
+    # Status line
+    rss_ts = payload.get("rss_fetched_at")
+    fb_ts = payload.get("fb_fetched_at")
+    st.caption(
+        f"RSS last refreshed: **{_human_timestamp(rss_ts)}** · "
+        f"FB last updated: **{_human_timestamp(fb_ts)}** · "
+        f"{len(visible)} of {len(findings)} showing "
+        f"({len(dismissed)} dismissed)"
+    )
+
+    if not findings:
+        st.info(
+            "No cached findings yet. Click **Refresh RSS now** to fetch, or wait "
+            "for the scheduled task to run."
+        )
+        return
+
+    if not visible:
+        st.info("Everything is dismissed. Toggle **Show dismissed** to see them again.")
+        return
+
+    # Render each finding as a compact card
+    for f in visible:
+        fid = f.get("id") or ""
+        title = f.get("title") or "(no title)"
+        summary = f.get("summary") or ""
+        url = f.get("url") or ""
+        source_name = f.get("source_name") or f.get("source_key") or "Source"
+        published = _human_published(f.get("published_at"))
+
+        is_dismissed = fid in dismissed
+        with st.container(border=True):
+            title_col, dismiss_col = st.columns([10, 1])
+            with title_col:
+                if url:
+                    st.markdown(f"**[{title}]({url})**")
+                else:
+                    st.markdown(f"**{title}**")
+                st.caption(f"{source_name} · {published}")
+                if summary:
+                    st.write(summary)
+            with dismiss_col:
+                if is_dismissed:
+                    if st.button("Undo", key=f"cn_undo_{fid}"):
+                        _undismiss(fid)
+                        st.rerun()
+                else:
+                    if st.button("Dismiss", key=f"cn_dismiss_{fid}"):
+                        _dismiss(fid)
+                        st.rerun()
+
+    # Debug expander
+    with st.expander("Source status"):
+        sources = payload.get("sources") or {}
+        if not sources:
+            st.write("No source metadata — cache empty.")
+        else:
+            rows = []
+            for key, info in sources.items():
+                rows.append({
+                    "source": info.get("name") or key,
+                    "ok": info.get("ok"),
+                    "count": info.get("count"),
+                    "error": info.get("error") or "",
+                })
+            st.dataframe(rows, hide_index=True, use_container_width=True)

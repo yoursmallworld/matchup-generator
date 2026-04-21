@@ -12,6 +12,7 @@ import threading
 import time as time_module
 
 import smallworld_push
+import concord_news_tab
 
 # Configuration
 BASE_DIR = Path(__file__).parent
@@ -379,10 +380,10 @@ def parse_csv_data(text):
 
 # ========== STREAMLIT APP ==========
 
-st.set_page_config(page_title="Matchup Generator", page_icon="🏆", layout="centered")
+st.set_page_config(page_title="Smallworld Secondary CMS", page_icon="🏆", layout="centered")
 
-st.title("🏆 Matchup Generator")
-st.caption("Generate sports matchup graphics for Smallworld Concord")
+st.title("Smallworld Secondary CMS")
+st.caption("Graphic generation, schedule push, and Concord news for Smallworld")
 
 # Get available teams from logos folder
 available_teams = get_available_teams()
@@ -391,7 +392,17 @@ team_display = {t: format_team_name(t) for t in available_teams}
 # Add option for custom team name
 team_options = sorted(team_display.values())
 
-tab1, tab2, tab4, tab5, tab3 = st.tabs(["Generate Graphic", "Batch Generate", "Upcoming Games", "Push to Smallworld", "Manage Logos"])
+tab1, tab2, tab4, tab5, tab_news, tab3 = st.tabs([
+    "Generate Graphic",
+    "Batch Generate",
+    "Upcoming Games",
+    "Push to Smallworld",
+    "Concord News",
+    "Manage Logos",
+])
+
+with tab_news:
+    concord_news_tab.render()
 
 with tab1:
     col1, col2 = st.columns(2)
