@@ -193,11 +193,13 @@ def _refresh_rss() -> None:
 def render() -> None:
     st.subheader("Concord News")
     st.caption(
-        "Daily sweep of local news so you don't miss anything. RSS + X sources "
-        "(City of Concord, Patch, Claycord, Google News, @ContraCostaFire, "
-        "@CHP_ContraCosta) refresh on a GitHub Actions cron. Concord PD + City "
-        "of Concord Facebook posts arrive via the Claude-in-Chrome task on days "
-        "the Mac is awake."
+        "Daily sweep of local news so you don't miss anything. "
+        "**RSS** (City of Concord, Patch, Claycord, Google News) and "
+        "**X** (@ContraCostaFire, @CHP_ContraCosta) refresh automatically "
+        "every morning on a GitHub Actions cron — no Mac required. "
+        "**Facebook** (Concord PD, City of Concord) arrives via the "
+        "Claude-in-Chrome task on days the Mac is awake. "
+        "The button below re-runs RSS only; X and FB stay on their own schedules."
     )
 
     col_refresh, col_toggle, col_clear = st.columns([1, 2, 2])
