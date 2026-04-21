@@ -44,6 +44,11 @@ SS_LAST_REFRESH = "cn_last_refresh"
 SS_REFRESH_ERROR = "cn_refresh_error"
 SS_SHOW_DISMISSED = "cn_show_dismissed"
 SS_WINDOW_HOURS = "cn_window_hours"
+SS_SOURCE_FILTER = "cn_source_filter"
+
+# The four source categories Seth can filter by. Order matters — this is
+# also the left-to-right order of the pills in the UI.
+SOURCE_TYPES = ["RSS", "X", "Facebook", "PulsePoint"]
 
 FB_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_fb.json"
 X_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_x.json"
@@ -197,6 +202,19 @@ def _within_window(f: Dict[str, Any], hours: Optional[int]) -> bool:
     return dt >= cutoff
 
 
+def _source_type(f: Dict[str, Any]) -> str:
+    """Bucket a finding into RSS / X / Facebook / PulsePoint based on its
+    source_key. Used for the source-filter pills and the per-card badge."""
+    key = (f.get("source_key") or "").lower()
+    if key.startswith("pulsepoint"):
+        return "PulsePoint"
+    if key.endswith("_x"):
+        return "X"
+    if key.endswith("_fb"):
+        return "Facebook"
+    return "RSS"
+
+
 def _load_dismissed() -> set:
     if SS_DISMISSED in st.session_state:
         return st.session_state[SS_DISMISSED]
@@ -279,6 +297,19 @@ def render() -> None:
             _clear_dismissed()
             st.rerun()
 
+    # Source-type filter (pills, multi-select). Sits on its own row so the
+    # row above stays compact. `st.pills` needs Streamlit ≥ 1.36; Streamlit
+    # Cloud is on current main so this is fine.
+    default_sources = st.session_state.get(SS_SOURCE_FILTER, list(SOURCE_TYPES))
+    selected_sources = st.pills(
+        "Sources",
+        options=SOURCE_TYPES,
+        selection_mode="multi",
+        default=default_sources,
+        key="cn_source_filter_pills",
+    )
+    st.session_state[SS_SOURCE_FILTER] = selected_sources
+
     err = st.session_state.get(SS_REFRESH_ERROR)
     if err:
         st.error(f"Last refresh failed — {err}")
@@ -290,7 +321,11 @@ def render() -> None:
     window_hours = WINDOW_OPTIONS[window_choice]
 
     in_window = [f for f in findings if _within_window(f, window_hours)]
-    visible = [f for f in in_window if show_dismissed or f.get("id") not in dismissed]
+    # If the user cleared every pill, treat it as "show everything" rather
+    # than silently hiding the whole feed.
+    active_sources = set(selected_sources) if selected_sources else set(SOURCE_TYPES)
+    in_window_filtered = [f for f in in_window if _source_type(f) in active_sources]
+    visible = [f for f in in_window_filtered if show_dismissed or f.get("id") not in dismissed]
 
     # Status line
     rss_ts = payload.get("rss_fetched_at")
@@ -302,8 +337,9 @@ def render() -> None:
         f"X: **{_human_timestamp(x_ts)}** · "
         f"PulsePoint: **{_human_timestamp(pp_ts)}** · "
         f"FB: **{_human_timestamp(fb_ts)}** · "
-        f"{len(visible)} of {len(in_window)} in window "
-        f"({len(findings)} total, {len(dismissed)} dismissed)"
+        f"{len(visible)} of {len(in_window_filtered)} matching "
+        f"({len(in_window)} in window, {len(findings)} total, "
+        f"{len(dismissed)} dismissed)"
     )
 
     if not findings:
@@ -320,6 +356,12 @@ def render() -> None:
         )
         return
 
+    if not in_window_filtered:
+        st.info(
+            "Nothing matches the selected **Sources**. Re-enable a pill to see more."
+        )
+        return
+
     if not visible:
         st.info("Everything in this window is dismissed. Toggle **Show dismissed** to see them again.")
         return
@@ -332,6 +374,7 @@ def render() -> None:
         url = f.get("url") or ""
         source_name = f.get("source_name") or f.get("source_key") or "Source"
         published = _human_published(f.get("published_at"))
+        stype = _source_type(f)
 
         is_dismissed = fid in dismissed
         with st.container(border=True):
@@ -341,7 +384,9 @@ def render() -> None:
                     st.markdown(f"**[{title}]({url})**")
                 else:
                     st.markdown(f"**{title}**")
-                st.caption(f"{source_name} · {published}")
+                # `[STYPE]` prefix makes the source-category visible at a
+                # glance so the pill filter result is easy to parse.
+                st.caption(f"`{stype}` · {source_name} · {published}")
                 if summary:
                     st.write(summary)
             with dismiss_col:

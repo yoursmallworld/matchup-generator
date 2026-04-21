@@ -326,11 +326,16 @@ def _build_finding(inc: Incident, fetched_at: str) -> Dict[str, Any]:
         summary_bits.append(f"Cleared {inc.closed_iso}")
     summary = " · ".join(summary_bits) if summary_bits else "(no additional detail)"
 
+    # Per-incident deep link. PulsePoint's web app reads `?agencies=` and
+    # `?incident=` and opens the incident detail card directly — much more
+    # useful than landing on the generic agency map.
+    incident_url = f"https://web.pulsepoint.org/?agencies={AGENCY_ID}&incident={inc.id}"
+
     return {
         "id": _finding_id(inc),
         "title": title,
         "summary": summary,
-        "url": AGENCY_PAGE,  # PulsePoint has no per-incident deep link
+        "url": incident_url,
         "source_key": SOURCE_KEY,
         "source_name": AGENCY_NAME,
         "published_at": inc.received_iso,
@@ -339,6 +344,7 @@ def _build_finding(inc: Incident, fetched_at: str) -> Dict[str, Any]:
         "call_type": inc.call_type,
         "address": inc.address,
         "status": inc.status,
+        "incident_id": inc.id,  # raw PulsePoint ID, kept for URL reconstruction
     }
 
 
@@ -420,11 +426,15 @@ def main() -> int:
     for f in new_findings:
         if f["id"] in existing:
             # Update in place so active→recent transitions refresh status,
-            # units, and closed_iso without creating duplicates.
+            # units, closed_iso, and the incident URL (in case we're
+            # backfilling older findings that were cached with a stale
+            # URL schema) without creating duplicates.
             existing[f["id"]].update({
                 "title": f["title"],
                 "summary": f["summary"],
                 "status": f.get("status"),
+                "url": f.get("url"),
+                "incident_id": f.get("incident_id"),
                 # Keep the original fetched_at so age filtering in the UI
                 # stays stable across runs.
             })
