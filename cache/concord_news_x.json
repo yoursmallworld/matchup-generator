@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-04-21T18:22:41+00:00",
+  "sources": {
+    "contra_costa_fire_x": {
+      "name": "Con Fire PIO (X)",
+      "ok": true,
+      "count": 2,
+      "error": null
+    },
+    "chp_contra_costa_x": {
+      "name": "CHP Contra Costa (X)",
+      "ok": true,
+      "count": 0,
+      "error": null
+    }
+  },
+  "findings": [
+    {
+      "id": "4a053e6bd606e5fa",
+      "title": "Con Fire is on scene of a hazardous materials incident on Bisso Lane in Concord due to an accidental spill of organo phosphorus.",
+      "summary": "Two people transported with moderate exposure.",
+      "url": "https://x.com/ContraCostaFire/status/2036177334710267958",
+      "source_key": "contra_costa_fire_x",
+      "source_name": "Con Fire PIO (X)",
+      "published_at": "2026-03-23T20:24:41+00:00",
+      "fetched_at": "2026-04-21T18:22:41+00:00",
+      "raw_pub": "Mar 23"
+    },
+    {
+      "id": "f575d56860aaec8b",
+      "title": "Con Fire units currently working at a 2 alarm fire at an apartment complex in Concord.",
+      "summary": "Crews currently in fire attack mode.",
+      "url": "https://x.com/ContraCostaFire/status/2012349518847893976",
+      "source_key": "contra_costa_fire_x",
+      "source_name": "Con Fire PIO (X)",
+      "published_at": "2026-01-17T02:21:27+00:00",
+      "fetched_at": "2026-04-21T18:22:41+00:00",
+      "raw_pub": "Jan 17"
+    }
+  ]
+}

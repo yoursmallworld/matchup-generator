@@ -5,17 +5,21 @@ whether anything happened in town he should know about.
 Data flow
 ---------
 - `concord_news.py` fetches RSS sources (city, Patch, Claycord, Google News)
-  into `cache/concord_news.json`.
-- A separate scheduled Claude-in-Chrome task writes Concord PD Facebook
-  posts into `cache/concord_news_fb.json` (same Finding shape).
-- This tab reads both files, merges them, dedupes, sorts newest-first,
+  into `cache/concord_news.json`. GitHub Actions runs this same module on
+  a daily cron and commits the result back to the repo.
+- `tools/x_sweep.py` (also on the Actions cron) scrapes @ContraCostaFire
+  and @CHP_ContraCosta into `cache/concord_news_x.json`.
+- A separate scheduled Claude-in-Chrome task writes Concord PD + City of
+  Concord Facebook posts into `cache/concord_news_fb.json`. FB stays on
+  the desktop because Meta rejects datacenter logins.
+- This tab reads all three files, merges them, dedupes, sorts newest-first,
   and filters out items the user has dismissed.
 
 Design posture
 --------------
 - Read-only UI. Refresh button re-runs the RSS fetcher inline (fast —
-  6 HTTP calls). The FB cache is never fetched live from the tab, since
-  that requires Claude-in-Chrome which the scheduled task owns.
+  6 HTTP calls). The FB and X caches are never fetched live from the tab
+  — those require browsers the tab doesn't have.
 - Dismissals are persisted to `cache/concord_news_dismissed.json` so
   they survive refreshes and app reboots.
 - Nothing in this tab ever writes to the Smallworld backend. It's a
@@ -41,26 +45,37 @@ SS_REFRESH_ERROR = "cn_refresh_error"
 SS_SHOW_DISMISSED = "cn_show_dismissed"
 
 FB_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_fb.json"
+X_CACHE_FILE = concord_news.CACHE_DIR / "concord_news_x.json"
 
 
 # ---- helpers -------------------------------------------------------------
 
 
+def _load_json_cache(path: Path) -> Dict[str, Any]:
+    empty = {"fetched_at": None, "sources": {}, "findings": []}
+    if not path.exists():
+        return empty
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return empty
+
+
 def _load_all_findings() -> Dict[str, Any]:
-    """Read the RSS cache and the FB cache, merge them, return a combined payload."""
+    """Read the RSS, FB, and X caches, merge them, return a combined payload."""
     rss = concord_news.load_cached() or {
         "fetched_at": None,
         "sources": {},
         "findings": [],
     }
-    fb_payload: Dict[str, Any] = {"fetched_at": None, "sources": {}, "findings": []}
-    if FB_CACHE_FILE.exists():
-        try:
-            fb_payload = json.loads(FB_CACHE_FILE.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            fb_payload = {"fetched_at": None, "sources": {}, "findings": []}
+    fb_payload = _load_json_cache(FB_CACHE_FILE)
+    x_payload = _load_json_cache(X_CACHE_FILE)
 
-    merged = list(rss.get("findings", [])) + list(fb_payload.get("findings", []))
+    merged = (
+        list(rss.get("findings", []))
+        + list(fb_payload.get("findings", []))
+        + list(x_payload.get("findings", []))
+    )
 
     # Final cross-cache dedupe by URL → title.
     seen_urls: set = set()
@@ -86,12 +101,14 @@ def _load_all_findings() -> Dict[str, Any]:
 
     sources = dict(rss.get("sources") or {})
     sources.update(fb_payload.get("sources") or {})
+    sources.update(x_payload.get("sources") or {})
 
     return {
         "findings": deduped,
         "sources": sources,
         "rss_fetched_at": rss.get("fetched_at"),
         "fb_fetched_at": fb_payload.get("fetched_at"),
+        "x_fetched_at": x_payload.get("fetched_at"),
     }
 
 
@@ -176,9 +193,11 @@ def _refresh_rss() -> None:
 def render() -> None:
     st.subheader("Concord News")
     st.caption(
-        "Daily sweep of local news so you don't miss anything. Sources: City of "
-        "Concord, Concord Patch, Claycord, Google News. Concord PD Facebook "
-        "posts arrive via the scheduled Claude-in-Chrome task when it runs."
+        "Daily sweep of local news so you don't miss anything. RSS + X sources "
+        "(City of Concord, Patch, Claycord, Google News, @ContraCostaFire, "
+        "@CHP_ContraCosta) refresh on a GitHub Actions cron. Concord PD + City "
+        "of Concord Facebook posts arrive via the Claude-in-Chrome task on days "
+        "the Mac is awake."
     )
 
     col_refresh, col_toggle, col_clear = st.columns([1, 2, 2])
@@ -212,9 +231,11 @@ def render() -> None:
     # Status line
     rss_ts = payload.get("rss_fetched_at")
     fb_ts = payload.get("fb_fetched_at")
+    x_ts = payload.get("x_fetched_at")
     st.caption(
-        f"RSS last refreshed: **{_human_timestamp(rss_ts)}** · "
-        f"FB last updated: **{_human_timestamp(fb_ts)}** · "
+        f"RSS: **{_human_timestamp(rss_ts)}** · "
+        f"X: **{_human_timestamp(x_ts)}** · "
+        f"FB: **{_human_timestamp(fb_ts)}** · "
         f"{len(visible)} of {len(findings)} showing "
         f"({len(dismissed)} dismissed)"
     )
