@@ -39,7 +39,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests playwright
+          pip install requests playwright cryptography
 
       - name: Install Chromium for Playwright
         run: python -m playwright install --with-deps chromium
@@ -63,14 +63,31 @@ jobs:
           X_STORAGE_STATE_PATH: /tmp/x_storage.json
         run: python tools/x_sweep.py
 
+      - name: Run PulsePoint sweep
+        # Hits the public-but-undocumented PulsePoint incidents endpoint for
+        # ConFire (agency 07090) and writes cache/concord_news_pulsepoint.json.
+        # If PulsePoint changes the endpoint, payload format, or crypto
+        # recipe, this step exits non-zero → Seth gets an email from GitHub
+        # Actions and can pivot before the data goes stale.
+        run: python tools/pulsepoint_sweep.py
+
       - name: Commit and push cache updates
+        # `if: always()` so RSS + X caches still land even if PulsePoint
+        # broke. The PulsePoint step already failing is enough to trigger
+        # the breakage email; we don't want that to also drop today's
+        # RSS/X data on the floor.
+        if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "concord-news-bot"
           git config user.email "concord-news-bot@users.noreply.github.com"
 
-          git add cache/concord_news.json cache/concord_news_x.json
+          # Loop so a missing cache file (e.g. PulsePoint sweep bombed
+          # before writing) doesn't abort the whole commit.
+          for f in cache/concord_news.json cache/concord_news_x.json cache/concord_news_pulsepoint.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
 
           if git diff --cached --quiet; then
             echo "No cache changes — nothing to commit."
