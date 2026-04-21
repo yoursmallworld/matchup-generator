@@ -1,3 +1,8 @@
 *.json
 !.gitkeep
 !.gitignore
+# Concord News cache files are meant to ship — the scheduled task commits
+# concord_news_fb.json and the Streamlit app ships with concord_news.json.
+!concord_news.json
+!concord_news_fb.json
+!concord_news_dismissed.json

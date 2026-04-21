@@ -1,0 +1,74 @@
+{
+  "fetched_at": "2026-04-21T17:17:07+00:00",
+  "sources": {
+    "concord_pd_fb": {
+      "name": "Concord PD (Facebook)",
+      "ok": true,
+      "count": 3,
+      "error": null
+    },
+    "city_concord_fb": {
+      "name": "City of Concord (Facebook)",
+      "ok": true,
+      "count": 2,
+      "error": null
+    }
+  },
+  "findings": [
+    {
+      "id": "3c5a5ad7651a294f",
+      "title": "Coffee with a Cop — Wed Apr 22 at Peet's Salvio St",
+      "summary": "Join Concord Police officers for coffee and conversation with the community. Location: Peet's Coffee, 2072 Salvio Street. Date: Wednesday, April 22, 2026. Time: 8:30 AM to 10:00 AM. Stop by, ask questions, share concerns, or just say hello.",
+      "url": "",
+      "source_key": "concord_pd_fb",
+      "source_name": "Concord PD (Facebook)",
+      "published_at": null,
+      "fetched_at": "2026-04-21T17:17:07+00:00",
+      "raw_pub": null
+    },
+    {
+      "id": "c0f189684aeb8714",
+      "title": "Bike Rodeo — Free family event Sat May 2 at New Hope Church",
+      "summary": "Join the Concord Police Department for a free Bike Rodeo on May 2, 2026, at 11:00 AM at New Hope Church, 2120 Olivera Ct, Concord. Open to kids ages 5 and up. Includes skills course, helmet fitting, free bike repair, raffles, food truck and music. Registration required (does not guarantee a bike).",
+      "url": "",
+      "source_key": "concord_pd_fb",
+      "source_name": "Concord PD (Facebook)",
+      "published_at": null,
+      "fetched_at": "2026-04-21T17:17:07+00:00",
+      "raw_pub": null
+    },
+    {
+      "id": "99221abfb96f124d",
+      "title": "Free POST PELLETB law enforcement test — Feb 21 & May 2, 2026",
+      "summary": "The Concord Police Department is offering the California POST Entry-Level Law Enforcement Test Battery (PELLETB) free of charge at Concord PD HQ. Additional test dates added for 2026. Check-in 0845, test begins 0930. Registration via Eventbrite. Contact: PDRecruiting@cityofconcord.org or (925) 671-5000.",
+      "url": "",
+      "source_key": "concord_pd_fb",
+      "source_name": "Concord PD (Facebook)",
+      "published_at": null,
+      "fetched_at": "2026-04-21T17:17:07+00:00",
+      "raw_pub": null
+    },
+    {
+      "id": "b44838baba01da1a",
+      "title": "Rec Expo & Job Fair postponed to April 25 due to rain",
+      "summary": "Due to forecasted rain, the Rec Expo & Job Fair has been postponed. New date: April 25, 1:00–3:30 PM. Free lap swim, rec swim, activity demos, and more.",
+      "url": "",
+      "source_key": "city_concord_fb",
+      "source_name": "City of Concord (Facebook)",
+      "published_at": null,
+      "fetched_at": "2026-04-21T17:17:07+00:00",
+      "raw_pub": null
+    },
+    {
+      "id": "d0ca60aea4fa4552",
+      "title": "New playground ribbon cutting at Concord Community Park — Mon Apr 27",
+      "summary": "Ribbon-cutting ceremony for the new playground at Concord Community Park. Monday, April 27, 2026, 1:30–3:00 PM. Location: Concord Community Park, 3501 Cowell Road. All welcome.",
+      "url": "",
+      "source_key": "city_concord_fb",
+      "source_name": "City of Concord (Facebook)",
+      "published_at": null,
+      "fetched_at": "2026-04-21T17:17:07+00:00",
+      "raw_pub": null
+    }
+  ]
+}
