@@ -77,6 +77,12 @@ class Source:
     # appears in the item URL. Used for Patch, whose Concord feed sneaks
     # in cross-promoted regional content ("across-ca", "napavalley", etc).
     url_must_contain: Optional[str] = None
+    # Optional relevance filter — if set, require BOTH "concord" AND at
+    # least one of these keywords to appear (lowercased) in title+summary.
+    # Used for regional sources like Claycord that cover all of Contra
+    # Costa but only occasionally produce Concord-specific content.
+    # Keywords should be lowercased substrings.
+    relevance_keywords: Tuple[str, ...] = ()
 
 
 # Order matters only for display fallback — the UI sorts by date anyway.
@@ -115,6 +121,32 @@ SOURCES: Tuple[Source, ...] = (
         key="claycord",
         name="Claycord",
         url="https://www.claycord.com/feed/",
+        # Claycord covers all of Contra Costa and most of their daily output
+        # is regional filler (BART, Bay Area freeways, gas prices, Oakland
+        # stuff). We only care about Concord-specific items, and among those
+        # only ones that look like police/fire/civic/local events — not
+        # "best brunch in Concord" type listicles.
+        relevance_keywords=(
+            # Police / crime / safety
+            "police", "officer", "arrest", "arrested", "suspect", "suspects",
+            "shooting", "shooter", "shot", "homicide", "murder", "stabbing",
+            "stabbed", "robbery", "robbed", "burglary", "burglar", "theft",
+            "stolen", "assault", "gunman", "armed", "sentenced", "charged",
+            "guilty", "indicted", "investigation", "investigating",
+            "concord pd", "concord police", "pd says",
+            # Fire / EMS / crashes
+            "fire", "firefighter", "crash", "collision", "fatal",
+            "con fire", "contra costa fire",
+            # Civic / government
+            "city council", "mayor", "city hall", "ordinance", "city of concord",
+            # Concord-specific landmarks
+            "todos santos", "concord pavilion", "monument blvd", "concord blvd",
+            "galindo", "port chicago", "willow pass", "diamond blvd",
+            "buchanan field", "concord naval", "naval weapons",
+            "pixie playland", "waterworld",
+            # Big civic events
+            "ribbon-cutting", "ribbon cutting", "groundbreaking",
+        ),
     ),
     Source(
         key="google_news",
@@ -264,6 +296,13 @@ def _parse_feed(source: Source, xml_bytes: bytes) -> List[Finding]:
 
         if source.url_must_contain and source.url_must_contain not in (url or ""):
             continue
+
+        if source.relevance_keywords:
+            blob = f"{title} {summary}".lower()
+            if "concord" not in blob:
+                continue
+            if not any(kw in blob for kw in source.relevance_keywords):
+                continue
 
         fingerprint = hashlib.sha1(
             f"{source.key}|{url or title}".encode("utf-8")

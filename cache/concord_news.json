@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-21T17:07:47+00:00",
+  "fetched_at": "2026-04-21T17:34:02+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -34,7 +34,7 @@
     "claycord": {
       "name": "Claycord",
       "ok": true,
-      "count": 15,
+      "count": 2,
       "error": null
     },
     "google_news": {
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -64,41 +64,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
-    },
-    {
-      "id": "f61d0a1cc6e93e22",
-      "title": "Chevron Signs In Contra Costa Blame California Politicians For High Gas Prices",
-      "summary": "Drivers filling up at Chevron stations across the region are being met with a bold and unmistakable message: “Sacramento policies did this.… The post Chevron Signs In Contra Costa Blame California Politicians For High Gas Prices appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/21/chevron-signs-in-contra-costa-blame-california-politicians-for-high-gas-prices/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-21T15:00:33+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Tue, 21 Apr 2026 15:00:33 +0000"
-    },
-    {
-      "id": "4183b605dd1127cb",
-      "title": "Alcatraz Tours Halted Through Friday For Dock Repairs",
-      "summary": "Alcatraz tours in San Francisco are canceled through Friday due to dock repairs, with service expected to resume Saturday. Officials say the… The post Alcatraz Tours Halted Through Friday For Dock Repairs appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/20/alcatraz-tours-halted-through-friday-for-dock-repairs/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-20T23:16:55+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Mon, 20 Apr 2026 23:16:55 +0000"
-    },
-    {
-      "id": "1c5dd04c08849d42",
-      "title": "Bay Area Braces For Multi-Day Storm: Rain, Cool Temps And Possible Thunderstorms Through Midweek",
-      "summary": "Cool temperatures and widespread rain are expected across the San Francisco Bay Area and Central Coast on Monday, with wet conditions continuing… The post Bay Area Braces For Multi-Day Storm: Rain, Cool Temps And Possible Thunderstorms Through Midweek appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/20/bay-area-braces-for-multi-day-storm-rain-cool-temps-and-possible-thunderstorms-through-midweek/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-20T22:10:24+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Mon, 20 Apr 2026 22:10:24 +0000"
     },
     {
       "id": "85a295a97d20042f",
@@ -108,30 +75,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T21:54:10+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:54:10 -0400"
-    },
-    {
-      "id": "282df5f7d5baf5cd",
-      "title": "Vehicle Collision With Injuries On Port Chicago Highway In Clyde",
-      "summary": "Port Chicago Highway in Clyde is closed in both directions due to an injury collision. A vehicle crashed through the fence and… The post Vehicle Collision With Injuries On Port Chicago Highway In Clyde appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/20/vehicle-collision-with-injuries-on-port-chicago-highway-in-clyde/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-20T19:39:40+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Mon, 20 Apr 2026 19:39:40 +0000"
-    },
-    {
-      "id": "58d3e5adf96ec864",
-      "title": "The Water Cooler – If You Could Swap Jobs With Anyone For A Day, Who Would It Be?",
-      "summary": "QUESTION: If you could swap jobs with anyone for a day, who would it be? -advertisement- The post The Water Cooler – If You Could Swap Jobs With Anyone For A Day, Who Would It Be? appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/20/the-water-cooler-if-you-could-swap-jobs-with-anyone-for-a-day-who-would-it-be/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-20T19:00:08+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Mon, 20 Apr 2026 19:00:08 +0000"
     },
     {
       "id": "556b937f8d98ff5d",
@@ -141,7 +86,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-20T17:00:13+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:00:13 +0000"
     },
     {
@@ -152,63 +97,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T15:06:05+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Mon, 20 Apr 2026 11:06:05 -0400"
-    },
-    {
-      "id": "5d32f23e3b54c1c2",
-      "title": "California Sees 500% Surge In Self-Driving Car Rides As Industry Rapidly Expands",
-      "summary": "Californians took more than 1.2 million rides in commercial self-driving cars in December, a 500% increase in 19 months, according to the… The post California Sees 500% Surge In Self-Driving Car Rides As Industry Rapidly Expands appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/20/california-sees-500-surge-in-self-driving-car-rides-as-industry-rapidly-expands/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-20T15:00:46+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Mon, 20 Apr 2026 15:00:46 +0000"
-    },
-    {
-      "id": "ab70f1ebe035708e",
-      "title": "Clayton Crime Roundup – One Arrest, Residential Burglary, And Vehicle Theft Reported",
-      "summary": "The Clayton Police Department reported a relatively calm week of activity between April 10 and April 16, with one arrest, a residential… The post Clayton Crime Roundup – One Arrest, Residential Burglary, And Vehicle Theft Reported appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/19/clayton-crime-roundup-one-arrest-residential-burglary-and-vehicle-theft-reported/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-19T21:37:13+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Sun, 19 Apr 2026 21:37:13 +0000"
-    },
-    {
-      "id": "d956604ae153781c",
-      "title": "Ever Wonder Where Your Water Comes From? Take This Free Contra Costa Water District Tour!",
-      "summary": "Join Contra Costa Water District on Friday May 15 from 8:40 AM – 3:30 PM for a fun and fascinating day as… The post Ever Wonder Where Your Water Comes From? Take This Free Contra Costa Water District Tour! appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/19/ever-wonder-where-your-water-comes-from-take-this-free-contra-costa-water-district-tour/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-19T16:04:04+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Sun, 19 Apr 2026 16:04:04 +0000"
-    },
-    {
-      "id": "d413148511429f94",
-      "title": "Claycord – Talk About Whatever – April 17, 2026",
-      "summary": "Happy Friday to all the wonderful citizens in the City of Claycord. This is a post with no subject, you can talk… The post Claycord – Talk About Whatever – April 17, 2026 appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/17/claycord-talk-about-whatever-april-17-2026/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-18T02:02:54+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Sat, 18 Apr 2026 02:02:54 +0000"
-    },
-    {
-      "id": "17d454070be8d1ea",
-      "title": "Claycord – Talk About Politics – April 17, 2026",
-      "summary": "This post is “Talk About Politics”. Please use this post to talk about politics, and keep politics out of the “whatever” thread.… The post Claycord – Talk About Politics – April 17, 2026 appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/17/claycord-talk-about-politics-april-17-2026/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-18T02:00:35+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Sat, 18 Apr 2026 02:00:35 +0000"
     },
     {
       "id": "ad2d359104dd9631",
@@ -218,41 +108,8 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-17T23:15:40+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Fri, 17 Apr 2026 23:15:40 +0000"
-    },
-    {
-      "id": "50eb7e4f99998e4b",
-      "title": "The Water Cooler – Do You Think Eric Swalwell Will End Up In Prison?",
-      "summary": "QUESTION: Do you think Eric Swalwell will end up in prison? -advertisement- The post The Water Cooler – Do You Think Eric Swalwell Will End Up In Prison? appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/17/the-water-cooler-do-you-think-eric-swalwell-will-end-up-in-prison/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-17T19:00:39+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Fri, 17 Apr 2026 19:00:39 +0000"
-    },
-    {
-      "id": "25b1f62ba8db55c8",
-      "title": "Heads Up, Hikers: It’s Rattlesnake Rush Hour In The East Bay",
-      "summary": "As it heats up outside, cold-blooded rattlesnakes are getting out to warm up. The East Bay Regional Park District said now that… The post Heads Up, Hikers: It’s Rattlesnake Rush Hour In The East Bay appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/17/heads-up-hikers-its-rattlesnake-rush-hour-in-the-east-bay/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-17T17:00:09+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Fri, 17 Apr 2026 17:00:09 +0000"
-    },
-    {
-      "id": "b9d3a7a924ba2d99",
-      "title": "THIS WEEKEND! Take A Free Tour Of Mt. Diablo Resource Recovery’s Facility In Pittsburg",
-      "summary": "Join Mt. Diablo Resource Recovery for a behind-the-scenes tour of their recovery facility, where you’ll see firsthand how they optimize the use… The post THIS WEEKEND! Take A Free Tour Of Mt. Diablo Resource Recovery’s Facility In Pittsburg appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/17/this-weekend-take-a-free-tour-of-mt-diablo-resource-recoverys-facility-in-pittsburg/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-17T15:00:15+00:00",
-      "fetched_at": "2026-04-21T17:07:50+00:00",
-      "raw_pub": "Fri, 17 Apr 2026 15:00:15 +0000"
     },
     {
       "id": "63b3c3b5282e1151",
@@ -262,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-16T03:55:47+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Thu, 16 Apr 2026 03:55:47 GMT"
     },
     {
@@ -273,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-15T16:01:30+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Wed, 15 Apr 2026 16:01:30 GMT"
     },
     {
@@ -284,7 +141,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-13T07:00:52+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Mon, 13 Apr 2026 07:00:52 GMT"
     },
     {
@@ -295,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-26T14:11:41+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Thu, 26 Mar 2026 14:11:41 GMT"
     },
     {
@@ -306,7 +163,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
@@ -317,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -328,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-10T07:00:00+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
@@ -339,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-28T08:31:54+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Sat, 28 Feb 2026 08:31:54 GMT"
     },
     {
@@ -350,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -361,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-21T17:07:51+00:00",
+      "fetched_at": "2026-04-21T17:34:04+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
     }
   ]
