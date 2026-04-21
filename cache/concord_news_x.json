@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-21T21:26:52+00:00",
+  "fetched_at": "2026-04-21T22:39:16+00:00",
   "sources": {
     "contra_costa_fire_x": {
       "name": "Con Fire PIO (X)",
@@ -16,7 +16,7 @@
     "chp_alerts_x": {
       "name": "CHP Alerts (X)",
       "ok": true,
-      "count": 1,
+      "count": 0,
       "error": null
     }
   },
