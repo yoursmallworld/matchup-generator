@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-22T02:37:42+00:00",
+  "fetched_at": "2026-04-22T05:27:02+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 11,
+      "count": 9,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-22T02:37:45+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-22T02:37:45+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
     },
     {
@@ -75,7 +75,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T21:54:10+00:00",
-      "fetched_at": "2026-04-22T02:37:45+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:54:10 -0400"
     },
     {
@@ -86,7 +86,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-20T17:00:13+00:00",
-      "fetched_at": "2026-04-22T02:37:46+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:00:13 +0000"
     },
     {
@@ -97,8 +97,19 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T15:06:05+00:00",
-      "fetched_at": "2026-04-22T02:37:45+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Mon, 20 Apr 2026 11:06:05 -0400"
+    },
+    {
+      "id": "5fa8b153740e63fa",
+      "title": "Carondelet Cougars Boys Basketball (Concord, CA) News - Sports Illustrated",
+      "summary": "Carondelet Cougars Boys Basketball (Concord, CA) News Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQelFpZlIzQUxCd3BlanRyY0hma3lnTF9GTzR5VmhRUlZnM3drMURNam41cTJyTkpNOUFENlNyU3JHM2Q2U0s0bF91eU5CSTlxSmpPcmRSZWV2MHdESVYxZ1pYd2VpWG1DOVRTajhsUTF4VWNKTTZpX3NfdW1pVlN2eVh0eTY3eVNHVDdFNTRyTnU2a3RGNWIxclpIaHhaZ3c?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-18T09:44:14+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
+      "raw_pub": "Sat, 18 Apr 2026 09:44:14 GMT"
     },
     {
       "id": "63b3c3b5282e1151",
@@ -108,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-16T03:55:47+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Thu, 16 Apr 2026 03:55:47 GMT"
     },
     {
@@ -119,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-15T16:01:30+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Wed, 15 Apr 2026 16:01:30 GMT"
     },
     {
@@ -130,7 +141,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-13T07:00:52+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Mon, 13 Apr 2026 07:00:52 GMT"
     },
     {
@@ -141,41 +152,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-26T14:11:41+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Thu, 26 Mar 2026 14:11:41 GMT"
-    },
-    {
-      "id": "43a17322037b13a1",
-      "title": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) - East Bay Times",
-      "summary": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1LakJBU3poSmlRS3VFSnJGOGttX29BdEFTVTdsQnc1RlJiRnU5SGl2NnAzaWtzZHpXQktzOVM2SDdiU2pSaVluUHFrZjQ2R2ZuVXAtb3dKbDNGeDZWUE1waW5GenBhcksxQUdvRmF3QV9wTGxtZ19mSw?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
-      "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
-    },
-    {
-      "id": "2eaddfdfe954d13b",
-      "title": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) - East Bay Times",
-      "summary": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9tTmtmYUJMM3VFdHJnY1FVT3k0bWRSX0hWNGFlTVBQbnUxOFJ6QW16LVRfUGpxNWZyM19pd2dGY3A2bEFycTMtdWtaU2N6ZjJlY0hRSm1tQjhuenBjVjNvMW1aanZQV2hCVjBKYko5dXROZ2xOTlNoNndB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
-      "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
-    },
-    {
-      "id": "e6dcccb840b0b28c",
-      "title": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) - East Bay Times",
-      "summary": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9RNzFtdF9WWFdJUXN5TWpBLXFuMENVMDZIZW5zeTBJZlg0X3A1RTNVczVzZHNndnJGaHpDVWtOd0ZNNGozelEybUtlU0lNd2pUZ05Zek8xMzFSTVFWME16UFFDTkl2d2tEQlpZWWFxY2h2WWNRZ1RoYmhtZw?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-10T07:00:00+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
-      "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
       "id": "4209815a2da12fb7",
@@ -185,19 +163,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-28T08:31:54+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Sat, 28 Feb 2026 08:31:54 GMT"
     },
     {
-      "id": "c65a5092a9521e42",
-      "title": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) - East Bay Times",
-      "summary": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPM3VvaEtrRDZKUzd5RWUzYV9mcGZzUWxXRXBHNS1FVkphM2pMQVk5QUJfWjJBemFRTG0wTVRyWFhnWWJfWVBrYXR1MUxGWnJlLWN3UTRMRlZaV1ZxZkljSTItN2IwRUVTNHUzcEdPZzBVSHN0RVNOdW11Y1dOQzg4eVQ2Z1VTeVFNdHc?oc=5",
+      "id": "53b50e0ab7881a68",
+      "title": "1608 Claycord Ave, Concord, CA 94521 - Realtor.com",
+      "summary": "1608 Claycord Ave, Concord, CA 94521 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOOFFGMHFOT3FYaGRNdDBZYmlSM2ZLanU3QlEtWTVKVHlhYXhYSmxzTzAxbDg2YTJqNllnYUZLRW4ybkhMeU1nR294WllnMzZzU0lCRkc2a0J5NHhTREZhZUFBVkdDR0RPbzNOZndpV1B6QWJfeVFMRWl6WG9GWlhtMFFYREczQVNFb3BrdVhLX24?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
-      "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
+      "published_at": "2026-02-14T21:04:11+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
+      "raw_pub": "Sat, 14 Feb 2026 21:04:11 GMT"
     },
     {
       "id": "4e6dcb7152ead3a2",
@@ -207,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -218,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-22T02:37:47+00:00",
+      "fetched_at": "2026-04-22T05:27:05+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
     }
   ]
