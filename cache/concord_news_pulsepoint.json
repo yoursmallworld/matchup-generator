@@ -1,12 +1,28 @@
 {
-  "fetched_at": "2026-04-21T23:36:17+00:00",
+  "fetched_at": "2026-04-22T02:38:07+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
-  "findings": []
+  "findings": [
+    {
+      "id": "2bc87e101e769f91",
+      "title": "Commercial Fire: 1500 PINE ST, STE 87, CONCORD",
+      "summary": "Units: BC1, BC2, DISP, E103, E105, E106, E109, E110, E115, HM87, R86, SOF1 (+3 more) \u00b7 Cleared 2026-04-22T02:37:12+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2459096924",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-22T01:18:03+00:00",
+      "fetched_at": "2026-04-22T02:38:07+00:00",
+      "raw_pub": null,
+      "call_type": "CF",
+      "address": "1500 PINE ST, STE 87, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2459096924"
+    }
+  ]
 }
