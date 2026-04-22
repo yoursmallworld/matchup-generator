@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-22T07:49:48+00:00",
+  "fetched_at": "2026-04-22T11:06:30+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 11,
+      "count": 10,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-22T07:49:52+00:00",
+      "fetched_at": "2026-04-22T11:06:33+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-22T07:49:52+00:00",
+      "fetched_at": "2026-04-22T11:06:33+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
     },
     {
@@ -75,7 +75,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T21:54:10+00:00",
-      "fetched_at": "2026-04-22T07:49:52+00:00",
+      "fetched_at": "2026-04-22T11:06:33+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:54:10 -0400"
     },
     {
@@ -86,7 +86,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-20T17:00:13+00:00",
-      "fetched_at": "2026-04-22T07:49:52+00:00",
+      "fetched_at": "2026-04-22T11:06:33+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:00:13 +0000"
     },
     {
@@ -97,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T15:06:05+00:00",
-      "fetched_at": "2026-04-22T07:49:52+00:00",
+      "fetched_at": "2026-04-22T11:06:33+00:00",
       "raw_pub": "Mon, 20 Apr 2026 11:06:05 -0400"
     },
     {
@@ -108,7 +108,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-16T03:55:47+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Thu, 16 Apr 2026 03:55:47 GMT"
     },
     {
@@ -119,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-15T16:01:30+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Wed, 15 Apr 2026 16:01:30 GMT"
     },
     {
@@ -130,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-13T07:00:52+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Mon, 13 Apr 2026 07:00:52 GMT"
     },
     {
@@ -141,19 +141,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-26T14:11:41+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Thu, 26 Mar 2026 14:11:41 GMT"
-    },
-    {
-      "id": "43a17322037b13a1",
-      "title": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) - East Bay Times",
-      "summary": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1LakJBU3poSmlRS3VFSnJGOGttX29BdEFTVTdsQnc1RlJiRnU5SGl2NnAzaWtzZHpXQktzOVM2SDdiU2pSaVluUHFrZjQ2R2ZuVXAtb3dKbDNGeDZWUE1waW5GenBhcksxQUdvRmF3QV9wTGxtZ19mSw?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
-      "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
       "id": "2eaddfdfe954d13b",
@@ -163,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -174,7 +163,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-10T07:00:00+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
@@ -185,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-28T08:31:54+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Sat, 28 Feb 2026 08:31:54 GMT"
     },
     {
@@ -196,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-14T21:04:11+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Sat, 14 Feb 2026 21:04:11 GMT"
     },
     {
@@ -207,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -218,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-22T07:49:53+00:00",
+      "fetched_at": "2026-04-22T11:06:34+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
     }
   ]
