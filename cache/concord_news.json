@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-22T15:14:41+00:00",
+  "fetched_at": "2026-04-22T17:02:51+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -34,17 +34,28 @@
     "claycord": {
       "name": "Claycord",
       "ok": true,
-      "count": 2,
+      "count": 3,
       "error": null
     },
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 12,
+      "count": 11,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "cb94201bc79bfeac",
+      "title": "Concord Community (Cowell) Park Playground Ribbon Cutting – April 27, 2026",
+      "summary": "The community is invited to celebrate the completion of the new playground at Concord Community Park (3501 Cowell Road) on Monday, April… The post Concord Community (Cowell) Park Playground Ribbon Cutting – April 27, 2026 appeared first on CLAYCORD.com .",
+      "url": "https://www.claycord.com/2026/04/22/concord-community-cowell-park-playground-ribbon-cutting-april-27-2026/",
+      "source_key": "claycord",
+      "source_name": "Claycord",
+      "published_at": "2026-04-22T17:00:55+00:00",
+      "fetched_at": "2026-04-22T17:03:01+00:00",
+      "raw_pub": "Wed, 22 Apr 2026 17:00:55 +0000"
+    },
     {
       "id": "c80065a0aa3ead4c",
       "title": "Celebrate Earth Day With Volunteers Events Across Concord",
@@ -53,7 +64,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-22T15:00:16+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:01+00:00",
       "raw_pub": "Wed, 22 Apr 2026 15:00:16 +0000"
     },
     {
@@ -64,7 +75,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-22T12:52:38+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
       "raw_pub": "Wed, 22 Apr 2026 12:52:38 GMT"
     },
     {
@@ -75,7 +86,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-22T15:14:45+00:00",
+      "fetched_at": "2026-04-22T17:03:00+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -86,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-22T15:14:45+00:00",
+      "fetched_at": "2026-04-22T17:03:00+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
     },
     {
@@ -97,7 +108,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T21:54:10+00:00",
-      "fetched_at": "2026-04-22T15:14:45+00:00",
+      "fetched_at": "2026-04-22T17:03:00+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:54:10 -0400"
     },
     {
@@ -108,7 +119,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-20T17:00:13+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:01+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:00:13 +0000"
     },
     {
@@ -119,30 +130,19 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T15:06:05+00:00",
-      "fetched_at": "2026-04-22T15:14:45+00:00",
+      "fetched_at": "2026-04-22T17:03:00+00:00",
       "raw_pub": "Mon, 20 Apr 2026 11:06:05 -0400"
     },
     {
-      "id": "99af5ec67a62ac77",
-      "title": "Ava Reger - Clayton Valley Charter Ugly Eagles Flag Football (Concord, CA) - Sports Illustrated",
-      "summary": "Ava Reger - Clayton Valley Charter Ugly Eagles Flag Football (Concord, CA) Sports Illustrated",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVjB5d3EyLW1rakNibnBzUlBoYUhySXdfVFUyWk1EV3V4TDNJUXN3MkNKNFpQVERPVTAydVZqYWFjLVF6MWlnVzQ2RFFMVkQtNTkyYm1GTXF2cURZSTJpSzZOMmtyNjZ5X3VyZHVUYXY1YjZEY0Q3cXFmbzVKQlBTa21xTzJHWEtmQzJyM29YWHdoR2RIeG9zblMtaHFvUXdYYWNYVGZidjNtcEJGajIyVEk5UXgyUEhvWFJ4RlVVZ3I5dXprSV91RHBRY0NJNmRj?oc=5",
+      "id": "5ebf242ce32c44cf",
+      "title": "Schedule - Mt. Diablo Red Devils (Concord, CA) Boys Volleyball 25-26 - MaxPreps",
+      "summary": "Schedule - Mt. Diablo Red Devils (Concord, CA) Boys Volleyball 25-26 MaxPreps",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOcHl2OXhGXzM1c3Fadk5xU3pkWlRnXzREMlcwb01BZXpzVXJNNHUwSms5VGN0Wmt5UllCbV9VT3JvWXZEaElqMnRMU3JKT0w3NVNyclhxcDdQakhoQ3pPVmpWejR6emxzVWY3dDc0SHlXUHp6ZE04SHVfRnV4UGJWa0dZSFRGUDEzU3c?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-17T10:18:52+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
-      "raw_pub": "Fri, 17 Apr 2026 10:18:52 GMT"
-    },
-    {
-      "id": "63b3c3b5282e1151",
-      "title": "Flying Colors: Superman Day! Or is it Supergirl Day? (Concord) - Contra Costa News",
-      "summary": "Flying Colors: Superman Day! Or is it Supergirl Day? (Concord) Contra Costa News",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQazI5VzJxREY4OXo2VDhPNUpaNUpJb0hUWHRhaVZ0VWZqOFI4Um0wVTBUcTNDbG52eEpmUWdhNkhYRzE1Q29jZGZuRzJvenZmd0JoZEdtQU03dm14ak14aG5zMmdhRUJlWUt3enQ0Q1h3WjJkakxiY3o0UlNTb3JYR1VucjFiYjBUdUpVQkp1a3hpZTg?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-16T03:55:47+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
-      "raw_pub": "Thu, 16 Apr 2026 03:55:47 GMT"
+      "published_at": "2026-04-17T15:17:14+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
+      "raw_pub": "Fri, 17 Apr 2026 15:17:14 GMT"
     },
     {
       "id": "fa36935893897623",
@@ -152,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-15T16:01:30+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
       "raw_pub": "Wed, 15 Apr 2026 16:01:30 GMT"
     },
     {
@@ -163,7 +163,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-13T07:00:52+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
       "raw_pub": "Mon, 13 Apr 2026 07:00:52 GMT"
     },
     {
@@ -174,41 +174,30 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-26T14:11:41+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
       "raw_pub": "Thu, 26 Mar 2026 14:11:41 GMT"
     },
     {
-      "id": "43a17322037b13a1",
-      "title": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) - East Bay Times",
-      "summary": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1LakJBU3poSmlRS3VFSnJGOGttX29BdEFTVTdsQnc1RlJiRnU5SGl2NnAzaWtzZHpXQktzOVM2SDdiU2pSaVluUHFrZjQ2R2ZuVXAtb3dKbDNGeDZWUE1waW5GenBhcksxQUdvRmF3QV9wTGxtZ19mSw?oc=5",
+      "id": "e6dcccb840b0b28c",
+      "title": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) - East Bay Times",
+      "summary": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9RNzFtdF9WWFdJUXN5TWpBLXFuMENVMDZIZW5zeTBJZlg0X3A1RTNVczVzZHNndnJGaHpDVWtOd0ZNNGozelEybUtlU0lNd2pUZ05Zek8xMzFSTVFWME16UFFDTkl2d2tEQlpZWWFxY2h2WWNRZ1RoYmhtZw?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
-      "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
+      "published_at": "2026-03-10T07:00:00+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
+      "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
-      "id": "085f8f7559f6e559",
-      "title": "Kathleen Rose Caskey Obituary - Concord, CA (1948-2026) - East Bay Times",
-      "summary": "Kathleen Rose Caskey Obituary - Concord, CA (1948-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxONzBIMlVQZmNxR1ZzVEtJQm45RkhRM1JDT0lSUVh1WkxvRTR3UzFmX3VtbXVTSENxZzB6bV8zbTI0d0NmWVVEVEFDRGR2c1NtZFoxTjhFWE4xMEhVYnNEdXIwcnZ3X3RBdm9CSDhVdmF3Tjl2Q21Hay1xcUxaNUZsZ21kYw?oc=5",
+      "id": "4209815a2da12fb7",
+      "title": "Joan Anne Murphy Purcell Obituary - Concord, CA (1937-2026) - East Bay Times",
+      "summary": "Joan Anne Murphy Purcell Obituary - Concord, CA (1937-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOSnhqdW56RlBObkRsd1NwTVRBLXhTR2hWcVN5cTF4X1JFUTdvV005VTUyUkNwNkNoRk9GQWh5bk83d3lOaWNjQWdJZjBocllnSnlwNHM1Vnc4RlpVaHBVYUFYVzZhaUd1N0hPdXBwRW5rdnNXVTlaeVUwdjc4TlhFMWdB?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-01T08:00:00+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
-      "raw_pub": "Sun, 01 Mar 2026 08:00:00 GMT"
-    },
-    {
-      "id": "2daf482e2db2cdb5",
-      "title": "4984 Hames Dr, Concord, CA 94521 - Realtor.com",
-      "summary": "4984 Hames Dr, Concord, CA 94521 Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSTRUSVNsUlJrU2U4b0JWTEFNM2M5bVlnNGdlQmdpVzhwaG85WFBqLU9EWWVCN3IxZ19kZzViWTdhUXE0NDI3a01RTWs2U3VtckJrVXlQaGVxdUxKeWxvaW5mVjdGYmp5bXBlWVoyRGVlakJUZVdLSUVNM1B2aGpxUkF6YmViYnNaMzlB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-21T01:03:55+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
-      "raw_pub": "Sat, 21 Feb 2026 01:03:55 GMT"
+      "published_at": "2026-02-28T08:31:54+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
+      "raw_pub": "Sat, 28 Feb 2026 08:31:54 GMT"
     },
     {
       "id": "53b50e0ab7881a68",
@@ -218,19 +207,30 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-14T21:04:11+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
       "raw_pub": "Sat, 14 Feb 2026 21:04:11 GMT"
     },
     {
-      "id": "c65a5092a9521e42",
-      "title": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) - East Bay Times",
-      "summary": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPM3VvaEtrRDZKUzd5RWUzYV9mcGZzUWxXRXBHNS1FVkphM2pMQVk5QUJfWjJBemFRTG0wTVRyWFhnWWJfWVBrYXR1MUxGWnJlLWN3UTRMRlZaV1ZxZkljSTItN2IwRUVTNHUzcEdPZzBVSHN0RVNOdW11Y1dOQzg4eVQ2Z1VTeVFNdHc?oc=5",
+      "id": "73eba198ac45baf6",
+      "title": "Office For Lease — 1800 Sutter St, Suite 900, Concord, CA 94520 | United States - Colliers",
+      "summary": "Office For Lease — 1800 Sutter St, Suite 900, Concord, CA 94520 | United States Colliers",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPV2RSajN5LXFyeElsNXBwcm9UUEg4ZmFjcUFnZFJpcjdTNXUzR2Fkdlc0TExHS2k1QkVDNVlSUERJUE9IbmJLd2psNHZZOFRXYVptZlpMLTVQUUFxWW1FRDJWUnFOVFpiSDY5MkxEbkxUeTZ6X242YkZMcEE4TlRuSDFEQlo3WE81Tk5RYnFKWlhqRFlvR0NHY2tVTWxuanY4azh6NHZyQTRzWVdvSHc?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
-      "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
+      "published_at": "2026-02-03T20:14:09+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
+      "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
+    },
+    {
+      "id": "4e6dcb7152ead3a2",
+      "title": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom - USPS",
+      "summary": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom USPS",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSGdNdC1waUdlQ1ZjQUZQM3k0el9pZkJwOHIyVkxieTlSZzFyUlVuN2dIUE1yY3dleUtyUGxGV1BVVHRZZ0ZBVW0yOTNrTXlkY0w0TW5KMFRTVXJkNjYtcGxGMXBaRzlJUWJWTXR5MTdiUXhuRWVDN1lzVzVPYlNUeDI2TEZoYlZLc3FGZjZlOXJHOTNCY2Zub2psX2luWlZjLS03M1lxWFhzUjNsYjdtZDhtNGpXZU9EV3NjT2JlcENVRWw1ZVAxN1lR?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-01-27T08:00:00+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
+      "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
       "id": "7556ec2cd4c871d1",
@@ -240,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-22T15:14:46+00:00",
+      "fetched_at": "2026-04-22T17:03:02+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
     }
   ]
