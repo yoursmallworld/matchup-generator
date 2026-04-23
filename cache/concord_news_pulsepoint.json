@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-22T23:47:45+00:00",
+  "fetched_at": "2026-04-23T02:41:29+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "a0ebbe33d55aeb2d",
+      "title": "Hazardous Condition: 1684 MANOR LN, CONCORD",
+      "summary": "Units: E108, PGE \u00b7 Cleared 2026-04-23T01:40:43+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2459682619",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-23T01:24:54+00:00",
+      "fetched_at": "2026-04-23T02:41:29+00:00",
+      "raw_pub": null,
+      "call_type": "HC",
+      "address": "1684 MANOR LN, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2459682619"
+    },
     {
       "id": "2bc87e101e769f91",
       "title": "Commercial Fire: 1500 PINE ST, STE 87, CONCORD",
