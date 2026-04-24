@@ -117,8 +117,13 @@ _EXTRACT_TOOL = {
                 "description": (
                     "A URL the reader can visit for more info — event "
                     "page, RSVP form, Eventbrite link, Instagram post, "
-                    "venue page, etc. Copy it verbatim. Leave blank if "
-                    "the source doesn't show a clear link."
+                    "venue page, etc. MUST include the scheme "
+                    "(https:// or http://). If the source shows a bare "
+                    "domain like \"pablobenavente.com/rsvp\" or "
+                    "\"www.example.org\", return it as "
+                    "\"https://pablobenavente.com/rsvp\" / "
+                    "\"https://www.example.org\". Leave blank if the "
+                    "source doesn't show a clear link."
                 ),
             },
             "hosted_by": {

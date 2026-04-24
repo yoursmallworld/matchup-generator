@@ -105,6 +105,29 @@ def _fit_to_canvas(image_bytes: bytes) -> bytes:
 # ---- Helpers -------------------------------------------------------------
 
 
+def _normalize_url(url: str) -> str:
+    """
+    Prepend https:// to a bare-domain URL so Smallworld doesn't treat
+    it as a path relative to its own domain. Leaves urls that already
+    have a scheme untouched. Empty string in → empty string out.
+
+    Without this, Claude returning "pablobenavente.com/rsvp" becomes
+    "smallworld-stg.web.app/events-detail/pablobenavente.com/rsvp" on
+    the consumer site because the FE concatenates it as a relative path.
+    """
+    url = (url or "").strip()
+    if not url:
+        return ""
+    lower = url.lower()
+    if lower.startswith(("http://", "https://")):
+        return url
+    # Strip leading "//" (protocol-relative) if someone pasted that form,
+    # then always add https://.
+    if url.startswith("//"):
+        url = url[2:]
+    return "https://" + url
+
+
 def _parse_iso_date(s: Optional[str]) -> Optional[date]:
     if not s:
         return None
@@ -582,7 +605,7 @@ def _do_push(
                 end_at=end_dt,
                 location=(info.get("location") or "").strip(),
                 hosted_by=(info.get("hosted_by") or "").strip(),
-                details_url=(info.get("details_url") or "").strip(),
+                details_url=_normalize_url(info.get("details_url") or ""),
                 special_instructions=(info.get("special_instructions") or "").strip(),
                 thumbnail_path=thumb_key,
             )
