@@ -53,6 +53,54 @@ PLACEHOLDER_PATH = BASE_DIR / "assets" / "placeholder_event.png"
 # a concern so the user knows to double-check.
 DEFAULT_DURATION = timedelta(hours=2)
 
+# Smallworld events expect 1200x675 (16:9) thumbnails. We auto-format
+# uploaded photos to fit this canvas — aspect-preserving scale + white
+# letterbox/pillarbox — so users don't have to pre-process in Canva.
+THUMB_CANVAS = (1200, 675)
+THUMB_BG = (255, 255, 255)  # matches the blank white placeholder
+
+# Pillow renamed resampling constants in 9.1 — work with both.
+try:
+    _RESAMPLE = Image.Resampling.LANCZOS  # type: ignore[attr-defined]
+except AttributeError:  # pragma: no cover — very old Pillow
+    _RESAMPLE = Image.LANCZOS  # type: ignore[attr-defined]
+
+
+def _fit_to_canvas(image_bytes: bytes) -> bytes:
+    """
+    Scale an arbitrary-size photo to fit inside the 1200x675 canvas
+    preserving the full image (no cropping), then center it on a white
+    background of exactly 1200x675. Returns PNG bytes ready to upload.
+
+    This matches the Canva "drop a photo onto a 1200x675 frame" workflow
+    Seth was doing manually. Images already at 16:9 come out pixel-
+    identical size-wise; portrait images get pillarboxed; ultra-wide
+    images get letterboxed. Nothing is cropped.
+    """
+    src = Image.open(io.BytesIO(image_bytes))
+    # EXIF-aware orientation fix so sideways phone photos come in upright.
+    try:
+        from PIL import ImageOps  # local import — not all envs ship it
+        src = ImageOps.exif_transpose(src)
+    except Exception:  # noqa: BLE001
+        pass
+    if src.mode != "RGB":
+        src = src.convert("RGB")
+
+    tw, th = THUMB_CANVAS
+    sw, sh = src.size
+    scale = min(tw / sw, th / sh)
+    new_w = max(1, int(round(sw * scale)))
+    new_h = max(1, int(round(sh * scale)))
+    resized = src.resize((new_w, new_h), _RESAMPLE)
+
+    canvas = Image.new("RGB", THUMB_CANVAS, THUMB_BG)
+    canvas.paste(resized, ((tw - new_w) // 2, (th - new_h) // 2))
+
+    buf = io.BytesIO()
+    canvas.save(buf, format="PNG", optimize=True)
+    return buf.getvalue()
+
 
 # ---- Helpers -------------------------------------------------------------
 
@@ -386,18 +434,25 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
 
             # Per-row thumbnail uploader. If the user uploads one it's
             # pushed to S3 at push time and used as the event thumbnail.
-            # Otherwise the yellow placeholder is used. Keeping this
-            # optional so drafts with "fix the thumbnail later" are easy.
+            # Otherwise the blank placeholder is used. Images are auto-
+            # formatted to the 1200x675 canvas (aspect-preserving with
+            # white letterbox/pillarbox) at push time, so the user
+            # doesn't have to pre-process anything.
             info["_custom_thumb"] = st.file_uploader(
-                "Thumbnail (optional — uses placeholder if empty)",
+                "Thumbnail (optional — auto-formatted to 1200×675)",
                 type=["png", "jpg", "jpeg", "webp"],
                 key=f"bu_thumb_{idx}",
             )
             if info["_custom_thumb"] is not None:
                 try:
-                    st.image(info["_custom_thumb"], width=140)
-                except Exception:  # noqa: BLE001
-                    pass
+                    preview = _fit_to_canvas(info["_custom_thumb"].getvalue())
+                    st.image(
+                        preview,
+                        width=200,
+                        caption="Preview (1200×675, will be uploaded as-is)",
+                    )
+                except Exception as e:  # noqa: BLE001
+                    st.caption(f"(preview failed: {type(e).__name__}: {e})")
 
             info["_include"] = st.checkbox(
                 "Include in push",
@@ -458,20 +513,24 @@ def _do_push(
                 raise ValueError("Topic is required.")
 
             # Resolve thumbnail: uploaded-by-user if present, else the
-            # per-env placeholder. Upload failures fall back to the
-            # placeholder rather than blocking the whole row.
+            # per-env placeholder. Custom uploads are auto-formatted to
+            # the 1200x675 canvas (aspect-preserving, white letterbox)
+            # so the user doesn't have to pre-process in Canva. Upload
+            # failures fall back to the placeholder rather than
+            # blocking the whole row.
             custom = info.get("_custom_thumb")
             if custom is not None:
                 try:
+                    formatted = _fit_to_canvas(custom.getvalue())
                     thumb_key = upload_image(
                         session,
-                        custom.getvalue(),
-                        mime_type=(getattr(custom, "type", None) or "image/png"),
+                        formatted,
+                        mime_type="image/png",
                     )
                 except Exception as e:  # noqa: BLE001
                     st.warning(
-                        f"Row {i + 1}: custom thumbnail upload failed "
-                        f"({type(e).__name__}), using placeholder."
+                        f"Row {i + 1}: custom thumbnail failed "
+                        f"({type(e).__name__}: {e}) — using placeholder."
                     )
                     thumb_key = placeholder_key
             else:
