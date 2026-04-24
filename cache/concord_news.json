@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-24T19:53:15+00:00",
+  "fetched_at": "2026-04-24T20:50:56+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -28,7 +28,7 @@
     "patch": {
       "name": "Concord Patch",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     "claycord": {
@@ -40,11 +40,22 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 13,
+      "count": 14,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "cce5b20460255d6f",
+      "title": "Why Top Cop Ordered Inquest For 72-Year-Old Woman's Death: Contra Costa County. D.A.",
+      "summary": "The Contra Costa County D.A. Diana Becton ordered the coroner to investigate the death of Yolanda Ramirez, who died in police custody.",
+      "url": "http://patch.com/california/concord-ca/inquest-ordered-death-72-year-old-woman-contra-costa-county-d?utm_source=article-mostrecent&utm_medium=rss&utm_term=community%20corner&utm_campaign=recirc&utm_content=normal",
+      "source_key": "patch",
+      "source_name": "Concord Patch",
+      "published_at": "2026-04-24T20:35:49+00:00",
+      "fetched_at": "2026-04-24T20:50:59+00:00",
+      "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
+    },
     {
       "id": "b0722e5cb7f049f8",
       "title": "Officer Shoots FoodMaxx Robbery Suspect From Inside Getaway Car: Bodycam Captures High-Speed Standoff",
@@ -53,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:50:59+00:00",
       "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
     },
     {
@@ -64,7 +75,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-23T22:12:06+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Thu, 23 Apr 2026 22:12:06 +0000"
     },
     {
@@ -75,7 +86,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-23T20:56:10+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Thu, 23 Apr 2026 20:56:10 GMT"
     },
     {
@@ -86,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-22T23:34:01+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:50:59+00:00",
       "raw_pub": "Wed, 22 Apr 2026 19:34:01 -0400"
     },
     {
@@ -97,7 +108,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-22T17:00:55+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Wed, 22 Apr 2026 17:00:55 +0000"
     },
     {
@@ -108,7 +119,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-22T15:00:16+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Wed, 22 Apr 2026 15:00:16 +0000"
     },
     {
@@ -119,7 +130,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:50:59+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -130,8 +141,19 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:50:59+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
+    },
+    {
+      "id": "5a6ef1a32cee3e8c",
+      "title": "Deanna Jakel Obituary | Ouimet Bros. Concord Funeral Chapel | Concord, CA - Tribute Archive",
+      "summary": "Deanna Jakel Obituary | Ouimet Bros. Concord Funeral Chapel | Concord, CA Tribute Archive",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMnlTOFptT2hnSVJ5NHJMT19aQ3RXTmd6RExoQkdyUWxwcnhsT0tueTBRa2k5RTkzWEJ0MWxsNmtiMTNlS1V3ZWRPNWlxRS1Ecmdkem52VVFJV2dDTk5SOGJMM25RbnZ3VDByWWtXX0g4NUJmVnNpNkdzYWhDSkhNTlJMcGhHeTYwQzQ1Mk1ubGtVaWJ2bjRod3VhbFo0ZnpTaEx1QkpMREV3eUlBejMtWXYzZXFOcEhRM082RW5rYVd5UQ?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-21T07:00:00+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
+      "raw_pub": "Tue, 21 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "85a295a97d20042f",
@@ -141,7 +163,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T21:54:10+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:50:59+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:54:10 -0400"
     },
     {
@@ -152,7 +174,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T15:06:05+00:00",
-      "fetched_at": "2026-04-24T19:53:24+00:00",
+      "fetched_at": "2026-04-24T20:50:59+00:00",
       "raw_pub": "Mon, 20 Apr 2026 11:06:05 -0400"
     },
     {
@@ -163,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
@@ -174,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-15T16:01:30+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Wed, 15 Apr 2026 16:01:30 GMT"
     },
     {
@@ -185,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-13T07:00:52+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Mon, 13 Apr 2026 07:00:52 GMT"
     },
     {
@@ -196,19 +218,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
-      "id": "a1bc3ab6a5f38b37",
-      "title": "Walter Raymond Johnson Obituary - Concord, CA (1943-2026) - East Bay Times",
-      "summary": "Walter Raymond Johnson Obituary - Concord, CA (1943-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQOHJ0SFdzSzlTNjRlbUFjS0tMbFpUaWNjSmhWMlpfNGtJdmgtalhGaTRmU1RTbTRzUkdzakxDUWhnZXhGMFI4LXEyZGs3VjhfcDZsdDV1N25ySGVqTjJLeExTQ3A3R1VrczVNem83YzZxYTFvZDVjcFE5V2o4N1FZVjFISXB6a1RfWnZWQw?oc=5",
+      "id": "43a17322037b13a1",
+      "title": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) - East Bay Times",
+      "summary": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1LakJBU3poSmlRS3VFSnJGOGttX29BdEFTVTdsQnc1RlJiRnU5SGl2NnAzaWtzZHpXQktzOVM2SDdiU2pSaVluUHFrZjQ2R2ZuVXAtb3dKbDNGeDZWUE1waW5GenBhcksxQUdvRmF3QV9wTGxtZ19mSw?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-06T08:16:10+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
-      "raw_pub": "Mon, 06 Apr 2026 08:16:10 GMT"
+      "published_at": "2026-03-20T10:23:50+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
+      "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
       "id": "2eaddfdfe954d13b",
@@ -218,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -229,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-10T07:00:00+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
@@ -240,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-14T21:04:11+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Sat, 14 Feb 2026 21:04:11 GMT"
     },
     {
@@ -251,7 +273,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-03T20:14:09+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
     },
     {
@@ -262,7 +284,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -273,7 +295,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-08T19:07:04+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Thu, 08 Jan 2026 19:07:04 GMT"
     },
     {
@@ -284,7 +306,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-24T19:53:25+00:00",
+      "fetched_at": "2026-04-24T20:51:00+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
     }
   ]
