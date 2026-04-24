@@ -276,9 +276,15 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
 def _do_push(
     session: SmallworldSession,
     rows: List[Dict[str, Any]],
-    *,
-    publish: bool,
 ) -> List[Dict[str, Any]]:
+    """
+    Bulk-uploaded events always go in as DRAFTS — no exceptions.
+
+    These rows are LLM-extracted and need a human QA pass in the Smallworld
+    CMS (pick a real thumbnail, sanity-check copy, etc.) before they go
+    public. Hard-coding publish=False here rather than exposing a toggle
+    removes the "oh I forgot to check the draft box" failure mode.
+    """
     log: List[Dict[str, Any]] = []
 
     try:
@@ -318,7 +324,9 @@ def _do_push(
                 location=(info.get("location") or "").strip(),
                 thumbnail_path=thumb_key,
             )
-            resp = create_event(session, draft, publish=publish)
+            # publish=False → event is created with status="DRAFT". A human
+            # has to open it in the Smallworld CMS and hit Publish.
+            resp = create_event(session, draft, publish=False)
 
             data = resp.get("data") if isinstance(resp, dict) else None
             event_id = None
@@ -353,9 +361,11 @@ def render() -> None:
     st.caption(
         "Drop event screenshots (Instagram, flyers, etc.). Claude extracts "
         "title, description, date/time, and location, then fact-checks "
-        "itself. Review + edit below, then push to Smallworld. Each event "
-        "ships with a yellow placeholder thumbnail; swap in the real "
-        "image from the main Smallworld CMS after the push."
+        "itself. Review + edit below, then push to Smallworld. All bulk-"
+        "uploaded events land as **drafts** — a human has to hit Publish "
+        "in the main CMS after swapping in a real thumbnail. The "
+        "destination environment (STG vs PROD) follows whichever env you "
+        "signed into on the Push to Smallworld tab."
     )
 
     api_key = None
@@ -406,14 +416,39 @@ def render() -> None:
     if session is None:
         st.warning(
             "Sign in via the **Push to Smallworld** tab first — this tab "
-            "reuses that session."
+            "reuses that session. Whichever environment (STG or PROD) you "
+            "sign in to over there is where these events will land."
         )
         return
+
+    # Env banner — big and color-coded so you can't miss it. PROD gets red,
+    # STG gets blue. The destination env is whatever the `sw_session` was
+    # created under, i.e. whatever you picked on the Push to Smallworld tab.
+    env_label = session.env.upper()
+    if session.env == "prod":
+        st.error(
+            f"⚠️ Destination: **PROD** — live Smallworld. "
+            f"Events will land as **DRAFTS** and will not be visible to users "
+            f"until someone clicks Publish in the Smallworld CMS. "
+            f"Signed in as {session.email}."
+        )
+    else:
+        st.info(
+            f"🧪 Destination: **{env_label}** — staging environment. "
+            f"Events will land as **DRAFTS**. "
+            f"Signed in as {session.email}. To push to PROD instead, sign "
+            f"out and sign back in on the Push to Smallworld tab with the "
+            f"PROD environment selected."
+        )
 
     topics = _sw_topics()
     col_t1, col_t2 = st.columns([3, 1])
     with col_t1:
-        st.success(f"Signed in as **{session.email}** on **{session.env.upper()}**.")
+        st.caption(
+            f"Topics loaded: **{len(topics)}**"
+            if topics
+            else "Topics not loaded yet — click **Load topics** to populate the topic dropdown in each row."
+        )
     with col_t2:
         if st.button("Load topics", use_container_width=True, key="bu_load_topics"):
             try:
@@ -432,22 +467,15 @@ def render() -> None:
     st.divider()
     included = [r for r in extracted if r.get("_include") and not r.get("_error")]
     missing_topic = [r for r in included if not r.get("_topic_id")]
-    col_p1, col_p2, col_p3 = st.columns([2, 1, 1])
+    col_p1, col_p2 = st.columns([2, 1])
     with col_p1:
         st.caption(
             f"{len(included)} of {len(extracted)} row(s) included. "
             + (f"⚠️ {len(missing_topic)} missing a topic." if missing_topic else "")
         )
     with col_p2:
-        publish = st.toggle(
-            "Publish (not draft)",
-            value=False,
-            key="bu_publish",
-            help="Off = save as DRAFT (safe default). On = publish immediately.",
-        )
-    with col_p3:
         do_push = st.button(
-            "Push to Smallworld",
+            f"Push as drafts to {env_label}",
             disabled=(not included) or bool(missing_topic),
             type="primary",
             use_container_width=True,
@@ -455,7 +483,7 @@ def render() -> None:
         )
 
     if do_push:
-        st.session_state[SS_PUSH_LOG] = _do_push(session, included, publish=publish)
+        st.session_state[SS_PUSH_LOG] = _do_push(session, included)
 
     push_log: List[Dict[str, Any]] = st.session_state.get(SS_PUSH_LOG) or []
     if push_log:
