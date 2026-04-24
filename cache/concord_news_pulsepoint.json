@@ -1,18 +1,18 @@
 {
-  "fetched_at": "2026-04-24T16:58:56+00:00",
+  "fetched_at": "2026-04-24T17:55:08+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 2,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
     {
       "id": "d6250218052de6bc",
-      "title": "[ACTIVE] Gas Leak: 3511 HALFMOON LN, CONCORD",
-      "summary": "Units: E110, PGE, SOF1",
+      "title": "Gas Leak: 3511 HALFMOON LN, CONCORD",
+      "summary": "Units: E110, PGE, SOF1 \u00b7 Cleared 2026-04-24T17:36:30+00:00",
       "url": "https://web.pulsepoint.org/?agencies=07090&incident=2460616338",
       "source_key": "pulsepoint_confire",
       "source_name": "ConFire Dispatch (PulsePoint)",
@@ -21,7 +21,7 @@
       "raw_pub": null,
       "call_type": "GAS",
       "address": "3511 HALFMOON LN, CONCORD, CA",
-      "status": "active",
+      "status": "recent",
       "incident_id": "2460616338"
     },
     {
