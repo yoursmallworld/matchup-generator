@@ -257,31 +257,26 @@ def _extract_tool_with_topics(topic_options: List[str]) -> Dict[str, Any]:
     return tool
 
 
-def extract_and_factcheck(
-    image_bytes: bytes,
+def _run_two_pass(
+    client: anthropic.Anthropic,
+    source_blocks: List[Dict[str, Any]],
     *,
-    mime_type: str = "image/png",
-    upload_date: Optional[date] = None,
-    api_key: str,
-    user_instructions: str = "",
-    topic_options: Optional[List[str]] = None,
+    source_word: str,
+    upload_date: date,
+    user_instructions: str,
+    topic_options: Optional[List[str]],
 ) -> Dict[str, Any]:
     """
-    Run extract → fact-check. See module docstring for the return shape.
-    Raises on API failure so the caller can surface a clean error per row.
-
-    `user_instructions` is free-text guidance from the uploader (e.g.
-    "Focus on the May 1 reception but mention the broader exhibit in the
-    description.") It's injected into both the extract and fact-check
-    passes so Claude follows the uploader's intent and the fact-checker
-    flags deviations.
+    Shared extract → fact-check pipeline. `source_blocks` is the content
+    list that represents the event source — an image block for
+    screenshots, a text block for pasted text. `source_word` is the noun
+    Claude sees in the user-facing text ("image", "pasted event text")
+    so the instructions read naturally either way.
     """
-    client = anthropic.Anthropic(api_key=api_key)
-    upload_date = upload_date or date.today()
     instructions = (user_instructions or "").strip()
 
     extract_user_text = (
-        "Extract the event details from this image by "
+        f"Extract the event details from this {source_word} by "
         "calling the record_event tool."
     )
     if instructions:
@@ -309,7 +304,7 @@ def extract_and_factcheck(
             {
                 "role": "user",
                 "content": [
-                    _image_block(image_bytes, mime_type),
+                    *source_blocks,
                     {
                         "type": "text",
                         "text": extract_user_text,
@@ -322,7 +317,7 @@ def extract_and_factcheck(
 
     factcheck_user_text = (
         "Here is the extracted event record. Compare it "
-        "against the image and report any concerns.\n\n"
+        f"against the original {source_word} and report any concerns.\n\n"
         "```json\n"
         + json.dumps(extracted, indent=2)
         + "\n```"
@@ -335,7 +330,7 @@ def extract_and_factcheck(
             + instructions
         )
 
-    # ---- Pass 2: fact-check (independent read of the image) --------------
+    # ---- Pass 2: fact-check (independent read of the source) -------------
     factcheck_resp = client.messages.create(
         model=_MODEL,
         max_tokens=512,
@@ -346,7 +341,7 @@ def extract_and_factcheck(
             {
                 "role": "user",
                 "content": [
-                    _image_block(image_bytes, mime_type),
+                    *source_blocks,
                     {
                         "type": "text",
                         "text": factcheck_user_text,
@@ -358,7 +353,6 @@ def extract_and_factcheck(
     factcheck = _tool_call_input(factcheck_resp, "report_concerns")
     concerns: List[str] = [str(c).strip() for c in factcheck.get("concerns", []) if str(c).strip()]
 
-    # ---- Merge -----------------------------------------------------------
     return {
         "title":       str(extracted.get("title") or "").strip(),
         "description": str(extracted.get("description") or "").strip(),
@@ -371,3 +365,77 @@ def extract_and_factcheck(
         "concerns":    concerns,
         "raw_extract": extracted,
     }
+
+
+def extract_and_factcheck(
+    image_bytes: bytes,
+    *,
+    mime_type: str = "image/png",
+    upload_date: Optional[date] = None,
+    api_key: str,
+    user_instructions: str = "",
+    topic_options: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """
+    Image variant. Run extract → fact-check on a flyer/screenshot. See
+    module docstring for the return shape. Raises on API failure so the
+    caller can surface a clean error per row.
+
+    `user_instructions` is free-text guidance from the uploader (e.g.
+    "Focus on the May 1 reception but mention the broader exhibit in the
+    description.") It's injected into both the extract and fact-check
+    passes so Claude follows the uploader's intent and the fact-checker
+    flags deviations.
+    """
+    client = anthropic.Anthropic(api_key=api_key)
+    return _run_two_pass(
+        client,
+        [_image_block(image_bytes, mime_type)],
+        source_word="image",
+        upload_date=upload_date or date.today(),
+        user_instructions=user_instructions,
+        topic_options=topic_options,
+    )
+
+
+def extract_and_factcheck_text(
+    text: str,
+    *,
+    upload_date: Optional[date] = None,
+    api_key: str,
+    user_instructions: str = "",
+    topic_options: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """
+    Text variant. Same two-pass extract → fact-check, but the source is
+    pasted event text (from an email, social post, webpage copy, etc.)
+    instead of an image. Returns the same shape as `extract_and_factcheck`.
+    """
+    body = (text or "").strip()
+    if not body:
+        raise ValueError("extract_and_factcheck_text: no text provided.")
+
+    # Wrap the paste in a small fence so Claude can unambiguously see
+    # its boundaries — otherwise the instruction text and the event
+    # text could blur together when the paste itself contains prose.
+    source_block = {
+        "type": "text",
+        "text": (
+            "The following is event information that was pasted by the "
+            "user (from an email, webpage, social post, etc.). Treat it "
+            "as the authoritative source:\n\n"
+            "<<<EVENT TEXT>>>\n"
+            + body
+            + "\n<<<END EVENT TEXT>>>"
+        ),
+    }
+
+    client = anthropic.Anthropic(api_key=api_key)
+    return _run_two_pass(
+        client,
+        [source_block],
+        source_word="pasted event text",
+        upload_date=upload_date or date.today(),
+        user_instructions=user_instructions,
+        topic_options=topic_options,
+    )

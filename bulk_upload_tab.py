@@ -15,6 +15,7 @@ from __future__ import annotations
 import io
 import time
 import traceback
+import uuid
 from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -40,9 +41,10 @@ _SS_SW_TOPICS = "sw_topics"
 
 # This tab's own session-state keys. Namespaced with "bu_" so collisions with
 # other tabs are impossible.
-SS_EXTRACTED = "bu_extracted"          # List[Dict] — one per uploaded image
+SS_EXTRACTED = "bu_extracted"          # List[Dict] — one per uploaded image or paste
 SS_THUMB_KEYS = "bu_thumb_keys"        # Dict[env, str]: cached placeholder S3 keys
 SS_PUSH_LOG = "bu_push_log"            # List[Dict] — last push run's results
+SS_TEXT_PASTES = "bu_text_pastes"      # List[Dict[str, str]]: pending text pastes (id, text, instructions)
 
 BASE_DIR = Path(__file__).parent
 PLACEHOLDER_PATH = BASE_DIR / "assets" / "placeholder_event.png"
@@ -109,6 +111,18 @@ def _ensure_placeholder_thumb(session: SmallworldSession) -> str:
     cache[session.env] = key
     st.session_state[SS_THUMB_KEYS] = cache
     return key
+
+
+# ---- Text-paste state ----------------------------------------------------
+
+
+def _text_pastes() -> List[Dict[str, str]]:
+    """Return (and lazily init) the list of pending text pastes."""
+    return st.session_state.setdefault(SS_TEXT_PASTES, [])
+
+
+def _new_paste() -> Dict[str, str]:
+    return {"id": uuid.uuid4().hex[:8], "text": "", "instructions": ""}
 
 
 # ---- Extraction ----------------------------------------------------------
@@ -183,6 +197,74 @@ def _run_extraction(
     return out
 
 
+def _run_text_extraction(
+    pastes: List[Dict[str, str]],
+    api_key: str,
+    topics: Dict[str, int],
+) -> List[Dict[str, Any]]:
+    """
+    Extract every non-empty text paste using `extract_and_factcheck_text`.
+    Mirrors `_run_extraction` for images so both paths produce rows with
+    the same shape, and `_render_row` / `_do_push` don't have to branch.
+
+    Rows are marked with `_bytes=None` + `_source_text=<paste>` so the
+    render logic knows to show a text excerpt instead of an image.
+    """
+    out: List[Dict[str, Any]] = []
+    valid = [p for p in pastes if (p.get("text") or "").strip()]
+    if not valid:
+        return out
+
+    progress = st.progress(0.0, text=f"Extracting text 0 / {len(valid)}…")
+    today = date.today()
+    topic_names = sorted(topics.keys()) if topics else []
+
+    for i, p in enumerate(valid):
+        text = p["text"].strip()
+        extra = (p.get("instructions") or "").strip()
+        label = f"Pasted text #{i + 1}"
+        try:
+            info = bulk_upload.extract_and_factcheck_text(
+                text,
+                upload_date=today,
+                api_key=api_key,
+                user_instructions=extra,
+                topic_options=topic_names or None,
+            )
+            info["_error"] = None
+        except Exception as e:  # noqa: BLE001
+            info = {
+                "title": "",
+                "description": "",
+                "start_date": None,
+                "start_time": None,
+                "end_date": None,
+                "end_time": None,
+                "location": "",
+                "topic_name": None,
+                "concerns": [],
+                "_error": f"{type(e).__name__}: {e}",
+            }
+
+        picked_name = info.get("topic_name")
+        info["_topic_id"] = topics.get(picked_name) if picked_name else None
+
+        # UI-only fields — text rows use `_bytes=None` and carry the raw
+        # paste in `_source_text` so the review card can show a snippet.
+        info["_filename"] = label
+        info["_mime"] = None
+        info["_bytes"] = None
+        info["_source_text"] = text
+        info["_include"] = info["_error"] is None
+        info["_user_instructions"] = extra
+
+        out.append(info)
+        progress.progress((i + 1) / len(valid), text=f"Extracting text {i + 1} / {len(valid)}…")
+
+    progress.empty()
+    return out
+
+
 # ---- Per-row edit UI -----------------------------------------------------
 
 
@@ -212,11 +294,20 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
         col_img, col_fields = st.columns([1, 2])
 
         with col_img:
-            try:
-                img = Image.open(io.BytesIO(info["_bytes"]))
-                st.image(img, use_container_width=True)
-            except Exception:  # noqa: BLE001
-                st.caption("(preview unavailable)")
+            if info.get("_bytes"):
+                try:
+                    img = Image.open(io.BytesIO(info["_bytes"]))
+                    st.image(img, use_container_width=True)
+                except Exception:  # noqa: BLE001
+                    st.caption("(preview unavailable)")
+            elif info.get("_source_text"):
+                # Text paste — show a trimmed excerpt so the reviewer can
+                # sanity-check what Claude saw.
+                snippet = info["_source_text"]
+                if len(snippet) > 600:
+                    snippet = snippet[:600] + "…"
+                st.markdown("**Source text:**")
+                st.code(snippet, language=None)
             st.caption(info.get("_filename", ""))
 
         with col_fields:
@@ -426,12 +517,13 @@ def _do_push(
 
 
 def render() -> None:
-    st.subheader("Bulk Upload from Screenshots")
+    st.subheader("Bulk Upload")
     st.caption(
-        "Drop event screenshots (Instagram, flyers, etc.). Claude extracts "
-        "title, description, date/time, location, and the best-matching "
-        "topic, then fact-checks itself. Review + edit below, optionally "
-        "upload a real thumbnail per row, then push as drafts or publish "
+        "Drop event screenshots (Instagram, flyers, etc.) **or paste event "
+        "text** copied from an email or website. Claude extracts title, "
+        "description, date/time, location, and the best-matching topic, "
+        "then fact-checks itself. Review + edit below, optionally upload "
+        "a real thumbnail per row, then push as drafts or publish "
         "directly. Destination (STG vs PROD) follows whichever env you "
         "signed into on the Push to Smallworld tab."
     )
@@ -492,11 +584,13 @@ def render() -> None:
 
     # ---- Upload + extract -----------------------------------------------
     with st.container(border=True):
+        st.markdown("**1. Drop screenshots**")
         files = st.file_uploader(
-            "Drop event screenshots",
+            "Event flyers, Instagram screenshots, etc.",
             type=["png", "jpg", "jpeg", "webp"],
             accept_multiple_files=True,
             key="bu_uploader",
+            label_visibility="collapsed",
         )
 
         # Per-image instructions. Filename-keyed text boxes so the uploader
@@ -509,7 +603,7 @@ def render() -> None:
         if files:
             with st.expander(
                 f"Optional instructions per image ({len(files)} file(s))",
-                expanded=True,
+                expanded=False,
             ):
                 st.caption(
                     "Tell Claude what to focus on for each image. Skip any "
@@ -527,17 +621,81 @@ def render() -> None:
                         height=68,
                     )
 
+        # ---- Text pastes -----------------------------------------------
+        # Parallel path to screenshot upload: the user can paste event
+        # text copied from an email/webpage/social post instead of (or
+        # alongside) uploading an image. Each paste becomes its own row
+        # in the review grid.
+        st.markdown("**2. Or paste event text**")
+        pastes = _text_pastes()
+        # Always render at least one empty paste slot so the user sees
+        # where to put text without needing to click "+ Add".
+        if not pastes:
+            pastes.append(_new_paste())
+
+        remove_indexes: List[int] = []
+        for i, p in enumerate(pastes):
+            with st.container(border=True):
+                col_t, col_x = st.columns([20, 1])
+                with col_t:
+                    p["text"] = st.text_area(
+                        f"Event text #{i + 1}",
+                        value=p.get("text", ""),
+                        key=f"bu_text_{p['id']}",
+                        height=130,
+                        placeholder=(
+                            "Paste the full event description here — "
+                            "Claude will pull out title, date, time, "
+                            "location, etc."
+                        ),
+                    )
+                    p["instructions"] = st.text_input(
+                        "Instructions for Claude (optional)",
+                        value=p.get("instructions", ""),
+                        key=f"bu_text_instr_{p['id']}",
+                        placeholder=(
+                            "e.g. \"Focus on the May 1 reception only.\""
+                        ),
+                    )
+                with col_x:
+                    # Small margin helps the ✕ line up with the text
+                    # area's top edge.
+                    st.markdown("<br/>", unsafe_allow_html=True)
+                    if st.button(
+                        "✕",
+                        key=f"bu_text_rm_{p['id']}",
+                        help="Remove this paste",
+                    ):
+                        remove_indexes.append(i)
+
+        if remove_indexes:
+            for idx in sorted(remove_indexes, reverse=True):
+                pastes.pop(idx)
+            st.rerun()
+
+        col_add, _col_spacer = st.columns([1, 2])
+        with col_add:
+            if st.button("+ Add another paste", key="bu_add_paste"):
+                pastes.append(_new_paste())
+                st.rerun()
+
+        # ---- Extract / Clear buttons -----------------------------------
+        has_pastes = any((p.get("text") or "").strip() for p in pastes)
+        has_input = bool(files) or has_pastes
+
         col_a, col_b = st.columns([1, 1])
         with col_a:
             if st.button(
                 "Extract events",
-                disabled=not files,
+                disabled=not has_input,
                 type="primary",
                 use_container_width=True,
             ):
-                st.session_state[SS_EXTRACTED] = _run_extraction(
+                image_rows = _run_extraction(
                     files or [], api_key, instructions, topics
                 )
+                text_rows = _run_text_extraction(pastes, api_key, topics)
+                st.session_state[SS_EXTRACTED] = image_rows + text_rows
                 st.session_state[SS_PUSH_LOG] = []
         with col_b:
             if st.button(
@@ -551,7 +709,10 @@ def render() -> None:
 
     extracted: List[Dict[str, Any]] = st.session_state.get(SS_EXTRACTED) or []
     if not extracted:
-        st.info("Upload one or more screenshots, then click **Extract events**.")
+        st.info(
+            "Upload one or more screenshots, paste event text, or both — "
+            "then click **Extract events**."
+        )
         return
 
     # ---- Per-row review -------------------------------------------------
