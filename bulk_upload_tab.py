@@ -220,6 +220,9 @@ def _run_extraction(
                 "end_date": None,
                 "end_time": None,
                 "location": "",
+                "details_url": "",
+                "hosted_by": "",
+                "special_instructions": "",
                 "topic_name": None,
                 "concerns": [],
                 "_error": f"{type(e).__name__}: {e}",
@@ -289,6 +292,9 @@ def _run_text_extraction(
                 "end_date": None,
                 "end_time": None,
                 "location": "",
+                "details_url": "",
+                "hosted_by": "",
+                "special_instructions": "",
                 "topic_name": None,
                 "concerns": [],
                 "_error": f"{type(e).__name__}: {e}",
@@ -336,8 +342,17 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
             st.caption(f"📝 Your instructions: _{info['_user_instructions']}_")
 
         # Concerns banner at the top so the reviewer sees them first.
-        for c in info.get("concerns") or []:
-            st.warning(c)
+        # The fact-checker's concerns triggered a revise pass, so these
+        # items have already been corrected in the fields below — we
+        # still surface them so the human can verify the fix.
+        concerns = info.get("concerns") or []
+        if concerns:
+            st.markdown(
+                "**Fact-checker flagged these — the fields below have "
+                "been revised to address them. Please verify:**"
+            )
+            for c in concerns:
+                st.warning(c)
 
         col_img, col_fields = st.columns([1, 2])
 
@@ -409,6 +424,29 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
                 "Location",
                 value=info.get("location", ""),
                 key=f"bu_loc_{idx}",
+            )
+
+            info["hosted_by"] = st.text_input(
+                "Hosted by",
+                value=info.get("hosted_by", ""),
+                key=f"bu_host_{idx}",
+                placeholder="e.g. City of Concord, Todos Santos Plaza…",
+            )
+            info["details_url"] = st.text_input(
+                "Details URL",
+                value=info.get("details_url", ""),
+                key=f"bu_url_{idx}",
+                placeholder="https://…",
+            )
+            info["special_instructions"] = st.text_area(
+                "Special instructions",
+                value=info.get("special_instructions", ""),
+                key=f"bu_special_{idx}",
+                height=68,
+                placeholder=(
+                    "RSVP required, age restrictions, parking notes, etc. "
+                    "Leave blank if nothing notable."
+                ),
             )
 
             # Topic picker — per row. Topics are guaranteed to be loaded by
@@ -543,6 +581,9 @@ def _do_push(
                 start_at=start_dt,
                 end_at=end_dt,
                 location=(info.get("location") or "").strip(),
+                hosted_by=(info.get("hosted_by") or "").strip(),
+                details_url=(info.get("details_url") or "").strip(),
+                special_instructions=(info.get("special_instructions") or "").strip(),
                 thumbnail_path=thumb_key,
             )
             resp = create_event(session, draft, publish=publish)

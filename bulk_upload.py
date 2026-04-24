@@ -2,9 +2,12 @@
 Bulk-upload extraction module.
 
 Takes an event screenshot (bytes) and uses the Anthropic API to produce a
-structured event record that can be pushed to Smallworld. A two-pass design
-provides a fact-check loop — the second pass independently reviews the first
-pass's output against the same image and emits concerns.
+structured event record that can be pushed to Smallworld. A three-pass
+design provides a self-correcting loop: pass 1 extracts, pass 2
+independently fact-checks against the same source and emits concerns,
+and pass 3 (conditional) feeds those concerns back to the extractor so
+the output record is actually corrected. If pass 2 is clean, pass 3 is
+skipped.
 
 Public entry point:
     extract_and_factcheck(image_bytes, *, mime_type, upload_date, api_key) -> dict
@@ -26,8 +29,9 @@ All string fields default to "" (never None) so the downstream Streamlit
 grid doesn't have to special-case missing values. Date/time fields may be
 None when the flyer doesn't supply them.
 
-Cost: ~2 Claude Sonnet vision calls per image (~$0.01-0.03 per upload at
-current pricing). Light enough that we don't bother rate-limiting here.
+Cost: 2-3 Claude Sonnet vision calls per image (pass 3 only runs on
+flagged inputs). ~$0.01-0.04 per upload at current pricing. Light enough
+that we don't bother rate-limiting here.
 """
 
 from __future__ import annotations
@@ -108,6 +112,40 @@ _EXTRACT_TOOL = {
                     "\"Todos Santos Plaza, 2161 Salvio St, Concord\")."
                 ),
             },
+            "details_url": {
+                "type": "string",
+                "description": (
+                    "A URL the reader can visit for more info — event "
+                    "page, RSVP form, Eventbrite link, Instagram post, "
+                    "venue page, etc. Copy it verbatim. Leave blank if "
+                    "the source doesn't show a clear link."
+                ),
+            },
+            "hosted_by": {
+                "type": "string",
+                "description": (
+                    "Who is hosting or presenting the event — the "
+                    "organization, venue, brand, or individual listed "
+                    "as host/presenter/organizer. Examples: "
+                    "\"City of Concord\", \"Concord Art Association\", "
+                    "\"Todos Santos Plaza\". Leave blank ONLY if there "
+                    "is truly no identifiable host — most events should "
+                    "have one (often the venue if nothing more specific "
+                    "is listed)."
+                ),
+            },
+            "special_instructions": {
+                "type": "string",
+                "description": (
+                    "Anything a reader needs to know to attend that "
+                    "doesn't fit elsewhere: RSVP requirements, age "
+                    "restrictions, dress code, BYOB, parking notes, "
+                    "rain plan, ticket price, \"free for members\", "
+                    "\"registration required\", etc. Leave blank if "
+                    "nothing notable. Do NOT repeat the date/time/"
+                    "location — those have their own fields."
+                ),
+            },
         },
         "required": [
             "title",
@@ -117,6 +155,9 @@ _EXTRACT_TOOL = {
             "end_date",
             "end_time",
             "location",
+            "details_url",
+            "hosted_by",
+            "special_instructions",
         ],
     },
 }
@@ -185,9 +226,39 @@ def _factcheck_system_prompt() -> str:
         "  * Titles that paraphrase rather than quote the flyer\n"
         "  * Missing end time / end date (note as a concern if absent)\n"
         "  * Missing year on date fields\n"
+        "  * A URL, host, or important instruction that the flyer shows "
+        "but the extraction left blank\n"
+        "  * A hosted_by field that is empty when the flyer or source "
+        "clearly names a host, venue, or organizer\n"
+        "  * A details_url that was hallucinated or doesn't match the "
+        "source\n"
         "  * Any text that appears to have been hallucinated\n\n"
         "Be concise — one sentence per concern. Return an empty list if "
         "the extraction is accurate."
+    )
+
+
+def _revise_system_prompt(upload_date: date) -> str:
+    return (
+        "You are revising an event-details extraction. A first pass "
+        "produced a `record_event` call from the source, and a fact-"
+        "checker then flagged specific concerns with it. Your job is to "
+        "emit a corrected `record_event` call that addresses those "
+        "concerns using the original source as the source of truth.\n\n"
+        "Rules:\n"
+        "  1. Re-examine the source for each flagged field. Fix fields "
+        "that are wrong; leave them blank if the source genuinely "
+        "doesn't state them. Never guess or hallucinate.\n"
+        "  2. Fields the fact-checker did NOT flag should be kept "
+        "verbatim from the original extract unless you can see that "
+        "they are clearly wrong too.\n"
+        f"  3. Today is {upload_date.isoformat()}; same date/time "
+        "formatting rules as the original extractor (ISO YYYY-MM-DD, "
+        "24-hour HH:MM).\n"
+        "  4. If a concern is about ambiguity that the source truly "
+        "doesn't resolve (e.g. \"no year stated\"), leave the field "
+        "blank rather than assuming.\n"
+        "  5. Call the tool exactly once."
     )
 
 
@@ -257,7 +328,7 @@ def _extract_tool_with_topics(topic_options: List[str]) -> Dict[str, Any]:
     return tool
 
 
-def _run_two_pass(
+def _run_pipeline(
     client: anthropic.Anthropic,
     source_blocks: List[Dict[str, Any]],
     *,
@@ -267,11 +338,21 @@ def _run_two_pass(
     topic_options: Optional[List[str]],
 ) -> Dict[str, Any]:
     """
-    Shared extract → fact-check pipeline. `source_blocks` is the content
-    list that represents the event source — an image block for
-    screenshots, a text block for pasted text. `source_word` is the noun
-    Claude sees in the user-facing text ("image", "pasted event text")
-    so the instructions read naturally either way.
+    Full extract → fact-check → revise pipeline.
+
+    Pass 1 (`record_event`): extract event fields from the source.
+    Pass 2 (`report_concerns`): independently review the extract against
+        the source and flag any inaccuracies/ambiguities/missing info.
+    Pass 3 (`record_event`, conditional): if pass 2 found concerns,
+        re-run the extractor with the concerns attached so it can
+        correct the record. Skipped entirely when the first extract
+        looks clean, so clean inputs stay at the old 2-call cost.
+
+    `source_blocks` is the content list that represents the event
+    source — an image block for screenshots, a text block for pasted
+    text. `source_word` is the noun Claude sees in the user-facing
+    prompts ("image", "pasted event text") so the instructions read
+    naturally either way.
     """
     instructions = (user_instructions or "").strip()
 
@@ -353,17 +434,73 @@ def _run_two_pass(
     factcheck = _tool_call_input(factcheck_resp, "report_concerns")
     concerns: List[str] = [str(c).strip() for c in factcheck.get("concerns", []) if str(c).strip()]
 
+    # ---- Pass 3: revise (only if pass 2 flagged anything) ---------------
+    # When the fact-checker returns concerns, we feed them back to the
+    # extractor along with the original source so it can produce a
+    # corrected record. We preserve the original concerns list so the
+    # UI can still surface what was flagged (now "what was addressed").
+    if concerns:
+        revise_user_parts: List[str] = [
+            "A prior extraction of this event produced the following "
+            "record:\n\n```json\n"
+            + json.dumps(extracted, indent=2)
+            + "\n```",
+            "An independent fact-checker flagged these concerns about "
+            "the extraction:\n"
+            + "\n".join(f"  - {c}" for c in concerns),
+            (
+                "Please look at the original "
+                f"{source_word} again and call the record_event tool "
+                "with a corrected record that addresses those concerns. "
+                "Keep the fields that weren't flagged unchanged."
+            ),
+        ]
+        if instructions:
+            revise_user_parts.append(
+                "Uploader's original instructions (still in effect):\n"
+                + instructions
+            )
+        revise_user_text = "\n\n---\n".join(revise_user_parts)
+
+        revise_resp = client.messages.create(
+            model=_MODEL,
+            max_tokens=1024,
+            system=_revise_system_prompt(upload_date),
+            tools=[extract_tool],
+            tool_choice={"type": "tool", "name": "record_event"},
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        *source_blocks,
+                        {
+                            "type": "text",
+                            "text": revise_user_text,
+                        },
+                    ],
+                }
+            ],
+        )
+        revised = _tool_call_input(revise_resp, "record_event")
+        # Replace in place so the merge step below sees the corrected
+        # record. `concerns` stays unchanged so the UI still shows what
+        # was flagged (labeled as addressed).
+        extracted = revised
+
     return {
-        "title":       str(extracted.get("title") or "").strip(),
-        "description": str(extracted.get("description") or "").strip(),
-        "start_date":  (str(extracted.get("start_date") or "").strip() or None),
-        "start_time":  (str(extracted.get("start_time") or "").strip() or None),
-        "end_date":    (str(extracted.get("end_date") or "").strip() or None),
-        "end_time":    (str(extracted.get("end_time") or "").strip() or None),
-        "location":    str(extracted.get("location") or "").strip(),
-        "topic_name":  (str(extracted.get("topic_name") or "").strip() or None),
-        "concerns":    concerns,
-        "raw_extract": extracted,
+        "title":                str(extracted.get("title") or "").strip(),
+        "description":          str(extracted.get("description") or "").strip(),
+        "start_date":           (str(extracted.get("start_date") or "").strip() or None),
+        "start_time":           (str(extracted.get("start_time") or "").strip() or None),
+        "end_date":             (str(extracted.get("end_date") or "").strip() or None),
+        "end_time":             (str(extracted.get("end_time") or "").strip() or None),
+        "location":             str(extracted.get("location") or "").strip(),
+        "details_url":          str(extracted.get("details_url") or "").strip(),
+        "hosted_by":            str(extracted.get("hosted_by") or "").strip(),
+        "special_instructions": str(extracted.get("special_instructions") or "").strip(),
+        "topic_name":           (str(extracted.get("topic_name") or "").strip() or None),
+        "concerns":             concerns,
+        "raw_extract":          extracted,
     }
 
 
@@ -388,7 +525,7 @@ def extract_and_factcheck(
     flags deviations.
     """
     client = anthropic.Anthropic(api_key=api_key)
-    return _run_two_pass(
+    return _run_pipeline(
         client,
         [_image_block(image_bytes, mime_type)],
         source_word="image",
@@ -431,7 +568,7 @@ def extract_and_factcheck_text(
     }
 
     client = anthropic.Anthropic(api_key=api_key)
-    return _run_two_pass(
+    return _run_pipeline(
         client,
         [source_block],
         source_word="pasted event text",
