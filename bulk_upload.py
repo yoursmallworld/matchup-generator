@@ -236,13 +236,33 @@ def extract_and_factcheck(
     mime_type: str = "image/png",
     upload_date: Optional[date] = None,
     api_key: str,
+    user_instructions: str = "",
 ) -> Dict[str, Any]:
     """
     Run extract → fact-check. See module docstring for the return shape.
     Raises on API failure so the caller can surface a clean error per row.
+
+    `user_instructions` is free-text guidance from the uploader (e.g.
+    "Focus on the May 1 reception but mention the broader exhibit in the
+    description.") It's injected into both the extract and fact-check
+    passes so Claude follows the uploader's intent and the fact-checker
+    flags deviations.
     """
     client = anthropic.Anthropic(api_key=api_key)
     upload_date = upload_date or date.today()
+    instructions = (user_instructions or "").strip()
+
+    extract_user_text = (
+        "Extract the event details from this image by "
+        "calling the record_event tool."
+    )
+    if instructions:
+        extract_user_text += (
+            "\n\n---\nAdditional instructions from the uploader "
+            "(follow these carefully — they describe which event to focus "
+            "on, what to emphasize in the description, etc.):\n"
+            + instructions
+        )
 
     # ---- Pass 1: extract -------------------------------------------------
     extract_resp = client.messages.create(
@@ -258,16 +278,28 @@ def extract_and_factcheck(
                     _image_block(image_bytes, mime_type),
                     {
                         "type": "text",
-                        "text": (
-                            "Extract the event details from this image by "
-                            "calling the record_event tool."
-                        ),
+                        "text": extract_user_text,
                     },
                 ],
             }
         ],
     )
     extracted = _tool_call_input(extract_resp, "record_event")
+
+    factcheck_user_text = (
+        "Here is the extracted event record. Compare it "
+        "against the image and report any concerns.\n\n"
+        "```json\n"
+        + json.dumps(extracted, indent=2)
+        + "\n```"
+    )
+    if instructions:
+        factcheck_user_text += (
+            "\n\n---\nThe uploader also provided these instructions for "
+            "the extractor. Flag as a concern if the extraction does not "
+            "appear to have followed them:\n"
+            + instructions
+        )
 
     # ---- Pass 2: fact-check (independent read of the image) --------------
     factcheck_resp = client.messages.create(
@@ -283,13 +315,7 @@ def extract_and_factcheck(
                     _image_block(image_bytes, mime_type),
                     {
                         "type": "text",
-                        "text": (
-                            "Here is the extracted event record. Compare it "
-                            "against the image and report any concerns.\n\n"
-                            "```json\n"
-                            + json.dumps(extracted, indent=2)
-                            + "\n```"
-                        ),
+                        "text": factcheck_user_text,
                     },
                 ],
             }

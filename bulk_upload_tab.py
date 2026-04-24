@@ -114,8 +114,17 @@ def _ensure_placeholder_thumb(session: SmallworldSession) -> str:
 # ---- Extraction ----------------------------------------------------------
 
 
-def _run_extraction(files: List[Any], api_key: str) -> List[Dict[str, Any]]:
-    """Extract every uploaded file. Streams progress into the UI."""
+def _run_extraction(
+    files: List[Any],
+    api_key: str,
+    instructions: Dict[str, str],
+) -> List[Dict[str, Any]]:
+    """
+    Extract every uploaded file. Streams progress into the UI.
+
+    `instructions` maps filename → free-text guidance that gets passed
+    through to Claude on both the extract and fact-check passes.
+    """
     out: List[Dict[str, Any]] = []
     progress = st.progress(0.0, text=f"Extracting 0 / {len(files)}…")
     today = date.today()
@@ -123,12 +132,14 @@ def _run_extraction(files: List[Any], api_key: str) -> List[Dict[str, Any]]:
     for i, f in enumerate(files):
         data = f.getvalue()
         mime = f.type or "image/png"
+        extra = (instructions.get(f.name) or "").strip()
         try:
             info = bulk_upload.extract_and_factcheck(
                 data,
                 mime_type=mime,
                 upload_date=today,
                 api_key=api_key,
+                user_instructions=extra,
             )
             info["_error"] = None
         except Exception as e:  # noqa: BLE001
@@ -150,6 +161,7 @@ def _run_extraction(files: List[Any], api_key: str) -> List[Dict[str, Any]]:
         info["_bytes"] = data
         info["_include"] = info["_error"] is None
         info["_topic_id"] = None
+        info["_user_instructions"] = extra
 
         out.append(info)
         progress.progress((i + 1) / len(files), text=f"Extracting {i + 1} / {len(files)}…")
@@ -173,6 +185,12 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
         if info.get("_error"):
             st.error(f"Extraction failed: {info['_error']}")
             return
+
+        # Echo the instructions the uploader gave Claude for this image
+        # (if any) so it's easy to see at a glance what the LLM was told
+        # to focus on.
+        if info.get("_user_instructions"):
+            st.caption(f"📝 Your instructions: _{info['_user_instructions']}_")
 
         # Concerns banner at the top so the reviewer sees them first.
         for c in info.get("concerns") or []:
@@ -386,6 +404,35 @@ def render() -> None:
             accept_multiple_files=True,
             key="bu_uploader",
         )
+
+        # Per-image instructions. Filename-keyed text boxes so the uploader
+        # can tell Claude what to focus on for each specific screenshot
+        # (e.g. "Focus on the May 1 reception but mention the broader
+        # exhibition in the description.") Both the extract pass and the
+        # fact-check pass see the note, so the fact-checker flags when the
+        # extractor didn't follow it.
+        instructions: Dict[str, str] = {}
+        if files:
+            with st.expander(
+                f"Optional instructions per image ({len(files)} file(s))",
+                expanded=True,
+            ):
+                st.caption(
+                    "Tell Claude what to focus on for each image. Skip any "
+                    "where the default extraction is fine."
+                )
+                for f in files:
+                    instructions[f.name] = st.text_area(
+                        label=f.name,
+                        key=f"bu_instr_{f.name}",
+                        placeholder=(
+                            "e.g. \"Focus on the May 1 reception 5–7pm, "
+                            "but mention the broader exhibition in the "
+                            "description.\""
+                        ),
+                        height=68,
+                    )
+
         col_a, col_b = st.columns([1, 1])
         with col_a:
             if st.button(
@@ -394,7 +441,9 @@ def render() -> None:
                 type="primary",
                 use_container_width=True,
             ):
-                st.session_state[SS_EXTRACTED] = _run_extraction(files or [], api_key)
+                st.session_state[SS_EXTRACTED] = _run_extraction(
+                    files or [], api_key, instructions
+                )
                 st.session_state[SS_PUSH_LOG] = []
         with col_b:
             if st.button(
