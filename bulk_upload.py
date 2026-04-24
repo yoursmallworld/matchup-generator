@@ -33,6 +33,7 @@ current pricing). Light enough that we don't bother rate-limiting here.
 from __future__ import annotations
 
 import base64
+import copy
 import json
 from datetime import date
 from typing import Any, Dict, List, Optional
@@ -230,6 +231,32 @@ def _tool_call_input(response: anthropic.types.Message, tool_name: str) -> Dict[
 # ---- Public API ----------------------------------------------------------
 
 
+def _extract_tool_with_topics(topic_options: List[str]) -> Dict[str, Any]:
+    """
+    Return a copy of _EXTRACT_TOOL with a `topic_name` enum field appended.
+
+    Using an enum (rather than a freeform string) guarantees Claude picks
+    a value from the list — the tool call won't validate otherwise. This
+    removes an entire class of "Claude returned a topic we can't resolve
+    to a topic_id" failures.
+    """
+    tool = copy.deepcopy(_EXTRACT_TOOL)
+    tool["input_schema"]["properties"]["topic_name"] = {
+        "type": "string",
+        "enum": list(topic_options),
+        "description": (
+            "The single best-matching topic for this event from the "
+            "provided list. Pick the option that most accurately "
+            "categorizes the event's primary purpose — e.g. an art "
+            "reception is Culture, a job fair is Community, a road race "
+            "is Sports. Choose the closest match even if none is a "
+            "perfect fit."
+        ),
+    }
+    tool["input_schema"]["required"].append("topic_name")
+    return tool
+
+
 def extract_and_factcheck(
     image_bytes: bytes,
     *,
@@ -237,6 +264,7 @@ def extract_and_factcheck(
     upload_date: Optional[date] = None,
     api_key: str,
     user_instructions: str = "",
+    topic_options: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
     """
     Run extract → fact-check. See module docstring for the return shape.
@@ -264,12 +292,18 @@ def extract_and_factcheck(
             + instructions
         )
 
+    # Build the extract tool, optionally with a topic_name enum so Claude
+    # auto-picks a topic from the caller-supplied list.
+    extract_tool = (
+        _extract_tool_with_topics(topic_options) if topic_options else _EXTRACT_TOOL
+    )
+
     # ---- Pass 1: extract -------------------------------------------------
     extract_resp = client.messages.create(
         model=_MODEL,
         max_tokens=1024,
         system=_extract_system_prompt(upload_date),
-        tools=[_EXTRACT_TOOL],
+        tools=[extract_tool],
         tool_choice={"type": "tool", "name": "record_event"},
         messages=[
             {
@@ -333,6 +367,7 @@ def extract_and_factcheck(
         "end_date":    (str(extracted.get("end_date") or "").strip() or None),
         "end_time":    (str(extracted.get("end_time") or "").strip() or None),
         "location":    str(extracted.get("location") or "").strip(),
+        "topic_name":  (str(extracted.get("topic_name") or "").strip() or None),
         "concerns":    concerns,
         "raw_extract": extracted,
     }

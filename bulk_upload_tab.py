@@ -118,16 +118,22 @@ def _run_extraction(
     files: List[Any],
     api_key: str,
     instructions: Dict[str, str],
+    topics: Dict[str, int],
 ) -> List[Dict[str, Any]]:
     """
     Extract every uploaded file. Streams progress into the UI.
 
     `instructions` maps filename → free-text guidance that gets passed
     through to Claude on both the extract and fact-check passes.
+
+    `topics` is the Smallworld topic name → id dict. When non-empty the
+    topic names are passed to Claude as an enum and the returned
+    `topic_name` is resolved to `_topic_id` to pre-select the dropdown.
     """
     out: List[Dict[str, Any]] = []
     progress = st.progress(0.0, text=f"Extracting 0 / {len(files)}…")
     today = date.today()
+    topic_names = sorted(topics.keys()) if topics else []
 
     for i, f in enumerate(files):
         data = f.getvalue()
@@ -140,6 +146,7 @@ def _run_extraction(
                 upload_date=today,
                 api_key=api_key,
                 user_instructions=extra,
+                topic_options=topic_names or None,
             )
             info["_error"] = None
         except Exception as e:  # noqa: BLE001
@@ -151,16 +158,22 @@ def _run_extraction(
                 "end_date": None,
                 "end_time": None,
                 "location": "",
+                "topic_name": None,
                 "concerns": [],
                 "_error": f"{type(e).__name__}: {e}",
             }
+
+        # Resolve Claude's topic pick to an ID. The enum constraint in the
+        # tool schema guarantees topic_name is one of ours when topics
+        # were provided, but guard anyway.
+        picked_name = info.get("topic_name")
+        info["_topic_id"] = topics.get(picked_name) if picked_name else None
 
         # UI-only fields
         info["_filename"] = f.name
         info["_mime"] = mime
         info["_bytes"] = data
         info["_include"] = info["_error"] is None
-        info["_topic_id"] = None
         info["_user_instructions"] = extra
 
         out.append(info)
@@ -441,8 +454,22 @@ def render() -> None:
                 type="primary",
                 use_container_width=True,
             ):
+                # Auto-load topics before extracting so Claude can pre-pick
+                # one per image. Only possible when the user is already
+                # signed in on the Push to Smallworld tab — otherwise we
+                # fall through with an empty topic list and the dropdown
+                # fills in after the user signs in + clicks Load topics.
+                sess_now = _sw_session()
+                topics_now = _sw_topics()
+                if sess_now is not None and not topics_now:
+                    try:
+                        topics_now = fetch_event_topics(sess_now)
+                        st.session_state[_SS_SW_TOPICS] = topics_now
+                    except SmallworldError:
+                        topics_now = {}
+
                 st.session_state[SS_EXTRACTED] = _run_extraction(
-                    files or [], api_key, instructions
+                    files or [], api_key, instructions, topics_now
                 )
                 st.session_state[SS_PUSH_LOG] = []
         with col_b:

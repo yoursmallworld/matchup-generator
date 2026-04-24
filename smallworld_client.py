@@ -278,7 +278,11 @@ def build_admin_event_payload(draft: EventDraft, *, publish: bool) -> Dict[str, 
         "specialInstructions": draft.special_instructions,
         "fileDescription": draft.file_description,
         "ticketsAvailable": draft.tickets_available,
-        "detailsUrl": draft.details_url,
+        # The Smallworld backend validates `detailsUrl` with a URL regex
+        # and rejects empty string with 400 "detailsUrl must be a URL
+        # address". Normalize empty → null so bulk-uploaded events (which
+        # don't have a details URL) are accepted.
+        "detailsUrl": draft.details_url or None,
         "fileUploadedPaths": draft.file_uploaded_paths,
         "hostedBy": draft.hosted_by,
     }
