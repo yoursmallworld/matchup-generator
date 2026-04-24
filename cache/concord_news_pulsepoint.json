@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-24T02:42:22+00:00",
+  "fetched_at": "2026-04-24T05:37:02+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "2c57f7bda1df0d56",
+      "title": "Outside Fire: SUNVALLEY CENTER, CONCORD",
+      "summary": "Units: E109 \u00b7 Cleared 2026-04-24T03:57:13+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2460362311",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-24T03:45:45+00:00",
+      "fetched_at": "2026-04-24T05:37:02+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "SUNVALLEY CENTER, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2460362311"
+    },
     {
       "id": "a0ebbe33d55aeb2d",
       "title": "Hazardous Condition: 1684 MANOR LN, CONCORD",
