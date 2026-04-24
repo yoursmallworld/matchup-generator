@@ -272,27 +272,41 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
                 key=f"bu_loc_{idx}",
             )
 
-            # Topic picker — per row, as requested.
-            if topics:
-                topic_names = sorted(topics.keys())
-                prev_topic_name = next(
-                    (n for n, tid in topics.items() if tid == info.get("_topic_id")),
-                    None,
-                )
-                default_idx = (
-                    topic_names.index(prev_topic_name)
-                    if prev_topic_name in topic_names
-                    else 0
-                )
-                chosen = st.selectbox(
-                    "Topic",
-                    options=topic_names,
-                    index=default_idx,
-                    key=f"bu_topic_{idx}",
-                )
-                info["_topic_id"] = topics[chosen]
-            else:
-                st.info("Click **Load topics** above to populate the topic dropdown.")
+            # Topic picker — per row. Topics are guaranteed to be loaded by
+            # the time render() calls this function (auto-loaded at the top
+            # of render()), so no empty-list branch needed.
+            topic_names = sorted(topics.keys())
+            prev_topic_name = next(
+                (n for n, tid in topics.items() if tid == info.get("_topic_id")),
+                None,
+            )
+            default_idx = (
+                topic_names.index(prev_topic_name)
+                if prev_topic_name in topic_names
+                else 0
+            )
+            chosen = st.selectbox(
+                "Topic (auto-picked by Claude — override if needed)",
+                options=topic_names,
+                index=default_idx,
+                key=f"bu_topic_{idx}",
+            )
+            info["_topic_id"] = topics[chosen]
+
+            # Per-row thumbnail uploader. If the user uploads one it's
+            # pushed to S3 at push time and used as the event thumbnail.
+            # Otherwise the yellow placeholder is used. Keeping this
+            # optional so drafts with "fix the thumbnail later" are easy.
+            info["_custom_thumb"] = st.file_uploader(
+                "Thumbnail (optional — uses placeholder if empty)",
+                type=["png", "jpg", "jpeg", "webp"],
+                key=f"bu_thumb_{idx}",
+            )
+            if info["_custom_thumb"] is not None:
+                try:
+                    st.image(info["_custom_thumb"], width=140)
+                except Exception:  # noqa: BLE001
+                    pass
 
             info["_include"] = st.checkbox(
                 "Include in push",
@@ -307,19 +321,25 @@ def _render_row(idx: int, info: Dict[str, Any], topics: Dict[str, int]) -> None:
 def _do_push(
     session: SmallworldSession,
     rows: List[Dict[str, Any]],
+    *,
+    publish: bool,
 ) -> List[Dict[str, Any]]:
     """
-    Bulk-uploaded events always go in as DRAFTS — no exceptions.
+    Push the included rows to Smallworld.
 
-    These rows are LLM-extracted and need a human QA pass in the Smallworld
-    CMS (pick a real thumbnail, sanity-check copy, etc.) before they go
-    public. Hard-coding publish=False here rather than exposing a toggle
-    removes the "oh I forgot to check the draft box" failure mode.
+    Each row may bring its own thumbnail via info["_custom_thumb"] (a
+    Streamlit UploadedFile). If present, we upload it to S3 and use the
+    returned key. Otherwise we fall back to the yellow placeholder,
+    uploaded once per environment.
+
+    `publish=True` creates the event live; `publish=False` creates it as
+    a draft so a human can QA in the main Smallworld CMS before going
+    public. The toggle is UI-driven — callers always pass explicitly.
     """
     log: List[Dict[str, Any]] = []
 
     try:
-        thumb_key = _ensure_placeholder_thumb(session)
+        placeholder_key = _ensure_placeholder_thumb(session)
     except Exception as e:  # noqa: BLE001
         st.error(f"Placeholder thumbnail upload failed: {e}")
         return log
@@ -346,6 +366,26 @@ def _do_push(
             if not topic_id:
                 raise ValueError("Topic is required.")
 
+            # Resolve thumbnail: uploaded-by-user if present, else the
+            # per-env placeholder. Upload failures fall back to the
+            # placeholder rather than blocking the whole row.
+            custom = info.get("_custom_thumb")
+            if custom is not None:
+                try:
+                    thumb_key = upload_image(
+                        session,
+                        custom.getvalue(),
+                        mime_type=(getattr(custom, "type", None) or "image/png"),
+                    )
+                except Exception as e:  # noqa: BLE001
+                    st.warning(
+                        f"Row {i + 1}: custom thumbnail upload failed "
+                        f"({type(e).__name__}), using placeholder."
+                    )
+                    thumb_key = placeholder_key
+            else:
+                thumb_key = placeholder_key
+
             draft = EventDraft(
                 title=(info.get("title") or "").strip() or "(untitled event)",
                 description=(info.get("description") or "").strip(),
@@ -355,9 +395,7 @@ def _do_push(
                 location=(info.get("location") or "").strip(),
                 thumbnail_path=thumb_key,
             )
-            # publish=False → event is created with status="DRAFT". A human
-            # has to open it in the Smallworld CMS and hit Publish.
-            resp = create_event(session, draft, publish=False)
+            resp = create_event(session, draft, publish=publish)
 
             data = resp.get("data") if isinstance(resp, dict) else None
             event_id = None
@@ -391,11 +429,10 @@ def render() -> None:
     st.subheader("Bulk Upload from Screenshots")
     st.caption(
         "Drop event screenshots (Instagram, flyers, etc.). Claude extracts "
-        "title, description, date/time, and location, then fact-checks "
-        "itself. Review + edit below, then push to Smallworld. All bulk-"
-        "uploaded events land as **drafts** — a human has to hit Publish "
-        "in the main CMS after swapping in a real thumbnail. The "
-        "destination environment (STG vs PROD) follows whichever env you "
+        "title, description, date/time, location, and the best-matching "
+        "topic, then fact-checks itself. Review + edit below, optionally "
+        "upload a real thumbnail per row, then push as drafts or publish "
+        "directly. Destination (STG vs PROD) follows whichever env you "
         "signed into on the Push to Smallworld tab."
     )
 
@@ -408,6 +445,50 @@ def render() -> None:
             "(or `.streamlit/secrets.toml` locally) to use this tab."
         )
         return
+
+    # ---- Sign-in gate (hoisted) -----------------------------------------
+    # We require a Smallworld session *before* extracting because Claude
+    # needs the topic list to pre-pick a topic per image. The topic list
+    # also has to come from the same environment you'll be pushing to.
+    session = _sw_session()
+    if session is None:
+        st.warning(
+            "Sign in via the **Push to Smallworld** tab first — this tab "
+            "reuses that session. Whichever environment (STG or PROD) you "
+            "sign in to over there is where these events will land."
+        )
+        return
+
+    # Env banner — big and color-coded so you can't miss it. PROD gets red,
+    # STG gets blue. The destination env is whatever the `sw_session` was
+    # created under, i.e. whatever you picked on the Push to Smallworld tab.
+    env_label = session.env.upper()
+    if session.env == "prod":
+        st.error(
+            f"⚠️ Destination: **PROD** — live Smallworld. "
+            f"Signed in as {session.email}."
+        )
+    else:
+        st.info(
+            f"🧪 Destination: **{env_label}** — staging environment. "
+            f"Signed in as {session.email}. To push to PROD instead, sign "
+            f"out and sign back in on the Push to Smallworld tab with the "
+            f"PROD environment selected."
+        )
+
+    # Auto-load topics on first visit (no manual "Load topics" button —
+    # Claude needs the list at extraction time to pre-pick one per image).
+    topics = _sw_topics()
+    if not topics:
+        try:
+            topics = fetch_event_topics(session)
+            st.session_state[_SS_SW_TOPICS] = topics
+        except SmallworldError as e:
+            st.error(
+                f"Couldn't load topics from {env_label}: "
+                f"{e} :: {(e.body or '')[:200]}"
+            )
+            return
 
     # ---- Upload + extract -----------------------------------------------
     with st.container(border=True):
@@ -454,22 +535,8 @@ def render() -> None:
                 type="primary",
                 use_container_width=True,
             ):
-                # Auto-load topics before extracting so Claude can pre-pick
-                # one per image. Only possible when the user is already
-                # signed in on the Push to Smallworld tab — otherwise we
-                # fall through with an empty topic list and the dropdown
-                # fills in after the user signs in + clicks Load topics.
-                sess_now = _sw_session()
-                topics_now = _sw_topics()
-                if sess_now is not None and not topics_now:
-                    try:
-                        topics_now = fetch_event_topics(sess_now)
-                        st.session_state[_SS_SW_TOPICS] = topics_now
-                    except SmallworldError:
-                        topics_now = {}
-
                 st.session_state[SS_EXTRACTED] = _run_extraction(
-                    files or [], api_key, instructions, topics_now
+                    files or [], api_key, instructions, topics
                 )
                 st.session_state[SS_PUSH_LOG] = []
         with col_b:
@@ -487,52 +554,6 @@ def render() -> None:
         st.info("Upload one or more screenshots, then click **Extract events**.")
         return
 
-    # ---- Auth + topic gate ----------------------------------------------
-    session = _sw_session()
-    if session is None:
-        st.warning(
-            "Sign in via the **Push to Smallworld** tab first — this tab "
-            "reuses that session. Whichever environment (STG or PROD) you "
-            "sign in to over there is where these events will land."
-        )
-        return
-
-    # Env banner — big and color-coded so you can't miss it. PROD gets red,
-    # STG gets blue. The destination env is whatever the `sw_session` was
-    # created under, i.e. whatever you picked on the Push to Smallworld tab.
-    env_label = session.env.upper()
-    if session.env == "prod":
-        st.error(
-            f"⚠️ Destination: **PROD** — live Smallworld. "
-            f"Events will land as **DRAFTS** and will not be visible to users "
-            f"until someone clicks Publish in the Smallworld CMS. "
-            f"Signed in as {session.email}."
-        )
-    else:
-        st.info(
-            f"🧪 Destination: **{env_label}** — staging environment. "
-            f"Events will land as **DRAFTS**. "
-            f"Signed in as {session.email}. To push to PROD instead, sign "
-            f"out and sign back in on the Push to Smallworld tab with the "
-            f"PROD environment selected."
-        )
-
-    topics = _sw_topics()
-    col_t1, col_t2 = st.columns([3, 1])
-    with col_t1:
-        st.caption(
-            f"Topics loaded: **{len(topics)}**"
-            if topics
-            else "Topics not loaded yet — click **Load topics** to populate the topic dropdown in each row."
-        )
-    with col_t2:
-        if st.button("Load topics", use_container_width=True, key="bu_load_topics"):
-            try:
-                topics = fetch_event_topics(session)
-                st.session_state[_SS_SW_TOPICS] = topics
-            except SmallworldError as e:
-                st.error(f"{e}: {(e.body or '')[:200]}")
-
     # ---- Per-row review -------------------------------------------------
     st.divider()
     st.markdown(f"**Review {len(extracted)} extracted event(s)**")
@@ -543,15 +564,57 @@ def render() -> None:
     st.divider()
     included = [r for r in extracted if r.get("_include") and not r.get("_error")]
     missing_topic = [r for r in included if not r.get("_topic_id")]
+    missing_thumb = [r for r in included if r.get("_custom_thumb") is None]
+
+    # Draft vs publish toggle. Defaults to draft (safer) but lets you
+    # bypass the main CMS entirely for events you're confident about.
+    col_opt1, col_opt2 = st.columns([1, 2])
+    with col_opt1:
+        publish = st.checkbox(
+            "Publish immediately",
+            value=False,
+            key="bu_publish",
+            help=(
+                "Off = create as drafts (you'd hit Publish in the main "
+                "Smallworld CMS later). On = go live right now — no "
+                "human review step."
+            ),
+        )
+    with col_opt2:
+        if publish:
+            st.warning(
+                "Events will **publish live** to "
+                f"**{env_label}**. Double-check titles, times, topics, "
+                "and thumbnails before pushing."
+            )
+        else:
+            st.caption(
+                f"Events will land as **drafts** in {env_label}. "
+                "Someone has to open each one in the Smallworld CMS and "
+                "click Publish."
+            )
+
     col_p1, col_p2 = st.columns([2, 1])
     with col_p1:
-        st.caption(
-            f"{len(included)} of {len(extracted)} row(s) included. "
-            + (f"⚠️ {len(missing_topic)} missing a topic." if missing_topic else "")
-        )
+        parts: List[str] = [
+            f"{len(included)} of {len(extracted)} row(s) included."
+        ]
+        if missing_topic:
+            parts.append(f"⚠️ {len(missing_topic)} missing a topic.")
+        if publish and missing_thumb:
+            parts.append(
+                f"⚠️ {len(missing_thumb)} missing a custom thumbnail — "
+                f"will use the yellow placeholder."
+            )
+        st.caption(" ".join(parts))
     with col_p2:
+        button_label = (
+            f"Publish to {env_label}"
+            if publish
+            else f"Push as drafts to {env_label}"
+        )
         do_push = st.button(
-            f"Push as drafts to {env_label}",
+            button_label,
             disabled=(not included) or bool(missing_topic),
             type="primary",
             use_container_width=True,
@@ -559,7 +622,7 @@ def render() -> None:
         )
 
     if do_push:
-        st.session_state[SS_PUSH_LOG] = _do_push(session, included)
+        st.session_state[SS_PUSH_LOG] = _do_push(session, included, publish=publish)
 
     push_log: List[Dict[str, Any]] = st.session_state.get(SS_PUSH_LOG) or []
     if push_log:
