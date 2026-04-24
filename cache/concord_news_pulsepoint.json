@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-24T21:49:41+00:00",
+  "fetched_at": "2026-04-24T22:40:04+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "971ca2acdd5523d0",
+      "title": "Hazardous Condition: 1687 WESTWOOD DR, CONCORD",
+      "summary": "Units: E108, PGE \u00b7 Cleared 2026-04-24T22:15:45+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2460834453",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-24T21:55:56+00:00",
+      "fetched_at": "2026-04-24T22:40:04+00:00",
+      "raw_pub": null,
+      "call_type": "HC",
+      "address": "1687 WESTWOOD DR, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2460834453"
+    },
     {
       "id": "d6250218052de6bc",
       "title": "Gas Leak: 3511 HALFMOON LN, CONCORD",
