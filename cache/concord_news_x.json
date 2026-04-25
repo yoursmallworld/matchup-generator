@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-25T02:31:01+00:00",
+  "fetched_at": "2026-04-25T05:13:01+00:00",
   "sources": {
     "contra_costa_fire_x": {
       "name": "Con Fire PIO (X)",
@@ -16,11 +16,22 @@
     "chp_alerts_x": {
       "name": "CHP Alerts (X)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "9ef7c54e120d96d7",
+      "title": "SILVER ALERT - Contra Costa County\nLast seen: Manzanita Way and Sycamore Drive, Richmond\n\n@CityofRichmond\n\n\nIF SEEN, CALL 9-1-1",
+      "summary": "SILVER ALERT - Contra Costa County\nLast seen: Manzanita Way and Sycamore Drive, Richmond\n\n@CityofRichmond\n\n\nIF SEEN, CALL 9-1-1",
+      "url": "https://x.com/CHPAlerts/status/2047905947998417133",
+      "source_key": "chp_alerts_x",
+      "source_name": "CHP Alerts (X)",
+      "published_at": "2026-04-25T05:10:00.000Z",
+      "fetched_at": "2026-04-25T05:13:01+00:00",
+      "raw_pub": null
+    },
     {
       "id": "9d4824248ea12dc3",
       "title": "EBONY ALERT - Contra Costa County\nLast seen: Diamond Bar Blvd.",
