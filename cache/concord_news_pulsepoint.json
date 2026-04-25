@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-25T17:38:31+00:00",
+  "fetched_at": "2026-04-25T18:55:11+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 2,
+      "count": 3,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "811a897785ba971e",
+      "title": "Outside Fire: 2727 PARKSIDE CIR, CONCORD",
+      "summary": "Units: E106, E109, T106 \u00b7 Cleared 2026-04-25T17:50:11+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2461334608",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-25T17:42:47+00:00",
+      "fetched_at": "2026-04-25T18:55:11+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "2727 PARKSIDE CIR, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2461334608"
+    },
     {
       "id": "97ddbd747dc52523",
       "title": "Hazardous Condition: 1400 WHITMAN RD, CONCORD",
