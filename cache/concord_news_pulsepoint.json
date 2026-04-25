@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-25T19:44:56+00:00",
+  "fetched_at": "2026-04-25T20:40:21+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
@@ -11,8 +11,8 @@
   "findings": [
     {
       "id": "052742fc34f7fe53",
-      "title": "[ACTIVE] Gas Leak: 1721 6TH ST, CONCORD",
-      "summary": "Units: E106, PGE, T106",
+      "title": "Gas Leak: 1721 6TH ST, CONCORD",
+      "summary": "Units: BC2, E106, PGE, T106 \u00b7 Cleared 2026-04-25T20:14:10+00:00",
       "url": "https://web.pulsepoint.org/?agencies=07090&incident=2461399162",
       "source_key": "pulsepoint_confire",
       "source_name": "ConFire Dispatch (PulsePoint)",
@@ -21,7 +21,7 @@
       "raw_pub": null,
       "call_type": "GAS",
       "address": "1721 6TH ST, CONCORD, CA",
-      "status": "active",
+      "status": "recent",
       "incident_id": "2461399162"
     },
     {
