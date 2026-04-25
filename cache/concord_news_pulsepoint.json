@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-25T15:40:36+00:00",
+  "fetched_at": "2026-04-25T16:42:36+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "6fdcb3c408299c41",
+      "title": "[ACTIVE] Electrical Fire: 1266 STEPHANIE CT, CONCORD",
+      "summary": "Units: E122",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2461299882",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-25T16:37:43+00:00",
+      "fetched_at": "2026-04-25T16:42:36+00:00",
+      "raw_pub": null,
+      "call_type": "ELF",
+      "address": "1266 STEPHANIE CT, CONCORD, CA",
+      "status": "active",
+      "incident_id": "2461299882"
+    },
     {
       "id": "971ca2acdd5523d0",
       "title": "Hazardous Condition: 1687 WESTWOOD DR, CONCORD",
