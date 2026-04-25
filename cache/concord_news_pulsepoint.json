@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-25T18:55:11+00:00",
+  "fetched_at": "2026-04-25T19:44:56+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 3,
+      "count": 4,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "052742fc34f7fe53",
+      "title": "[ACTIVE] Gas Leak: 1721 6TH ST, CONCORD",
+      "summary": "Units: E106, PGE, T106",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2461399162",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-25T19:40:55+00:00",
+      "fetched_at": "2026-04-25T19:44:56+00:00",
+      "raw_pub": null,
+      "call_type": "GAS",
+      "address": "1721 6TH ST, CONCORD, CA",
+      "status": "active",
+      "incident_id": "2461399162"
+    },
     {
       "id": "811a897785ba971e",
       "title": "Outside Fire: 2727 PARKSIDE CIR, CONCORD",
