@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-25T21:38:11+00:00",
+  "fetched_at": "2026-04-25T22:38:48+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 4,
+      "count": 5,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "f3db3233470fe729",
+      "title": "Electrical Fire: 1631 APPLE DR, CONCORD",
+      "summary": "Units: E110 \u00b7 Cleared 2026-04-25T21:57:08+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2461464696",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-25T21:38:50+00:00",
+      "fetched_at": "2026-04-25T22:38:48+00:00",
+      "raw_pub": null,
+      "call_type": "ELF",
+      "address": "1631 APPLE DR, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2461464696"
+    },
     {
       "id": "052742fc34f7fe53",
       "title": "Gas Leak: 1721 6TH ST, CONCORD",
