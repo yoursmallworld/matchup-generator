@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-25T14:42:30+00:00",
+  "fetched_at": "2026-04-25T15:40:12+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 11,
+      "count": 13,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T20:35:49+00:00",
-      "fetched_at": "2026-04-25T14:42:33+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-25T14:42:33+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
     },
     {
@@ -75,7 +75,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-23T22:12:06+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Thu, 23 Apr 2026 22:12:06 +0000"
     },
     {
@@ -86,7 +86,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-23T20:56:10+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Thu, 23 Apr 2026 20:56:10 GMT"
     },
     {
@@ -97,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-22T23:34:01+00:00",
-      "fetched_at": "2026-04-25T14:42:33+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Wed, 22 Apr 2026 19:34:01 -0400"
     },
     {
@@ -108,7 +108,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-22T17:00:55+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Wed, 22 Apr 2026 17:00:55 +0000"
     },
     {
@@ -119,7 +119,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-22T15:00:16+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Wed, 22 Apr 2026 15:00:16 +0000"
     },
     {
@@ -130,7 +130,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-25T14:42:33+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -141,7 +141,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-25T14:42:33+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
     },
     {
@@ -152,7 +152,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T21:54:10+00:00",
-      "fetched_at": "2026-04-25T14:42:33+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:54:10 -0400"
     },
     {
@@ -163,7 +163,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T15:06:05+00:00",
-      "fetched_at": "2026-04-25T14:42:33+00:00",
+      "fetched_at": "2026-04-25T15:40:16+00:00",
       "raw_pub": "Mon, 20 Apr 2026 11:06:05 -0400"
     },
     {
@@ -174,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
@@ -185,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-15T16:01:30+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Wed, 15 Apr 2026 16:01:30 GMT"
     },
     {
@@ -196,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
@@ -207,8 +207,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
+    },
+    {
+      "id": "43a17322037b13a1",
+      "title": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) - East Bay Times",
+      "summary": "Karen Marie Vigil Obituary - Concord, CA (1950-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1LakJBU3poSmlRS3VFSnJGOGttX29BdEFTVTdsQnc1RlJiRnU5SGl2NnAzaWtzZHpXQktzOVM2SDdiU2pSaVluUHFrZjQ2R2ZuVXAtb3dKbDNGeDZWUE1waW5GenBhcksxQUdvRmF3QV9wTGxtZ19mSw?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-03-20T10:23:50+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
+      "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
       "id": "2eaddfdfe954d13b",
@@ -218,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -229,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-10T07:00:00+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
@@ -240,8 +251,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
+    },
+    {
+      "id": "c65a5092a9521e42",
+      "title": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) - East Bay Times",
+      "summary": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPM3VvaEtrRDZKUzd5RWUzYV9mcGZzUWxXRXBHNS1FVkphM2pMQVk5QUJfWjJBemFRTG0wTVRyWFhnWWJfWVBrYXR1MUxGWnJlLWN3UTRMRlZaV1ZxZkljSTItN2IwRUVTNHUzcEdPZzBVSHN0RVNOdW11Y1dOQzg4eVQ2Z1VTeVFNdHc?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-02-12T08:00:00+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
+      "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
     },
     {
       "id": "73eba198ac45baf6",
@@ -251,19 +273,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-03T20:14:09+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
-    },
-    {
-      "id": "4e6dcb7152ead3a2",
-      "title": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom - USPS",
-      "summary": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom USPS",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSGdNdC1waUdlQ1ZjQUZQM3k0el9pZkJwOHIyVkxieTlSZzFyUlVuN2dIUE1yY3dleUtyUGxGV1BVVHRZZ0ZBVW0yOTNrTXlkY0w0TW5KMFRTVXJkNjYtcGxGMXBaRzlJUWJWTXR5MTdiUXhuRWVDN1lzVzVPYlNUeDI2TEZoYlZLc3FGZjZlOXJHOTNCY2Zub2psX2luWlZjLS03M1lxWFhzUjNsYjdtZDhtNGpXZU9EV3NjT2JlcENVRWw1ZVAxN1lR?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
-      "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
       "id": "7556ec2cd4c871d1",
@@ -273,8 +284,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-25T14:42:34+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
+    },
+    {
+      "id": "f3cf368b4e87bf3a",
+      "title": "2262 Bonifacio St, Concord, CA 94520 - Realtor.com",
+      "summary": "2262 Bonifacio St, Concord, CA 94520 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc3cwbWxod2tnanA3SXBfdkFPYUVBY1diRkNvblpZZ3A5SUlZX0h6RWctaTliT0NFcU1tNEpZeV9wMGRYYl93V2VnWXh3Um9lLTRRbmctLVFhTFN6QWdIU2k5aFc1cVF3dDFiWEpNamplNkRlaVptR1NOLTZSTExzT2c1U1hoSExfYmFHTS1lZzA?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2025-11-07T01:05:16+00:00",
+      "fetched_at": "2026-04-25T15:40:17+00:00",
+      "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     }
   ]
 }
