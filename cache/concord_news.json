@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-25T20:39:58+00:00",
+  "fetched_at": "2026-04-25T21:37:46+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 11,
+      "count": 12,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T20:35:49+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
     },
     {
@@ -75,19 +75,8 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-23T22:12:06+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Thu, 23 Apr 2026 22:12:06 +0000"
-    },
-    {
-      "id": "f94d8ce793a42286",
-      "title": "SF Opera: Bohème Out of the Box (Concord) - Contra Costa News",
-      "summary": "SF Opera: Bohème Out of the Box (Concord) Contra Costa News",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9VMjR0dlUyc25oUzBlaXVNaXFQejlDOWtWWWZjMVFEZVJSTlF6SEJ1Tzh2UGpHQmFtUDdiTnRhaFpjRG0ydDN5d3Byb1BhM3hySHpULWhBQzVfZzk1SV9QcnpDeEtHZkVWaS1VRGpMbW5KcDd4UXUydGxB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-23T20:56:10+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
-      "raw_pub": "Thu, 23 Apr 2026 20:56:10 GMT"
     },
     {
       "id": "f9cd98568adcd4eb",
@@ -97,7 +86,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-22T23:34:01+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Wed, 22 Apr 2026 19:34:01 -0400"
     },
     {
@@ -108,7 +97,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-22T17:00:55+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Wed, 22 Apr 2026 17:00:55 +0000"
     },
     {
@@ -119,7 +108,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-22T15:00:16+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Wed, 22 Apr 2026 15:00:16 +0000"
     },
     {
@@ -130,7 +119,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -141,7 +130,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
     },
     {
@@ -152,7 +141,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-21T07:00:00+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Tue, 21 Apr 2026 07:00:00 GMT"
     },
     {
@@ -163,7 +152,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T21:54:10+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Mon, 20 Apr 2026 17:54:10 -0400"
     },
     {
@@ -174,7 +163,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-20T15:06:05+00:00",
-      "fetched_at": "2026-04-25T20:40:01+00:00",
+      "fetched_at": "2026-04-25T21:37:50+00:00",
       "raw_pub": "Mon, 20 Apr 2026 11:06:05 -0400"
     },
     {
@@ -185,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
@@ -196,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-15T16:01:30+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Wed, 15 Apr 2026 16:01:30 GMT"
     },
     {
@@ -207,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
@@ -218,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
     },
     {
@@ -229,8 +218,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
+    },
+    {
+      "id": "e6dcccb840b0b28c",
+      "title": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) - East Bay Times",
+      "summary": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9RNzFtdF9WWFdJUXN5TWpBLXFuMENVMDZIZW5zeTBJZlg0X3A1RTNVczVzZHNndnJGaHpDVWtOd0ZNNGozelEybUtlU0lNd2pUZ05Zek8xMzFSTVFWME16UFFDTkl2d2tEQlpZWWFxY2h2WWNRZ1RoYmhtZw?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-03-10T07:00:00+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
+      "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
       "id": "6bebb04784724dd4",
@@ -240,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
     },
     {
@@ -251,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-03T20:14:09+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
     },
     {
@@ -262,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -273,8 +273,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-25T20:40:02+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
+    },
+    {
+      "id": "f3cf368b4e87bf3a",
+      "title": "2262 Bonifacio St, Concord, CA 94520 - Realtor.com",
+      "summary": "2262 Bonifacio St, Concord, CA 94520 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc3cwbWxod2tnanA3SXBfdkFPYUVBY1diRkNvblpZZ3A5SUlZX0h6RWctaTliT0NFcU1tNEpZeV9wMGRYYl93V2VnWXh3Um9lLTRRbmctLVFhTFN6QWdIU2k5aFc1cVF3dDFiWEpNamplNkRlaVptR1NOLTZSTExzT2c1U1hoSExfYmFHTS1lZzA?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2025-11-07T01:05:16+00:00",
+      "fetched_at": "2026-04-25T21:37:51+00:00",
+      "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     }
   ]
 }
