@@ -1,14 +1,44 @@
 {
-  "fetched_at": "2026-04-25T23:39:31+00:00",
+  "fetched_at": "2026-04-26T02:47:44+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 5,
+      "count": 4,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "1748841503e1dc10",
+      "title": "Flooding: 1967 BONIFACIO ST, STE 7, CONCORD",
+      "summary": "Units: E106, T106 \u00b7 Cleared 2026-04-26T01:13:04+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2461575092",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-26T00:53:09+00:00",
+      "fetched_at": "2026-04-26T02:47:44+00:00",
+      "raw_pub": null,
+      "call_type": "FL",
+      "address": "1967 BONIFACIO ST, STE 7, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2461575092"
+    },
+    {
+      "id": "d8500eede1cdba29",
+      "title": "Outside Fire: 1160 MEADOW LN, CONCORD",
+      "summary": "Units: E110 \u00b7 Cleared 2026-04-26T00:48:43+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2461557661",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-26T00:22:35+00:00",
+      "fetched_at": "2026-04-26T02:47:44+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "1160 MEADOW LN, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2461557661"
+    },
     {
       "id": "f3db3233470fe729",
       "title": "Electrical Fire: 1631 APPLE DR, CONCORD",
