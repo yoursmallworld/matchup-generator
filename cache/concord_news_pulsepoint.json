@@ -1,14 +1,44 @@
 {
-  "fetched_at": "2026-04-27T19:24:34+00:00",
+  "fetched_at": "2026-04-27T21:03:41+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "e9f9bb52395e1fb9",
+      "title": "[ACTIVE] Outside Fire: SR 242 N, CONCORD",
+      "summary": "Units: E106, E109, T106",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2462730553",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-27T20:51:47+00:00",
+      "fetched_at": "2026-04-27T21:03:41+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "SR 242 N, CONCORD, CA",
+      "status": "active",
+      "incident_id": "2462730553"
+    },
+    {
+      "id": "4654b0052b4299f4",
+      "title": "Outside Fire: WILLOW PASS RD & DIAMOND BLVD, CONCORD",
+      "summary": "Units: E109 \u00b7 Cleared 2026-04-27T20:14:27+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2462697759",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-27T20:05:30+00:00",
+      "fetched_at": "2026-04-27T21:03:41+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "WILLOW PASS RD & DIAMOND BLVD, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2462697759"
+    },
     {
       "id": "2028c4dd07559dc2",
       "title": "Vehicle Fire: 2740 E OLIVERA RD, CONCORD",
