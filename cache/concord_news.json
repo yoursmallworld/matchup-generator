@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-27T17:23:35+00:00",
+  "fetched_at": "2026-04-27T19:23:55+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -33,14 +33,14 @@
     },
     "claycord": {
       "name": "Claycord",
-      "ok": true,
-      "count": 2,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "fetch failed (https://www.claycord.com/feed/)"
     },
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 16,
+      "count": 14,
       "error": null
     }
   },
@@ -53,30 +53,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-26T08:14:03+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Sun, 26 Apr 2026 08:14:03 GMT"
-    },
-    {
-      "id": "344d7f6415908071",
-      "title": "Round House On Concord Blvd. Torn Down, Developer To Build 40 Homes On Property",
-      "summary": "The round house (pictured above) on Concord Blvd. near Kirker Pass in Concord was recently torn down, and a developer will soon… The post Round House On Concord Blvd. Torn Down, Developer To Build 40 Homes On Property appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/25/round-house-on-concord-blvd-torn-down-developer-to-build-40-homes-on-property/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-25T22:15:34+00:00",
-      "fetched_at": "2026-04-27T17:23:39+00:00",
-      "raw_pub": "Sat, 25 Apr 2026 22:15:34 +0000"
-    },
-    {
-      "id": "3227ab096cb15f63",
-      "title": "Carondelet High School (Concord, CA) Softball - MaxPreps",
-      "summary": "Carondelet High School (Concord, CA) Softball MaxPreps",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1rQWtmN0tBeEYzaVE5dFBUbk5RVkNwMnl2ZlRURmIyQVYwSTM4ODZSWkJGV29FTDFuTzBFeWlyNHBpSF9MN0NXdVRMNlpSclNzOVNnNVg3YWJxSTZ4VE44MGlfNm5KN3B0SjRBN1pnYVdaUQ?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-25T05:39:08+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
-      "raw_pub": "Sat, 25 Apr 2026 05:39:08 GMT"
     },
     {
       "id": "cce5b20460255d6f",
@@ -86,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T20:35:49+00:00",
-      "fetched_at": "2026-04-27T17:23:39+00:00",
+      "fetched_at": "2026-04-27T19:23:59+00:00",
       "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
     },
     {
@@ -97,19 +75,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-27T17:23:39+00:00",
+      "fetched_at": "2026-04-27T19:23:59+00:00",
       "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
-    },
-    {
-      "id": "6c35246ef5954e92",
-      "title": "Kirker Pass In Concord Closed Due To Injury Collision",
-      "summary": "Kirker Pass is closed at Myrtle Dr. due to an injury collision on Kirker near Nortonville Rd. The post Kirker Pass In Concord Closed Due To Injury Collision appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/23/kirker-pass-closed-due-to-injury-collision/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-23T22:12:06+00:00",
-      "fetched_at": "2026-04-27T17:23:39+00:00",
-      "raw_pub": "Thu, 23 Apr 2026 22:12:06 +0000"
     },
     {
       "id": "f9cd98568adcd4eb",
@@ -119,7 +86,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-22T23:34:01+00:00",
-      "fetched_at": "2026-04-27T17:23:39+00:00",
+      "fetched_at": "2026-04-27T19:23:59+00:00",
       "raw_pub": "Wed, 22 Apr 2026 19:34:01 -0400"
     },
     {
@@ -130,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:29:45+00:00",
-      "fetched_at": "2026-04-27T17:23:39+00:00",
+      "fetched_at": "2026-04-27T19:23:59+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:29:45 -0400"
     },
     {
@@ -141,7 +108,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-21T15:07:34+00:00",
-      "fetched_at": "2026-04-27T17:23:39+00:00",
+      "fetched_at": "2026-04-27T19:23:59+00:00",
       "raw_pub": "Tue, 21 Apr 2026 11:07:34 -0400"
     },
     {
@@ -152,19 +119,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
-      "id": "0148f8ce1eaa989d",
-      "title": "Schedule - Carondelet Cougars (Concord, CA) Girls Beach Volleyball 25-26 - MaxPreps",
-      "summary": "Schedule - Carondelet Cougars (Concord, CA) Girls Beach Volleyball 25-26 MaxPreps",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPcThKdlR4YXZvc3BGMUJOQnZWTHZPbGZERnlVQTNTUTBZYXdSTDJhSTlNNGt4YXF2RU9tallOZG52a3hpdGU0ZjRza21sZ2FIQi1aMmlZZjAxNUhJY0oyZzRCOE5nNG9HVFlFd2YtbmloVGhOSjQwZi1mWXhzNDdSOEFMUXR3Rzlv?oc=5",
+      "id": "fa36935893897623",
+      "title": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing - Legacy obituary",
+      "summary": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing Legacy obituary",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMGVZcnNyS2ZTOUdKanJCZnpRMTFTTTd1RnZaTWlrallLZ3g2ZTNSc1RFemt6YWlBR3BYOXVQMUhoVU4zU0tpdUVPS20xVzZVLWpjZWZ0SjA3TjVxek9ubEpXVXo0TE1UOEdZeGNadnk3SFhITDZZRHNfaHdEblpSTl8xOFlrOFJJQzZfNERHdFZRb1p4bklUTGY0czF6RnNUZWc3ay1sRHc?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-16T06:23:53+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
-      "raw_pub": "Thu, 16 Apr 2026 06:23:53 GMT"
+      "published_at": "2026-04-15T07:00:00+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
+      "raw_pub": "Wed, 15 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "74a2d382a0b3b284",
@@ -174,19 +141,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
-    },
-    {
-      "id": "a1bc3ab6a5f38b37",
-      "title": "Walter Raymond Johnson Obituary - Concord, CA (1943-2026) - East Bay Times",
-      "summary": "Walter Raymond Johnson Obituary - Concord, CA (1943-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQOHJ0SFdzSzlTNjRlbUFjS0tMbFpUaWNjSmhWMlpfNGtJdmgtalhGaTRmU1RTbTRzUkdzakxDUWhnZXhGMFI4LXEyZGs3VjhfcDZsdDV1N25ySGVqTjJLeExTQ3A3R1VrczVNem83YzZxYTFvZDVjcFE5V2o4N1FZVjFISXB6a1RfWnZWQw?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-06T08:16:10+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
-      "raw_pub": "Mon, 06 Apr 2026 08:16:10 GMT"
     },
     {
       "id": "43a17322037b13a1",
@@ -196,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
@@ -207,30 +163,30 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
-      "id": "2daf482e2db2cdb5",
-      "title": "4984 Hames Dr, Concord, CA 94521 - Realtor.com",
-      "summary": "4984 Hames Dr, Concord, CA 94521 Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSTRUSVNsUlJrU2U4b0JWTEFNM2M5bVlnNGdlQmdpVzhwaG85WFBqLU9EWWVCN3IxZ19kZzViWTdhUXE0NDI3a01RTWs2U3VtckJrVXlQaGVxdUxKeWxvaW5mVjdGYmp5bXBlWVoyRGVlakJUZVdLSUVNM1B2aGpxUkF6YmViYnNaMzlB?oc=5",
+      "id": "e6dcccb840b0b28c",
+      "title": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) - East Bay Times",
+      "summary": "Robert Keith Bailey Obituary - Concord, CA (1932-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9RNzFtdF9WWFdJUXN5TWpBLXFuMENVMDZIZW5zeTBJZlg0X3A1RTNVczVzZHNndnJGaHpDVWtOd0ZNNGozelEybUtlU0lNd2pUZ05Zek8xMzFSTVFWME16UFFDTkl2d2tEQlpZWWFxY2h2WWNRZ1RoYmhtZw?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-21T01:03:55+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
-      "raw_pub": "Sat, 21 Feb 2026 01:03:55 GMT"
+      "published_at": "2026-03-10T07:00:00+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
+      "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
-      "id": "fd16a8fec4259a4f",
-      "title": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy obituary",
-      "summary": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy obituary",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5Xb0lXWkpoT1ZmWnJ3eHZnd3NXeEVkb19ZMWZILUplejd4cVBJZUxUNFBNLUFTWEZNT0dpaWpoZm11b09nMmJqLTdhRG5kUUZHS1pFYWREWGRPdFVQZWVBN0xEVmNVZUZTQ2lGb2F4bFoyU1lkU3NDQUlvVEtlZGM?oc=5",
+      "id": "6bebb04784724dd4",
+      "title": "Patricia Shields Obituary (1937 - 2025) - Concord, CA - Dallas News",
+      "summary": "Patricia Shields Obituary (1937 - 2025) - Concord, CA Dallas News",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZ1J1TkhFempUUG4zTmFRVkZ6Mi1RTVB0RHBDd1BTS0FqRXRxOVAtZnYyQlgwZGJMeEl4WS1BUTlOSkYtVlI4dll5Wk93Sm8wSzgtUTZvdXlIdy1MYTNZQUNWUWNwX2QtRV9WSjZCbWRORW90dWU5Y25DclBFNEhocFZmNWxfYWJMZUlMcmFVRTFQUlhVZFpVNzVQRHV5X0xYb1dpdjFB?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-16T13:13:18+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
-      "raw_pub": "Mon, 16 Feb 2026 13:13:18 GMT"
+      "published_at": "2026-03-09T07:00:00+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
+      "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
     },
     {
       "id": "c65a5092a9521e42",
@@ -240,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
     },
     {
@@ -251,19 +207,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-03T20:14:09+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
     },
     {
-      "id": "acdec49a7a4a5928",
-      "title": "Peggy Lamanna Obituary - Concord, CA (1935-2025) - East Bay Times",
-      "summary": "Peggy Lamanna Obituary - Concord, CA (1935-2025) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1aWENoaGEwVVMyYnpwZjRPdWFkSHFuelFQOFpZQTNUZFZOMW9vTVJDOXduM2tQUV9uMVIzaC1PZFA1Q0xkRGJpeHJnMm9mRE11MlE4a0tWWDVsa2JWMUg0dlFrOURiV2FsMlVtczItTnd5WXM?oc=5",
+      "id": "4e6dcb7152ead3a2",
+      "title": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom - USPS",
+      "summary": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom USPS",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSGdNdC1waUdlQ1ZjQUZQM3k0el9pZkJwOHIyVkxieTlSZzFyUlVuN2dIUE1yY3dleUtyUGxGV1BVVHRZZ0ZBVW0yOTNrTXlkY0w0TW5KMFRTVXJkNjYtcGxGMXBaRzlJUWJWTXR5MTdiUXhuRWVDN1lzVzVPYlNUeDI2TEZoYlZLc3FGZjZlOXJHOTNCY2Zub2psX2luWlZjLS03M1lxWFhzUjNsYjdtZDhtNGpXZU9EV3NjT2JlcENVRWw1ZVAxN1lR?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
-      "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
+      "published_at": "2026-01-27T08:00:00+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
+      "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
       "id": "7556ec2cd4c871d1",
@@ -273,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
     },
     {
@@ -284,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-07T01:05:16+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
@@ -295,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-04-27T17:23:40+00:00",
+      "fetched_at": "2026-04-27T19:24:15+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
