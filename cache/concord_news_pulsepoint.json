@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-27T05:56:33+00:00",
+  "fetched_at": "2026-04-27T08:29:56+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "2028c4dd07559dc2",
+      "title": "Vehicle Fire: 2740 E OLIVERA RD, CONCORD",
+      "summary": "Units: E106, INV2, INV80, PD \u00b7 Cleared 2026-04-27T08:13:18+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2462358385",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-27T07:04:17+00:00",
+      "fetched_at": "2026-04-27T08:29:56+00:00",
+      "raw_pub": null,
+      "call_type": "VF",
+      "address": "2740 E OLIVERA RD, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2462358385"
+    },
     {
       "id": "534b7d647844f030",
       "title": "Vehicle Fire: WILLOW PASS RD & LANDANA DR, CONCORD",
