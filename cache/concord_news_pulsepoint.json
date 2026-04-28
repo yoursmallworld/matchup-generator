@@ -1,18 +1,18 @@
 {
-  "fetched_at": "2026-04-28T16:53:06+00:00",
+  "fetched_at": "2026-04-28T18:19:12+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 3,
+      "count": 2,
       "error": null
     }
   },
   "findings": [
     {
       "id": "1c5aaa30549521f0",
-      "title": "[ACTIVE] Commercial Fire: 1610 FRISBIE CT, CONCORD",
-      "summary": "Units: BC1, BC2, BC4, DISP, E104, E105, E106, E108, E109, E110, INV80, ISU20 (+7 more)",
+      "title": "[ACTIVE] Working Commercial Fire: 1610 FRISBIE CT, CONCORD",
+      "summary": "Units: BC1, BC2, BC4, CENTMGT, DISP, DST1, E104, E105, E106, E108, E109, E110 (+12 more)",
       "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463227909",
       "source_key": "pulsepoint_confire",
       "source_name": "ConFire Dispatch (PulsePoint)",
