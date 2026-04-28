@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-28T20:17:27+00:00",
+  "fetched_at": "2026-04-28T21:59:17+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 12,
+      "count": 13,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-28T19:31:42+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:31:42 +0000"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T08:10:00+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Tue, 28 Apr 2026 08:10:00 GMT"
     },
     {
@@ -75,7 +75,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-04-28T20:17:30+00:00",
+      "fetched_at": "2026-04-28T21:59:20+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
     },
     {
@@ -86,8 +86,19 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:29:42+00:00",
-      "fetched_at": "2026-04-28T20:17:30+00:00",
+      "fetched_at": "2026-04-28T21:59:20+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:29:42 -0400"
+    },
+    {
+      "id": "0fabe5ce3908c30d",
+      "title": "1116 Saint Francis Dr, Concord, CA 94518 - Realtor.com",
+      "summary": "1116 Saint Francis Dr, Concord, CA 94518 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPbDZnZmUyaGRJMFZJX0tNdWRudkd0ZTJsb0NaOEE5dGtjaFdQZm1TN0ZfVnZuN1pKT3ZZQVI5aFNObUNYbXdQUmNGYl8xX0RhYmVEYU8wdm1MNXRWRDZwcDY4MHptZkFNUEVYMy1TMlU5UWJ2clFGRExydTNJMl9jQ3U2UjlXWjEtTEhaM1JqZ09iR3Rib2c?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-27T07:00:00+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
+      "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "344d7f6415908071",
@@ -97,7 +108,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-25T22:15:34+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Sat, 25 Apr 2026 22:15:34 +0000"
     },
     {
@@ -108,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-25T05:39:08+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Sat, 25 Apr 2026 05:39:08 GMT"
     },
     {
@@ -119,7 +130,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T20:35:49+00:00",
-      "fetched_at": "2026-04-28T20:17:30+00:00",
+      "fetched_at": "2026-04-28T21:59:20+00:00",
       "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
     },
     {
@@ -130,7 +141,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-28T20:17:30+00:00",
+      "fetched_at": "2026-04-28T21:59:20+00:00",
       "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
     },
     {
@@ -141,7 +152,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-23T22:12:06+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Thu, 23 Apr 2026 22:12:06 +0000"
     },
     {
@@ -152,7 +163,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-22T23:34:01+00:00",
-      "fetched_at": "2026-04-28T20:17:30+00:00",
+      "fetched_at": "2026-04-28T21:59:20+00:00",
       "raw_pub": "Wed, 22 Apr 2026 19:34:01 -0400"
     },
     {
@@ -163,8 +174,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
+    },
+    {
+      "id": "fa36935893897623",
+      "title": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing - Legacy | Obituary",
+      "summary": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing Legacy | Obituary",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMGVZcnNyS2ZTOUdKanJCZnpRMTFTTTd1RnZaTWlrallLZ3g2ZTNSc1RFemt6YWlBR3BYOXVQMUhoVU4zU0tpdUVPS20xVzZVLWpjZWZ0SjA3TjVxek9ubEpXVXo0TE1UOEdZeGNadnk3SFhITDZZRHNfaHdEblpSTl8xOFlrOFJJQzZfNERHdFZRb1p4bklUTGY0czF6RnNUZWc3ay1sRHc?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-15T07:00:00+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
+      "raw_pub": "Wed, 15 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "74a2d382a0b3b284",
@@ -174,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
     },
     {
@@ -185,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -196,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-10T07:00:00+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Tue, 10 Mar 2026 07:00:00 GMT"
     },
     {
@@ -207,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
     },
     {
@@ -218,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-03T20:14:09+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
     },
     {
@@ -229,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -240,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     },
     {
@@ -251,19 +273,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
+      "fetched_at": "2026-04-28T21:59:21+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
-    },
-    {
-      "id": "868d83896e856033",
-      "title": "3721 San Michelle Dr, Concord, CA 94520 - Realtor.com",
-      "summary": "3721 San Michelle Dr, Concord, CA 94520 Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNa1c5aHhUWmVtRDMtRkYwVE5OZ2VTejRsMlNpdmhqb2FOc3RSeXdrV1NlWjg3ZVFoWkk0a1VCR0tsTWt0Um15NXJ0R1N2cHFrNGlLRmFnUElVa2k2NklORldrYUI4b003UF9nQ0Vkek0yTzRJVk5Ydl9iV2duM0RDQ3RLYTdZN3B6Z0hvcUU1eUstNUtW?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-04-28T20:17:31+00:00",
-      "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
 }

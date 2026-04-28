@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-28T20:17:52+00:00",
+  "fetched_at": "2026-04-28T21:59:41+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
@@ -11,8 +11,8 @@
   "findings": [
     {
       "id": "1c5aaa30549521f0",
-      "title": "[ACTIVE] Working Commercial Fire: 1610 FRISBIE CT, CONCORD",
-      "summary": "Units: BC1, BC2, BC4, CENTMGT, DISP, DST1, E104, E105, E106, E108, E109, E110 (+12 more)",
+      "title": "Working Commercial Fire: 1600 FRISBIE CT, STE 3, CONCORD",
+      "summary": "Units: BC1, BC2, BC4, CENTMGT, DISP, DST1, E104, E105, E106, E108, E109, E110 (+12 more) \u00b7 Cleared 2026-04-28T21:18:28+00:00",
       "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463227909",
       "source_key": "pulsepoint_confire",
       "source_name": "ConFire Dispatch (PulsePoint)",
@@ -21,7 +21,7 @@
       "raw_pub": null,
       "call_type": "CF",
       "address": "1610 FRISBIE CT, CONCORD, CA",
-      "status": "active",
+      "status": "recent",
       "incident_id": "2463227909"
     },
     {
