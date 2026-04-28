@@ -1,14 +1,44 @@
 {
-  "fetched_at": "2026-04-28T14:09:05+00:00",
+  "fetched_at": "2026-04-28T16:53:06+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 2,
+      "count": 3,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "1c5aaa30549521f0",
+      "title": "[ACTIVE] Commercial Fire: 1610 FRISBIE CT, CONCORD",
+      "summary": "Units: BC1, BC2, BC4, DISP, E104, E105, E106, E108, E109, E110, INV80, ISU20 (+7 more)",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463227909",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-28T16:43:57+00:00",
+      "fetched_at": "2026-04-28T16:53:06+00:00",
+      "raw_pub": null,
+      "call_type": "CF",
+      "address": "1610 FRISBIE CT, CONCORD, CA",
+      "status": "active",
+      "incident_id": "2463227909"
+    },
+    {
+      "id": "65a3d99916ff3050",
+      "title": "Commercial Fire: 4220 CLAYTON RD, STE 3218, CONCORD",
+      "summary": "Units: BC1, BC2, DISP, E106, E108, E110, E122, R86, SOF1, T101, T106, TIMER \u00b7 Cleared 2026-04-28T16:45:43+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463209596",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-28T16:12:48+00:00",
+      "fetched_at": "2026-04-28T16:53:06+00:00",
+      "raw_pub": null,
+      "call_type": "CF",
+      "address": "4220 CLAYTON RD, STE 3218, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2463209596"
+    },
     {
       "id": "2aa71981f2843ad1",
       "title": "Elevator Rescue: 1905 CONCORD BLVD, CONCORD",
