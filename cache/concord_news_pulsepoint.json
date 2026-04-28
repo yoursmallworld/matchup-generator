@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-28T02:57:22+00:00",
+  "fetched_at": "2026-04-28T06:10:50+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
@@ -9,6 +9,36 @@
     }
   },
   "findings": [
+    {
+      "id": "2aa71981f2843ad1",
+      "title": "Elevator Rescue: 1905 CONCORD BLVD, CONCORD",
+      "summary": "Units: T106 \u00b7 Cleared 2026-04-28T05:33:07+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2462995228",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-28T05:22:40+00:00",
+      "fetched_at": "2026-04-28T06:10:50+00:00",
+      "raw_pub": null,
+      "call_type": "ELR",
+      "address": "1905 CONCORD BLVD, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2462995228"
+    },
+    {
+      "id": "05d19ab6c58627d6",
+      "title": "Outside Fire: 4000 CONCORD BLVD, CONCORD",
+      "summary": "Units: E106 \u00b7 Cleared 2026-04-28T04:44:03+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2462976831",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-28T04:30:45+00:00",
+      "fetched_at": "2026-04-28T06:10:50+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "4000 CONCORD BLVD, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2462976831"
+    },
     {
       "id": "e9f9bb52395e1fb9",
       "title": "Outside Fire: SR 242 N, CONCORD",
