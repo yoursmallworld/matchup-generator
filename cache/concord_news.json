@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-29T02:55:23+00:00",
+  "fetched_at": "2026-04-29T05:56:06+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 13,
+      "count": 14,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-28T19:31:42+00:00",
-      "fetched_at": "2026-04-29T02:55:27+00:00",
+      "fetched_at": "2026-04-29T05:56:22+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:31:42 +0000"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T08:10:00+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Tue, 28 Apr 2026 08:10:00 GMT"
     },
     {
@@ -75,7 +75,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-04-29T02:55:27+00:00",
+      "fetched_at": "2026-04-29T05:56:09+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
     },
     {
@@ -86,7 +86,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:29:42+00:00",
-      "fetched_at": "2026-04-29T02:55:27+00:00",
+      "fetched_at": "2026-04-29T05:56:09+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:29:42 -0400"
     },
     {
@@ -97,19 +97,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-27T07:00:00+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
-    },
-    {
-      "id": "2c2cc642de18235d",
-      "title": "Lacrosse On Demand Games - Clayton Valley Charter High School - CONCORD, CA - NFHS Network",
-      "summary": "Lacrosse On Demand Games - Clayton Valley Charter High School - CONCORD, CA NFHS Network",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQMHJtNmtQT0wxLVZVX1gzdTc1NDNONmtCYnc1Qm1fZEZjNlEzRklHaFVpOWx1R1F6UG9ZSm95OUV5ZXl4UTFUWmNTdjJWamN0UlpUVDhjMC0xOVlUdzEyT2NHaHRhZzFEU01xY2hMUFNSTjBxajNuVjJybWR0dFp0RFFNZkZQSmN3WC1oTlhteTJlNlpveWktMm5VV0xwSHNVVmFsWGNvQ2xwUk1ubTBTV2FqWGxpTjM2Y201U0ExQi10UUlfT2VzSkQ4QmZ2aE9Td3RLdUZB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-26T03:52:18+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
-      "raw_pub": "Sun, 26 Apr 2026 03:52:18 GMT"
     },
     {
       "id": "344d7f6415908071",
@@ -119,7 +108,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-25T22:15:34+00:00",
-      "fetched_at": "2026-04-29T02:55:27+00:00",
+      "fetched_at": "2026-04-29T05:56:22+00:00",
       "raw_pub": "Sat, 25 Apr 2026 22:15:34 +0000"
     },
     {
@@ -130,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-25T05:39:08+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Sat, 25 Apr 2026 05:39:08 GMT"
     },
     {
@@ -141,7 +130,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T20:35:49+00:00",
-      "fetched_at": "2026-04-29T02:55:27+00:00",
+      "fetched_at": "2026-04-29T05:56:09+00:00",
       "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
     },
     {
@@ -152,7 +141,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-29T02:55:27+00:00",
+      "fetched_at": "2026-04-29T05:56:09+00:00",
       "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
     },
     {
@@ -163,7 +152,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-22T23:34:01+00:00",
-      "fetched_at": "2026-04-29T02:55:27+00:00",
+      "fetched_at": "2026-04-29T05:56:09+00:00",
       "raw_pub": "Wed, 22 Apr 2026 19:34:01 -0400"
     },
     {
@@ -174,8 +163,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
+    },
+    {
+      "id": "fa36935893897623",
+      "title": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing - Legacy | Obituary",
+      "summary": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing Legacy | Obituary",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMGVZcnNyS2ZTOUdKanJCZnpRMTFTTTd1RnZaTWlrallLZ3g2ZTNSc1RFemt6YWlBR3BYOXVQMUhoVU4zU0tpdUVPS20xVzZVLWpjZWZ0SjA3TjVxek9ubEpXVXo0TE1UOEdZeGNadnk3SFhITDZZRHNfaHdEblpSTl8xOFlrOFJJQzZfNERHdFZRb1p4bklUTGY0czF6RnNUZWc3ay1sRHc?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-15T07:00:00+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "raw_pub": "Wed, 15 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "74a2d382a0b3b284",
@@ -185,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
     },
     {
@@ -196,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -207,8 +207,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
+    },
+    {
+      "id": "4209815a2da12fb7",
+      "title": "Joan Anne Murphy Purcell Obituary - Concord, CA (1937-2026) - East Bay Times",
+      "summary": "Joan Anne Murphy Purcell Obituary - Concord, CA (1937-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOSnhqdW56RlBObkRsd1NwTVRBLXhTR2hWcVN5cTF4X1JFUTdvV005VTUyUkNwNkNoRk9GQWh5bk83d3lOaWNjQWdJZjBocllnSnlwNHM1Vnc4RlpVaHBVYUFYVzZhaUd1N0hPdXBwRW5rdnNXVTlaeVUwdjc4TlhFMWdB?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-02-28T08:31:54+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "raw_pub": "Sat, 28 Feb 2026 08:31:54 GMT"
     },
     {
       "id": "73eba198ac45baf6",
@@ -218,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-03T20:14:09+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
     },
     {
@@ -229,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -240,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     },
     {
@@ -251,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
     },
     {
@@ -262,7 +273,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-04-29T02:55:28+00:00",
+      "fetched_at": "2026-04-29T05:56:23+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
