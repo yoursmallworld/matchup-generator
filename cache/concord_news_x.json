@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-29T19:27:23+00:00",
+  "fetched_at": "2026-04-29T21:06:59+00:00",
   "sources": {
     "contra_costa_fire_x": {
       "name": "Con Fire PIO (X)",
@@ -16,11 +16,22 @@
     "chp_alerts_x": {
       "name": "CHP Alerts (X)",
       "ok": true,
-      "count": 2,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "59f56dd1d1643911",
+      "title": "This SILVER ALERT has been deactivated.",
+      "summary": "The subject has been located.\n************************************************\nSILVER ALERT - Contra Costa County\nLast seen: Manzanita Way and Sycamore Drive, Richmond\n\n@CityofRichmond\n\n\nIF SEEN, CALL 9-1-1",
+      "url": "https://x.com/CHPAlerts/status/2049593295547007168",
+      "source_key": "chp_alerts_x",
+      "source_name": "CHP Alerts (X)",
+      "published_at": "2026-04-29T20:54:55.000Z",
+      "fetched_at": "2026-04-29T21:06:59+00:00",
+      "raw_pub": null
+    },
     {
       "id": "bfe083b70f50afc1",
       "title": "This Silver Alert has been deactivated.",
