@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-28T23:03:59+00:00",
+  "fetched_at": "2026-04-29T02:55:47+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
@@ -9,6 +9,36 @@
     }
   },
   "findings": [
+    {
+      "id": "21b433ee4080935d",
+      "title": "Elevator Rescue: 1401 CIVIC CT, CONCORD",
+      "summary": "Units: E109, T106 \u00b7 Cleared 2026-04-29T00:56:24+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463539577",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-29T00:48:23+00:00",
+      "fetched_at": "2026-04-29T02:55:47+00:00",
+      "raw_pub": null,
+      "call_type": "ELR",
+      "address": "1401 CIVIC CT, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2463539577"
+    },
+    {
+      "id": "dcab9dc6d3dba9f3",
+      "title": "Hazardous Condition: 2291 MONUMENT BLVD, CONCORD",
+      "summary": "Units: T106 \u00b7 Cleared 2026-04-29T00:50:21+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463530981",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-29T00:33:04+00:00",
+      "fetched_at": "2026-04-29T02:55:47+00:00",
+      "raw_pub": null,
+      "call_type": "HC",
+      "address": "2291 MONUMENT BLVD, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2463530981"
+    },
     {
       "id": "1c5aaa30549521f0",
       "title": "Working Commercial Fire: 1600 FRISBIE CT, STE 3, CONCORD",
