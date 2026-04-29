@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-29T12:20:34+00:00",
+  "fetched_at": "2026-04-29T15:14:57+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
@@ -9,6 +9,36 @@
     }
   },
   "findings": [
+    {
+      "id": "4fb028adbbbc095e",
+      "title": "Outside Fire: 2001 MARKET ST, CONCORD",
+      "summary": "Units: E106 \u00b7 Cleared 2026-04-29T14:57:13+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463820867",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-29T14:41:09+00:00",
+      "fetched_at": "2026-04-29T15:14:57+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "2001 MARKET ST, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2463820867"
+    },
+    {
+      "id": "6ab3f21043e86b58",
+      "title": "Expanded Traffic Collision: 2090 MERIDIAN PARK BLVD, CONCORD",
+      "summary": "Units: BC2, E106, M5, M61, R10, T106 \u00b7 Cleared 2026-04-29T13:54:12+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463797866",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-29T13:47:49+00:00",
+      "fetched_at": "2026-04-29T15:14:57+00:00",
+      "raw_pub": null,
+      "call_type": "TCE",
+      "address": "2090 MERIDIAN PARK BLVD, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2463797866"
+    },
     {
       "id": "21b433ee4080935d",
       "title": "Elevator Rescue: 1401 CIVIC CT, CONCORD",
