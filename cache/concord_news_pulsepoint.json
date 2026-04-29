@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-29T17:40:59+00:00",
+  "fetched_at": "2026-04-29T19:27:42+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 2,
+      "count": 3,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "43b143b980271929",
+      "title": "Gas Leak: 1333 WILLOW PASS RD, STE STE 102, CONCORD",
+      "summary": "Units: E106, PGE \u00b7 Cleared 2026-04-29T18:02:08+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2463926666",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-29T17:48:58+00:00",
+      "fetched_at": "2026-04-29T19:27:42+00:00",
+      "raw_pub": null,
+      "call_type": "GAS",
+      "address": "1333 WILLOW PASS RD, STE STE 102, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2463926666"
+    },
     {
       "id": "4fb028adbbbc095e",
       "title": "Outside Fire: 2001 MARKET ST, CONCORD",

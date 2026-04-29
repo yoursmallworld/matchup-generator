@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-29T17:40:39+00:00",
+  "fetched_at": "2026-04-29T19:27:23+00:00",
   "sources": {
     "contra_costa_fire_x": {
       "name": "Con Fire PIO (X)",
@@ -16,11 +16,22 @@
     "chp_alerts_x": {
       "name": "CHP Alerts (X)",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "bfe083b70f50afc1",
+      "title": "This Silver Alert has been deactivated.",
+      "summary": "The subject has been located.\n********************************\nSILVER ALERT - Alameda, San Francisco, Contra Costa, San Mateo and Santa Clara Counties \nLast seen: Foothill Blvd and 166th Ave, San Leandro\n@ACSOSheriff",
+      "url": "https://x.com/CHPAlerts/status/2049565655339569537",
+      "source_key": "chp_alerts_x",
+      "source_name": "CHP Alerts (X)",
+      "published_at": "2026-04-29T19:05:05.000Z",
+      "fetched_at": "2026-04-29T19:27:23+00:00",
+      "raw_pub": null
+    },
     {
       "id": "9ef7c54e120d96d7",
       "title": "SILVER ALERT - Contra Costa County\nLast seen: Manzanita Way and Sycamore Drive, Richmond\n\n@CityofRichmond\n\n\nIF SEEN, CALL 9-1-1",
