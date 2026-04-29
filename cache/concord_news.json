@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-29T05:56:06+00:00",
+  "fetched_at": "2026-04-29T08:22:18+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -28,7 +28,7 @@
     "patch": {
       "name": "Concord Patch",
       "ok": true,
-      "count": 5,
+      "count": 4,
       "error": null
     },
     "claycord": {
@@ -46,6 +46,17 @@
   },
   "findings": [
     {
+      "id": "2cac921ffbe9be0f",
+      "title": "Cbd Gummies Concord Ca: A Practical Guide For Health Conscious Users [OWqosB9rqXP] - qsr.mlit.go.jp",
+      "summary": "Cbd Gummies Concord Ca: A Practical Guide For Health Conscious Users [OWqosB9rqXP] qsr.mlit.go.jp",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTGFqaG51UEFFc0pOUGxjMXhHeXFZNHpwalNSS0VtNGN6S2duMHRrX2o0MUwyNU1OOW5Mbjl2NGZtUUJkR2xGd1RuWjhZc2o3ZHlRSnRkMGZMb1pCSWwzQW5zS2ROUm5waGJzTUdBMTNBd2xmYUpDbTZwa2Z0eTBJV0xsdlFad2F4bWV5Q3lHTzRkbkFjQ3RpOW9yYjNhSy01b3lGNTV3?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-28T19:51:35+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
+      "raw_pub": "Tue, 28 Apr 2026 19:51:35 GMT"
+    },
+    {
       "id": "dae1db3ea5cc790d",
       "title": "Fire Burns Apartment On Frisbie Court In Concord",
       "summary": "An apartment fire in Concord on Tuesday morning displaced four adults and a child, a spokesperson for the Contra Costa County Fire… The post Fire Burns Apartment On Frisbie Court In Concord appeared first on CLAYCORD.com .",
@@ -53,7 +64,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-28T19:31:42+00:00",
-      "fetched_at": "2026-04-29T05:56:22+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:31:42 +0000"
     },
     {
@@ -64,7 +75,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T08:10:00+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Tue, 28 Apr 2026 08:10:00 GMT"
     },
     {
@@ -75,7 +86,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-04-29T05:56:09+00:00",
+      "fetched_at": "2026-04-29T08:22:22+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
     },
     {
@@ -86,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:29:42+00:00",
-      "fetched_at": "2026-04-29T05:56:09+00:00",
+      "fetched_at": "2026-04-29T08:22:22+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:29:42 -0400"
     },
     {
@@ -97,7 +108,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-27T07:00:00+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
     },
     {
@@ -108,7 +119,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-25T22:15:34+00:00",
-      "fetched_at": "2026-04-29T05:56:22+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Sat, 25 Apr 2026 22:15:34 +0000"
     },
     {
@@ -119,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-25T05:39:08+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Sat, 25 Apr 2026 05:39:08 GMT"
     },
     {
@@ -130,7 +141,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T20:35:49+00:00",
-      "fetched_at": "2026-04-29T05:56:09+00:00",
+      "fetched_at": "2026-04-29T08:22:22+00:00",
       "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
     },
     {
@@ -141,19 +152,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-29T05:56:09+00:00",
+      "fetched_at": "2026-04-29T08:22:22+00:00",
       "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
-    },
-    {
-      "id": "f9cd98568adcd4eb",
-      "title": "One Man Shot, Second Man Suspected Of Attempted Murder In Contra Costa County",
-      "summary": "A man was airlifted with gunshot wounds and a 60-year-old suspect was jailed on attempted murder allegations after violence erupted CCCo.",
-      "url": "http://patch.com/california/concord-ca/one-man-shot-second-man-suspected-attempted-murder-contra-costa-county?utm_source=article-mostrecent&utm_medium=rss&utm_term=crime%20%26%20safety&utm_campaign=recirc&utm_content=normal",
-      "source_key": "patch",
-      "source_name": "Concord Patch",
-      "published_at": "2026-04-22T23:34:01+00:00",
-      "fetched_at": "2026-04-29T05:56:09+00:00",
-      "raw_pub": "Wed, 22 Apr 2026 19:34:01 -0400"
     },
     {
       "id": "bb6e1d5b70b88330",
@@ -163,19 +163,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
-    },
-    {
-      "id": "fa36935893897623",
-      "title": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing - Legacy | Obituary",
-      "summary": "James Bartlett Obituary (1955 - 2026) - Concord, CA - Mississippi Valley Publishing Legacy | Obituary",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMGVZcnNyS2ZTOUdKanJCZnpRMTFTTTd1RnZaTWlrallLZ3g2ZTNSc1RFemt6YWlBR3BYOXVQMUhoVU4zU0tpdUVPS20xVzZVLWpjZWZ0SjA3TjVxek9ubEpXVXo0TE1UOEdZeGNadnk3SFhITDZZRHNfaHdEblpSTl8xOFlrOFJJQzZfNERHdFZRb1p4bklUTGY0czF6RnNUZWc3ay1sRHc?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-15T07:00:00+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
-      "raw_pub": "Wed, 15 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "74a2d382a0b3b284",
@@ -185,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
     },
     {
@@ -196,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -207,19 +196,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
-    },
-    {
-      "id": "4209815a2da12fb7",
-      "title": "Joan Anne Murphy Purcell Obituary - Concord, CA (1937-2026) - East Bay Times",
-      "summary": "Joan Anne Murphy Purcell Obituary - Concord, CA (1937-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOSnhqdW56RlBObkRsd1NwTVRBLXhTR2hWcVN5cTF4X1JFUTdvV005VTUyUkNwNkNoRk9GQWh5bk83d3lOaWNjQWdJZjBocllnSnlwNHM1Vnc4RlpVaHBVYUFYVzZhaUd1N0hPdXBwRW5rdnNXVTlaeVUwdjc4TlhFMWdB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-28T08:31:54+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
-      "raw_pub": "Sat, 28 Feb 2026 08:31:54 GMT"
     },
     {
       "id": "73eba198ac45baf6",
@@ -229,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-03T20:14:09+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Tue, 03 Feb 2026 20:14:09 GMT"
     },
     {
@@ -240,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -251,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     },
     {
@@ -262,8 +240,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
+    },
+    {
+      "id": "f3cf368b4e87bf3a",
+      "title": "2262 Bonifacio St, Concord, CA 94520 - Realtor.com",
+      "summary": "2262 Bonifacio St, Concord, CA 94520 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc3cwbWxod2tnanA3SXBfdkFPYUVBY1diRkNvblpZZ3A5SUlZX0h6RWctaTliT0NFcU1tNEpZeV9wMGRYYl93V2VnWXh3Um9lLTRRbmctLVFhTFN6QWdIU2k5aFc1cVF3dDFiWEpNamplNkRlaVptR1NOLTZSTExzT2c1U1hoSExfYmFHTS1lZzA?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2025-11-07T01:05:16+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
+      "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
       "id": "868d83896e856033",
@@ -273,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-04-29T05:56:23+00:00",
+      "fetched_at": "2026-04-29T08:22:23+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
