@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-04-21T18:22:41+00:00",
+  "fetched_at": "2026-04-30T16:15:45+00:00",
   "sources": {
     "concord_pd_fb": {
       "name": "Concord PD (Facebook)",
-      "ok": true,
-      "count": 3,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "browser_unavailable"
     },
     "city_concord_fb": {
       "name": "City of Concord (Facebook)",
-      "ok": true,
-      "count": 2,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "browser_unavailable"
     }
   },
   "findings": [
