@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-30T15:11:26+00:00",
+  "fetched_at": "2026-04-30T17:22:41+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -46,6 +46,28 @@
   },
   "findings": [
     {
+      "id": "df9007c5a8e0c315",
+      "title": "Concord Springs Giant Park Party",
+      "summary": "SpringFest packs Concord plaza with live music, food, and a sprawling marketplace.",
+      "url": "http://patch.com/california/concord-ca/contra-costa-county-springs-giant-park-party?utm_source=article-mostrecent&utm_medium=rss&utm_term=community%20corner&utm_campaign=recirc&utm_content=normal",
+      "source_key": "patch",
+      "source_name": "Concord Patch",
+      "published_at": "2026-04-30T15:32:51+00:00",
+      "fetched_at": "2026-04-30T17:22:43+00:00",
+      "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
+    },
+    {
+      "id": "96011b22547d74a0",
+      "title": "North Valley Solar Power, Among Leading Solar Companies in Concord, California, Supports Homeowners with PG&E-Aligned Solar System Design - Carroll County Mirror-Democrat",
+      "summary": "North Valley Solar Power, Among Leading Solar Companies in Concord, California, Supports Homeowners with PG&E-Aligned Solar System Design Carroll County Mirror-Democrat",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOQTJMWktEY2FuN1hTbko1V2pFOGRNLV9qNk9RQ3I3MXNjcFNMVUtRNFR2c041SDJjRVd2bzdFWkdYaW0wT21iWGxRMEdwcVNMNHJPSTR0R21DM0lnRVVTMEx6a0NHZkxwanhPRlFwbElCUmhOQ1ZpZzBuYmRuUmJ5MmpjNHNyQWlndnhfbjBjckRqOWVrYUZPTFJkbGozbFN1emptVUF3RWM4bDEtWUY5azJvak1SbFU?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-30T15:30:10+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
+      "raw_pub": "Thu, 30 Apr 2026 15:30:10 GMT"
+    },
+    {
       "id": "59fc4d7b19b75659",
       "title": "Suspect Faces Murder Charge In Slaying, Pleads Not Guilty: Contra Costa County DA",
       "summary": "Contra Costa County DA charges an Oakland man with the murder of a 20-year-old Antioch woman.",
@@ -53,7 +75,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-29T16:04:29+00:00",
-      "fetched_at": "2026-04-30T15:11:31+00:00",
+      "fetched_at": "2026-04-30T17:22:43+00:00",
       "raw_pub": "Wed, 29 Apr 2026 12:04:29 -0400"
     },
     {
@@ -64,7 +86,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
@@ -75,7 +97,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-28T19:31:42+00:00",
-      "fetched_at": "2026-04-30T15:11:31+00:00",
+      "fetched_at": "2026-04-30T17:22:43+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:31:42 +0000"
     },
     {
@@ -86,7 +108,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T08:10:00+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Tue, 28 Apr 2026 08:10:00 GMT"
     },
     {
@@ -97,7 +119,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-04-30T15:11:31+00:00",
+      "fetched_at": "2026-04-30T17:22:43+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
     },
     {
@@ -108,7 +130,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:29:42+00:00",
-      "fetched_at": "2026-04-30T15:11:31+00:00",
+      "fetched_at": "2026-04-30T17:22:43+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:29:42 -0400"
     },
     {
@@ -119,19 +141,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-27T07:00:00+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
-    },
-    {
-      "id": "3227ab096cb15f63",
-      "title": "Carondelet High School (Concord, CA) Softball - MaxPreps",
-      "summary": "Carondelet High School (Concord, CA) Softball MaxPreps",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1rQWtmN0tBeEYzaVE5dFBUbk5RVkNwMnl2ZlRURmIyQVYwSTM4ODZSWkJGV29FTDFuTzBFeWlyNHBpSF9MN0NXdVRMNlpSclNzOVNnNVg3YWJxSTZ4VE44MGlfNm5KN3B0SjRBN1pnYVdaUQ?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-25T05:39:08+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
-      "raw_pub": "Sat, 25 Apr 2026 05:39:08 GMT"
     },
     {
       "id": "cce5b20460255d6f",
@@ -141,19 +152,19 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-24T20:35:49+00:00",
-      "fetched_at": "2026-04-30T15:11:31+00:00",
+      "fetched_at": "2026-04-30T17:22:43+00:00",
       "raw_pub": "Fri, 24 Apr 2026 16:35:49 -0400"
     },
     {
-      "id": "b0722e5cb7f049f8",
-      "title": "Officer Shoots FoodMaxx Robbery Suspect From Inside Getaway Car: Bodycam Captures High-Speed Standoff",
-      "summary": "Authorities release police camera video from officer who was trapped in the vehicle of an armed robbery suspect speeding away.",
-      "url": "http://patch.com/california/concord-ca/watch-police-trapped-foodmaxx-armed-robbery-suspect-car-released?utm_source=article-mostrecent&utm_medium=rss&utm_term=crime%20%26%20safety&utm_campaign=recirc&utm_content=normal",
-      "source_key": "patch",
-      "source_name": "Concord Patch",
-      "published_at": "2026-04-24T17:18:17+00:00",
-      "fetched_at": "2026-04-30T15:11:31+00:00",
-      "raw_pub": "Fri, 24 Apr 2026 13:18:17 -0400"
+      "id": "df80cf91e8e18ff8",
+      "title": "Evangeline Rhoades Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy obituary",
+      "summary": "Evangeline Rhoades Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy obituary",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOenI5eW0teTVnVWhOTV9YdGtaN1FGXzdZejJfWUQwaVExQlZKb0E0Z1FKYi1BRkw0V3AtY2lGUWJrVXdBUjFrcEg1Rkg1M0pTZnpNeUNtWjJJR09jZVhoTUlvaXhWUUttbERFcy1JdFVoN2NHaUNHb28tQ3lqTVg5ZExTanhfQlFw?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-23T05:42:43+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
+      "raw_pub": "Thu, 23 Apr 2026 05:42:43 GMT"
     },
     {
       "id": "bb6e1d5b70b88330",
@@ -163,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
@@ -174,18 +185,29 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
+      "id": "aa856c03b43a1e3a",
+      "title": "William Joseph Anderson Obituary - Concord, CA (1963-2026) - East Bay Times",
+      "summary": "William Joseph Anderson Obituary - Concord, CA (1963-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWV9FV1doZmpMTUNDYkdPa3hTaXpGOWdFU2JqNEVubzBWWi1qQ3dJcVBJZ0xXRjZhTUhwRUI3ZXNCM3lzcTdwRUNaYU9vVlM4Y3RVVW9CU1A3bnlwT1h1RXowYkNfQW9Lbkt6ekoxeVE4bkxzaGxrbDZNeVVHVWpneG5NV3A?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-09T11:21:52+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
+      "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
+    },
+    {
       "id": "74a2d382a0b3b284",
-      "title": "Monta Farmer Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy | Obituary",
-      "summary": "Monta Farmer Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy | Obituary",
+      "title": "Monta Farmer Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy obituary",
+      "summary": "Monta Farmer Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy obituary",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQU2hGbllMV050UTl0TXA2ME9vUW1aekpHS09yQS1DMlJEbmtnbloyQ0JKa0lwMkhURXZib0lDeTFaX2lHV3NRTzdhWTJOS3hlM09sQ19qTDN6RGdCb09HLS0tNVhCRDRpMUtZa2NkRTh5OHIzTUo0TkVxSnRQcXplRQ?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
     },
     {
@@ -196,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -207,18 +229,18 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
     },
     {
       "id": "fd16a8fec4259a4f",
-      "title": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy | Obituary",
-      "summary": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy | Obituary",
+      "title": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy obituary",
+      "summary": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy obituary",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5Xb0lXWkpoT1ZmWnJ3eHZnd3NXeEVkb19ZMWZILUplejd4cVBJZUxUNFBNLUFTWEZNT0dpaWpoZm11b09nMmJqLTdhRG5kUUZHS1pFYWREWGRPdFVQZWVBN0xEVmNVZUZTQ2lGb2F4bFoyU1lkU3NDQUlvVEtlZGM?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-16T13:13:18+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Mon, 16 Feb 2026 13:13:18 GMT"
     },
     {
@@ -229,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -240,30 +262,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
-    },
-    {
-      "id": "7556ec2cd4c871d1",
-      "title": "William H. White PhD Obituary - Concord, CA (1940-2025) - East Bay Times",
-      "summary": "William H. White PhD Obituary - Concord, CA (1940-2025) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5CMWdXTVlpMGoxYkFDSVl2WWZjZ1c5Y2h2eVdoMUQtbElCempPX1F3ck15ZFNkNHhFTkNERURiVzZlc05INFhjcFM0b0dLT2RkZTE4cUpyb0ZuQnVYTU1MWTl5eXpRZVZVdGNhd2FSbVpjWXJXU3d0d3lPcw?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2025-11-23T08:00:00+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
-      "raw_pub": "Sun, 23 Nov 2025 08:00:00 GMT"
-    },
-    {
-      "id": "f3cf368b4e87bf3a",
-      "title": "2262 Bonifacio St, Concord, CA 94520 - Realtor.com",
-      "summary": "2262 Bonifacio St, Concord, CA 94520 Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc3cwbWxod2tnanA3SXBfdkFPYUVBY1diRkNvblpZZ3A5SUlZX0h6RWctaTliT0NFcU1tNEpZeV9wMGRYYl93V2VnWXh3Um9lLTRRbmctLVFhTFN6QWdIU2k5aFc1cVF3dDFiWEpNamplNkRlaVptR1NOLTZSTExzT2c1U1hoSExfYmFHTS1lZzA?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2025-11-07T01:05:16+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
-      "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
       "id": "868d83896e856033",
@@ -273,7 +273,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-04-30T15:11:32+00:00",
+      "fetched_at": "2026-04-30T17:22:44+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
