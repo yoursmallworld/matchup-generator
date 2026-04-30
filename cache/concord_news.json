@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-30T22:54:00+00:00",
+  "fetched_at": "2026-04-30T23:54:12+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 14,
+      "count": 13,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-04-30T22:54:03+00:00",
+      "fetched_at": "2026-04-30T23:54:14+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-30T15:30:10+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Thu, 30 Apr 2026 15:30:10 GMT"
     },
     {
@@ -75,8 +75,19 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-29T16:04:29+00:00",
-      "fetched_at": "2026-04-30T22:54:03+00:00",
+      "fetched_at": "2026-04-30T23:54:14+00:00",
       "raw_pub": "Wed, 29 Apr 2026 12:04:29 -0400"
+    },
+    {
+      "id": "bad6bdf1ced3fac7",
+      "title": "CBD Gummies Concord CA: A Practical Guide for Health-Conscious Users - qsr.mlit.go.jp",
+      "summary": "CBD Gummies Concord CA: A Practical Guide for Health-Conscious Users qsr.mlit.go.jp",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMDc4djdPZGh5WmNlVmZCRV9rNUZxN2llMm84T0VkRUlBYVhzVG1XS255SmlzYlgybkNCWjlKRWlIRlNQeGZreEFsLXpMdVdWWklEa3c1Q2p3czg4RXNVSUMtNUtuVWxUdUQ4RXlLN1JVUno1Q0VsSXF6NzAyeVRtQ2lscUNQQ29kVm91XzBmNE1uOHduZklOOGFFUWFWNzQ?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-29T00:28:31+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
+      "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
       "id": "dae1db3ea5cc790d",
@@ -86,7 +97,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-04-28T19:31:42+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:31:42 +0000"
     },
     {
@@ -97,7 +108,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-04-30T22:54:03+00:00",
+      "fetched_at": "2026-04-30T23:54:14+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
     },
     {
@@ -108,7 +119,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:29:42+00:00",
-      "fetched_at": "2026-04-30T22:54:03+00:00",
+      "fetched_at": "2026-04-30T23:54:14+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:29:42 -0400"
     },
     {
@@ -119,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-27T07:00:00+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
     },
     {
@@ -130,7 +141,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
@@ -141,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
     },
     {
@@ -152,7 +163,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-08T02:37:13+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
     },
     {
@@ -163,19 +174,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
-    },
-    {
-      "id": "2eaddfdfe954d13b",
-      "title": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) - East Bay Times",
-      "summary": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9tTmtmYUJMM3VFdHJnY1FVT3k0bWRSX0hWNGFlTVBQbnUxOFJ6QW16LVRfUGpxNWZyM19pd2dGY3A2bEFycTMtdWtaU2N6ZjJlY0hRSm1tQjhuenBjVjNvMW1aanZQV2hCVjBKYko5dXROZ2xOTlNoNndB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
-      "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
       "id": "6bebb04784724dd4",
@@ -185,19 +185,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
-    },
-    {
-      "id": "2daf482e2db2cdb5",
-      "title": "4984 Hames Dr, Concord, CA 94521 - Realtor.com",
-      "summary": "4984 Hames Dr, Concord, CA 94521 Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSTRUSVNsUlJrU2U4b0JWTEFNM2M5bVlnNGdlQmdpVzhwaG85WFBqLU9EWWVCN3IxZ19kZzViWTdhUXE0NDI3a01RTWs2U3VtckJrVXlQaGVxdUxKeWxvaW5mVjdGYmp5bXBlWVoyRGVlakJUZVdLSUVNM1B2aGpxUkF6YmViYnNaMzlB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-21T01:03:55+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
-      "raw_pub": "Sat, 21 Feb 2026 01:03:55 GMT"
     },
     {
       "id": "fd16a8fec4259a4f",
@@ -207,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-16T13:13:18+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Mon, 16 Feb 2026 13:13:18 GMT"
     },
     {
@@ -218,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -229,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     },
     {
@@ -240,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-07T01:05:16+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
@@ -251,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-04-30T22:54:04+00:00",
+      "fetched_at": "2026-04-30T23:54:15+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
