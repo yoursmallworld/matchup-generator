@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-30T04:32:45+00:00",
+  "fetched_at": "2026-04-30T07:28:54+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "308cd1e495c52389",
+      "title": "Hazardous Condition: 2791 PACIFIC ST, CONCORD",
+      "summary": "Units: E106, T106 \u00b7 Cleared 2026-04-30T04:48:25+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2464297463",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-04-30T04:33:32+00:00",
+      "fetched_at": "2026-04-30T07:28:54+00:00",
+      "raw_pub": null,
+      "call_type": "HC",
+      "address": "2791 PACIFIC ST, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2464297463"
+    },
     {
       "id": "43b143b980271929",
       "title": "Gas Leak: 1333 WILLOW PASS RD, STE STE 102, CONCORD",
