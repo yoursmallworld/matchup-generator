@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-04-30T23:54:35+00:00",
+  "fetched_at": "2026-05-01T03:28:40+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "699ad2daedd26f0a",
+      "title": "Vehicle Fire: 1891 MARKET ST, CONCORD",
+      "summary": "Units: E106, T106 \u00b7 Cleared 2026-05-01T03:04:21+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2464897942",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-01T02:09:16+00:00",
+      "fetched_at": "2026-05-01T03:28:40+00:00",
+      "raw_pub": null,
+      "call_type": "VF",
+      "address": "1891 MARKET ST, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2464897942"
+    },
     {
       "id": "542d03a9653fc00f",
       "title": "Outside Fire: SR 4 E & PORT CHICAGO HWY, CONCORD",
