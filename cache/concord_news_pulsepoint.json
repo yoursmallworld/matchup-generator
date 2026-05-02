@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-05-02T13:13:53+00:00",
+  "fetched_at": "2026-05-02T14:49:29+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "564b1a044cfb326e",
+      "title": "Gas Leak: 2451 OLIVERA RD, CONCORD",
+      "summary": "Units: E106, PGE, T106 \u00b7 Cleared 2026-05-02T14:07:51+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2465819127",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-02T13:46:47+00:00",
+      "fetched_at": "2026-05-02T14:49:29+00:00",
+      "raw_pub": null,
+      "call_type": "GAS",
+      "address": "2451 OLIVERA RD, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2465819127"
+    },
     {
       "id": "699ad2daedd26f0a",
       "title": "Vehicle Fire: 1891 MARKET ST, CONCORD",
