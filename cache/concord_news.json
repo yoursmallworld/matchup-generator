@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-02T07:45:39+00:00",
+  "fetched_at": "2026-05-02T09:07:18+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -46,17 +46,6 @@
   },
   "findings": [
     {
-      "id": "ec407ef49e360433",
-      "title": "Martha S Rogers Obituary - Concord, CA (1930-2026) - East Bay Times",
-      "summary": "Martha S Rogers Obituary - Concord, CA (1930-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBvS0xLM3pXaEhINWlidWM3cnRDLUhZVjVZbmUxekNwd2VsbF9iU0R4S2NWTVJNTTNsZXVOdTRiMWQtTFdiaDNWTk5RTWV0WFJSaE0xNTMzemE1UEpjRnBfblF6ZjdOVVpRdmZGYktHbGl1S1ZjU3BVVXlRUVpZdw?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-05-02T01:49:42+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
-      "raw_pub": "Sat, 02 May 2026 01:49:42 GMT"
-    },
-    {
       "id": "2989c3d14aa6735c",
       "title": "Concord: What's On The June 2 Ballot",
       "summary": "Ballots for the June 2 Statewide Direct Primary Election will land in mailboxes starting next week.",
@@ -64,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-01T21:33:10+00:00",
-      "fetched_at": "2026-05-02T07:45:42+00:00",
+      "fetched_at": "2026-05-02T09:07:21+00:00",
       "raw_pub": "Fri, 01 May 2026 17:33:10 -0400"
     },
     {
@@ -75,7 +64,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T17:54:34+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Fri, 01 May 2026 17:54:34 GMT"
     },
     {
@@ -86,19 +75,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T04:22:35+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Fri, 01 May 2026 04:22:35 GMT"
-    },
-    {
-      "id": "8219f05ad3509593",
-      "title": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products - qsr.mlit.go.jp",
-      "summary": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products qsr.mlit.go.jp",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNOVh1TTJEOUtBUEZ4NXJfbFk5MjZhNFJXYkpCWlQ1WUdKUHpCOGxVR2Zoa25JWlp4bDU3NEVqX05ZZ0hYSVljS0JSR0JkV193eDNVUkhjTm5TbkFjS0tnZVVBeUtZaFE2eVBORUpJeGIxcG02bkFmYU9hYU8xWURuVG1IOU14N3VZWEFzNGd3VHFGd3VsSzFqVHJkakpvc1k?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-30T22:28:46+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
-      "raw_pub": "Thu, 30 Apr 2026 22:28:46 GMT"
     },
     {
       "id": "df9007c5a8e0c315",
@@ -108,7 +86,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-05-02T07:45:42+00:00",
+      "fetched_at": "2026-05-02T09:07:21+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
     },
     {
@@ -119,7 +97,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-30T15:30:10+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Thu, 30 Apr 2026 15:30:10 GMT"
     },
     {
@@ -130,7 +108,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-29T16:04:29+00:00",
-      "fetched_at": "2026-05-02T07:45:42+00:00",
+      "fetched_at": "2026-05-02T09:07:21+00:00",
       "raw_pub": "Wed, 29 Apr 2026 12:04:29 -0400"
     },
     {
@@ -141,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T07:00:00+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Wed, 29 Apr 2026 07:00:00 GMT"
     },
     {
@@ -152,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
@@ -163,7 +141,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T19:22:29+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:22:29 GMT"
     },
     {
@@ -174,7 +152,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-05-02T07:45:42+00:00",
+      "fetched_at": "2026-05-02T09:07:21+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
     },
     {
@@ -185,7 +163,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:29:42+00:00",
-      "fetched_at": "2026-05-02T07:45:42+00:00",
+      "fetched_at": "2026-05-02T09:07:21+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:29:42 -0400"
     },
     {
@@ -196,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-27T07:00:00+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
     },
     {
@@ -207,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
@@ -218,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
@@ -229,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
     },
     {
@@ -240,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
@@ -251,8 +229,30 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
+    },
+    {
+      "id": "6bebb04784724dd4",
+      "title": "Patricia Shields Obituary (1937 - 2025) - Concord, CA - Dallas News",
+      "summary": "Patricia Shields Obituary (1937 - 2025) - Concord, CA Dallas News",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZ1J1TkhFempUUG4zTmFRVkZ6Mi1RTVB0RHBDd1BTS0FqRXRxOVAtZnYyQlgwZGJMeEl4WS1BUTlOSkYtVlI4dll5Wk93Sm8wSzgtUTZvdXlIdy1MYTNZQUNWUWNwX2QtRV9WSjZCbWRORW90dWU5Y25DclBFNEhocFZmNWxfYWJMZUlMcmFVRTFQUlhVZFpVNzVQRHV5X0xYb1dpdjFB?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-03-09T07:00:00+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
+      "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
+    },
+    {
+      "id": "c65a5092a9521e42",
+      "title": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) - East Bay Times",
+      "summary": "Margaret Ann Strain Bermingham Obituary - Concord, CA (1938-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPM3VvaEtrRDZKUzd5RWUzYV9mcGZzUWxXRXBHNS1FVkphM2pMQVk5QUJfWjJBemFRTG0wTVRyWFhnWWJfWVBrYXR1MUxGWnJlLWN3UTRMRlZaV1ZxZkljSTItN2IwRUVTNHUzcEdPZzBVSHN0RVNOdW11Y1dOQzg4eVQ2Z1VTeVFNdHc?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-02-12T08:00:00+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
+      "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
     },
     {
       "id": "4e6dcb7152ead3a2",
@@ -262,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -273,7 +273,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-05-02T07:45:43+00:00",
+      "fetched_at": "2026-05-02T09:07:22+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     }
   ]
