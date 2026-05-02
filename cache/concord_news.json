@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-01T22:51:46+00:00",
+  "fetched_at": "2026-05-02T02:44:58+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -33,9 +33,9 @@
     },
     "claycord": {
       "name": "Claycord",
-      "ok": true,
-      "count": 1,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "fetch failed (https://www.claycord.com/feed/)"
     },
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-01T21:33:10+00:00",
-      "fetched_at": "2026-05-01T22:51:49+00:00",
+      "fetched_at": "2026-05-02T02:45:02+00:00",
       "raw_pub": "Fri, 01 May 2026 17:33:10 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T17:54:34+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Fri, 01 May 2026 17:54:34 GMT"
     },
     {
@@ -75,7 +75,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T04:22:35+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Fri, 01 May 2026 04:22:35 GMT"
     },
     {
@@ -86,7 +86,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-30T22:28:46+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Thu, 30 Apr 2026 22:28:46 GMT"
     },
     {
@@ -97,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-05-01T22:51:49+00:00",
+      "fetched_at": "2026-05-02T02:45:02+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
     },
     {
@@ -108,7 +108,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-30T15:30:10+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Thu, 30 Apr 2026 15:30:10 GMT"
     },
     {
@@ -119,7 +119,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-29T16:04:29+00:00",
-      "fetched_at": "2026-05-01T22:51:49+00:00",
+      "fetched_at": "2026-05-02T02:45:02+00:00",
       "raw_pub": "Wed, 29 Apr 2026 12:04:29 -0400"
     },
     {
@@ -130,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T07:00:00+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Wed, 29 Apr 2026 07:00:00 GMT"
     },
     {
@@ -141,19 +141,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
-    },
-    {
-      "id": "dae1db3ea5cc790d",
-      "title": "Fire Burns Apartment On Frisbie Court In Concord",
-      "summary": "An apartment fire in Concord on Tuesday morning displaced four adults and a child, a spokesperson for the Contra Costa County Fire… The post Fire Burns Apartment On Frisbie Court In Concord appeared first on CLAYCORD.com .",
-      "url": "https://www.claycord.com/2026/04/28/fire-burns-apartment-on-frisbie-court-in-concord/",
-      "source_key": "claycord",
-      "source_name": "Claycord",
-      "published_at": "2026-04-28T19:31:42+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
-      "raw_pub": "Tue, 28 Apr 2026 19:31:42 +0000"
     },
     {
       "id": "87c10f4e0b85faca",
@@ -163,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T19:22:29+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:22:29 GMT"
     },
     {
@@ -174,7 +163,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-05-01T22:51:49+00:00",
+      "fetched_at": "2026-05-02T02:45:02+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
     },
     {
@@ -185,7 +174,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-27T19:29:42+00:00",
-      "fetched_at": "2026-05-01T22:51:49+00:00",
+      "fetched_at": "2026-05-02T02:45:02+00:00",
       "raw_pub": "Mon, 27 Apr 2026 15:29:42 -0400"
     },
     {
@@ -196,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-27T07:00:00+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
     },
     {
@@ -207,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-17T13:03:29+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Fri, 17 Apr 2026 13:03:29 GMT"
     },
     {
@@ -218,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
@@ -229,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
     },
     {
@@ -240,19 +229,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
-      "id": "6bebb04784724dd4",
-      "title": "Patricia Shields Obituary (1937 - 2025) - Concord, CA - Dallas News",
-      "summary": "Patricia Shields Obituary (1937 - 2025) - Concord, CA Dallas News",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZ1J1TkhFempUUG4zTmFRVkZ6Mi1RTVB0RHBDd1BTS0FqRXRxOVAtZnYyQlgwZGJMeEl4WS1BUTlOSkYtVlI4dll5Wk93Sm8wSzgtUTZvdXlIdy1MYTNZQUNWUWNwX2QtRV9WSjZCbWRORW90dWU5Y25DclBFNEhocFZmNWxfYWJMZUlMcmFVRTFQUlhVZFpVNzVQRHV5X0xYb1dpdjFB?oc=5",
+      "id": "2eaddfdfe954d13b",
+      "title": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) - East Bay Times",
+      "summary": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9tTmtmYUJMM3VFdHJnY1FVT3k0bWRSX0hWNGFlTVBQbnUxOFJ6QW16LVRfUGpxNWZyM19pd2dGY3A2bEFycTMtdWtaU2N6ZjJlY0hRSm1tQjhuenBjVjNvMW1aanZQV2hCVjBKYko5dXROZ2xOTlNoNndB?oc=5",
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
-      "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
+      "published_at": "2026-03-15T10:23:48+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
+      "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
       "id": "4e6dcb7152ead3a2",
@@ -262,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -273,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-05-01T22:51:50+00:00",
+      "fetched_at": "2026-05-02T02:45:18+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     }
   ]
