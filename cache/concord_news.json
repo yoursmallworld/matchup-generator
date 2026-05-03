@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-03T20:42:55+00:00",
+  "fetched_at": "2026-05-03T21:42:33+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,11 +40,22 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 16,
+      "count": 14,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "5101030bc6695d52",
+      "title": "Carmella Brown Obituary (2007) - Concord, CA - East Bay Times - Legacy obituary",
+      "summary": "Carmella Brown Obituary (2007) - Concord, CA - East Bay Times Legacy obituary",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNQnZ4RFdpV2Z2blFPMzdUNEMzcEp5S3NDbzZrNnVyaXRxQ0JjTXJILVN1bE1YT3FKcFdWa3RTZ09GbDBGX09EOXRDc0dDY0pJMm5xRzV0aWFDODlyaURMeXNxRFMxbmNkOEpWMHk5MXBMRTRlRmJDMVJjdVNKSkZRQUlySQ?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-05-03T09:55:00+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
+      "raw_pub": "Sun, 03 May 2026 09:55:00 GMT"
+    },
     {
       "id": "7038e667943254ee",
       "title": "1 Killed In Wrong-Way, Head-On DUI Crash On Interstate Ramp: Police",
@@ -53,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-02T23:34:53+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:36+00:00",
       "raw_pub": "Sat, 02 May 2026 19:34:53 -0400"
     },
     {
@@ -64,7 +75,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-01T21:33:10+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:36+00:00",
       "raw_pub": "Fri, 01 May 2026 17:33:10 -0400"
     },
     {
@@ -75,19 +86,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T17:54:34+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Fri, 01 May 2026 17:54:34 GMT"
-    },
-    {
-      "id": "8219f05ad3509593",
-      "title": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products - qsr.mlit.go.jp",
-      "summary": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products qsr.mlit.go.jp",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNOVh1TTJEOUtBUEZ4NXJfbFk5MjZhNFJXYkpCWlQ1WUdKUHpCOGxVR2Zoa25JWlp4bDU3NEVqX05ZZ0hYSVljS0JSR0JkV193eDNVUkhjTm5TbkFjS0tnZVVBeUtZaFE2eVBORUpJeGIxcG02bkFmYU9hYU8xWURuVG1IOU14N3VZWEFzNGd3VHFGd3VsSzFqVHJkakpvc1k?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-30T22:28:46+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
-      "raw_pub": "Thu, 30 Apr 2026 22:28:46 GMT"
     },
     {
       "id": "df9007c5a8e0c315",
@@ -97,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:36+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
     },
     {
@@ -108,30 +108,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-29T16:04:29+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:36+00:00",
       "raw_pub": "Wed, 29 Apr 2026 12:04:29 -0400"
-    },
-    {
-      "id": "5c862e93d52aecba",
-      "title": "IGNACIO DIAZ Obituary | Diablo Valley Funeral Home | Concord, CA - Tribute Archive",
-      "summary": "IGNACIO DIAZ Obituary | Diablo Valley Funeral Home | Concord, CA Tribute Archive",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQTdfbHA2b0NEeEVTSFdSMDhxbXRFMk9FM0RVZU1vdm1ZcTF0elBaTDczUWNnQkdQNmFkdWhETjhMV3VtT19vRHRlR1hxYmNIUGc3MEV3dkI1WXZLSUQ4TkJMakJRbUszMmFMWmJ1QXpPY09yc2w2N2Y5S05kQkNFZVZNSnpORnRXWkJRRFVibXgtWWduOUJaOWV2amhLY3F3ODJGMW1WcFY?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-29T07:00:00+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
-      "raw_pub": "Wed, 29 Apr 2026 07:00:00 GMT"
-    },
-    {
-      "id": "bad6bdf1ced3fac7",
-      "title": "CBD Gummies Concord CA: A Practical Guide for Health-Conscious Users - qsr.mlit.go.jp",
-      "summary": "CBD Gummies Concord CA: A Practical Guide for Health-Conscious Users qsr.mlit.go.jp",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMDc4djdPZGh5WmNlVmZCRV9rNUZxN2llMm84T0VkRUlBYVhzVG1XS255SmlzYlgybkNCWjlKRWlIRlNQeGZreEFsLXpMdVdWWklEa3c1Q2p3czg4RXNVSUMtNUtuVWxUdUQ4RXlLN1JVUno1Q0VsSXF6NzAyeVRtQ2lscUNQQ29kVm91XzBmNE1uOHduZklOOGFFUWFWNzQ?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
-      "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
       "id": "87c10f4e0b85faca",
@@ -141,19 +119,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T19:22:29+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:22:29 GMT"
-    },
-    {
-      "id": "8a1cf5ebf52290bb",
-      "title": "Robert Eugene Lane Obituary - Concord, CA (1933-2026) - East Bay Times",
-      "summary": "Robert Eugene Lane Obituary - Concord, CA (1933-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9BZ3VDUkRaTjBRVEwzQnR6ZjNOQS1iN1NDSjkzWk54YUs4M1FRYWh4TzlLdnhOOGhKTnduY2J5REVKLS1ONEd1b00xM2VtcDFHeTZmaVI3UkNJbF93d1NSN1ZtY2x2TDJmZ1liellxd1lwSVdyelY3YzZn?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
-      "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "aa856c03b43a1e3a",
@@ -163,8 +130,30 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
+    },
+    {
+      "id": "74a2d382a0b3b284",
+      "title": "Monta Farmer Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy obituary",
+      "summary": "Monta Farmer Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy obituary",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQU2hGbllMV050UTl0TXA2ME9vUW1aekpHS09yQS1DMlJEbmtnbloyQ0JKa0lwMkhURXZib0lDeTFaX2lHV3NRTzdhWTJOS3hlM09sQ19qTDN6RGdCb09HLS0tNVhCRDRpMUtZa2NkRTh5OHIzTUo0TkVxSnRQcXplRQ?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-08T02:37:13+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
+      "raw_pub": "Wed, 08 Apr 2026 02:37:13 GMT"
+    },
+    {
+      "id": "15763ab5de981e11",
+      "title": "3641 Clayton Rd Apt 5, Concord, CA 94521 - Realtor.com",
+      "summary": "3641 Clayton Rd Apt 5, Concord, CA 94521 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQeHd1MjZsWG1TN2FXUnJsbm90cmNRcnBpb0J6a0JHSlBJMy1DV09kMGRjY09aRm1PenBGbGI3YVNiX2E1YktPV1RNLUNTWVdsMVpqX2RLVEVZbXFaVEZESGl4bXF0dzFnbkFBcjlZajVzSmJoV2RJc2t5S0N6NTNfZ09lOVQ4MnFqZm5Ubk5CRlVER25HUXc?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-03-26T14:11:41+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
+      "raw_pub": "Thu, 26 Mar 2026 14:11:41 GMT"
     },
     {
       "id": "43a17322037b13a1",
@@ -174,19 +163,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
-    },
-    {
-      "id": "2eaddfdfe954d13b",
-      "title": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) - East Bay Times",
-      "summary": "Mary Ann Halvorson Obituary - Concord, CA (1934-2026) East Bay Times",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9tTmtmYUJMM3VFdHJnY1FVT3k0bWRSX0hWNGFlTVBQbnUxOFJ6QW16LVRfUGpxNWZyM19pd2dGY3A2bEFycTMtdWtaU2N6ZjJlY0hRSm1tQjhuenBjVjNvMW1aanZQV2hCVjBKYko5dXROZ2xOTlNoNndB?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
-      "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
       "id": "6bebb04784724dd4",
@@ -196,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
     },
     {
@@ -207,8 +185,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-16T13:13:18+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Mon, 16 Feb 2026 13:13:18 GMT"
+    },
+    {
+      "id": "53b50e0ab7881a68",
+      "title": "1608 Claycord Ave, Concord, CA 94521 - Realtor.com",
+      "summary": "1608 Claycord Ave, Concord, CA 94521 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOOFFGMHFOT3FYaGRNdDBZYmlSM2ZLanU3QlEtWTVKVHlhYXhYSmxzTzAxbDg2YTJqNllnYUZLRW4ybkhMeU1nR294WllnMzZzU0lCRkc2a0J5NHhTREZhZUFBVkdDR0RPbzNOZndpV1B6QWJfeVFMRWl6WG9GWlhtMFFYREczQVNFb3BrdVhLX24?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-02-14T21:04:11+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
+      "raw_pub": "Sat, 14 Feb 2026 21:04:11 GMT"
     },
     {
       "id": "c65a5092a9521e42",
@@ -218,19 +207,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
-    },
-    {
-      "id": "4e6dcb7152ead3a2",
-      "title": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom - USPS",
-      "summary": "USPS Hosting Job Fairs in Concord, Oakland, Richmond, Hercules & Auburn - California newsroom USPS",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSGdNdC1waUdlQ1ZjQUZQM3k0el9pZkJwOHIyVkxieTlSZzFyUlVuN2dIUE1yY3dleUtyUGxGV1BVVHRZZ0ZBVW0yOTNrTXlkY0w0TW5KMFRTVXJkNjYtcGxGMXBaRzlJUWJWTXR5MTdiUXhuRWVDN1lzVzVPYlNUeDI2TEZoYlZLc3FGZjZlOXJHOTNCY2Zub2psX2luWlZjLS03M1lxWFhzUjNsYjdtZDhtNGpXZU9EV3NjT2JlcENVRWw1ZVAxN1lR?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
-      "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
       "id": "acdec49a7a4a5928",
@@ -240,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     },
     {
@@ -251,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-07T01:05:16+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
@@ -262,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-05-03T20:42:58+00:00",
+      "fetched_at": "2026-05-03T21:42:37+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
