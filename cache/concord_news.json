@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-03T11:42:58+00:00",
+  "fetched_at": "2026-05-03T13:12:30+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -40,7 +40,7 @@
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     }
   },
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-02T23:34:53+00:00",
-      "fetched_at": "2026-05-03T11:43:01+00:00",
+      "fetched_at": "2026-05-03T13:12:33+00:00",
       "raw_pub": "Sat, 02 May 2026 19:34:53 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-01T21:33:10+00:00",
-      "fetched_at": "2026-05-03T11:43:01+00:00",
+      "fetched_at": "2026-05-03T13:12:33+00:00",
       "raw_pub": "Fri, 01 May 2026 17:33:10 -0400"
     },
     {
@@ -75,19 +75,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T17:54:34+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Fri, 01 May 2026 17:54:34 GMT"
-    },
-    {
-      "id": "8219f05ad3509593",
-      "title": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products - qsr.mlit.go.jp",
-      "summary": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products qsr.mlit.go.jp",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNOVh1TTJEOUtBUEZ4NXJfbFk5MjZhNFJXYkpCWlQ1WUdKUHpCOGxVR2Zoa25JWlp4bDU3NEVqX05ZZ0hYSVljS0JSR0JkV193eDNVUkhjTm5TbkFjS0tnZVVBeUtZaFE2eVBORUpJeGIxcG02bkFmYU9hYU8xWURuVG1IOU14N3VZWEFzNGd3VHFGd3VsSzFqVHJkakpvc1k?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-30T22:28:46+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
-      "raw_pub": "Thu, 30 Apr 2026 22:28:46 GMT"
     },
     {
       "id": "df9007c5a8e0c315",
@@ -97,7 +86,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-05-03T11:43:01+00:00",
+      "fetched_at": "2026-05-03T13:12:33+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
     },
     {
@@ -108,7 +97,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-30T15:30:10+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Thu, 30 Apr 2026 15:30:10 GMT"
     },
     {
@@ -119,7 +108,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-29T16:04:29+00:00",
-      "fetched_at": "2026-05-03T11:43:01+00:00",
+      "fetched_at": "2026-05-03T13:12:33+00:00",
       "raw_pub": "Wed, 29 Apr 2026 12:04:29 -0400"
     },
     {
@@ -130,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T07:00:00+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Wed, 29 Apr 2026 07:00:00 GMT"
     },
     {
@@ -141,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
@@ -152,19 +141,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T19:22:29+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:22:29 GMT"
-    },
-    {
-      "id": "0fabe5ce3908c30d",
-      "title": "1116 Saint Francis Dr, Concord, CA 94518 - Realtor.com",
-      "summary": "1116 Saint Francis Dr, Concord, CA 94518 Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPbDZnZmUyaGRJMFZJX0tNdWRudkd0ZTJsb0NaOEE5dGtjaFdQZm1TN0ZfVnZuN1pKT3ZZQVI5aFNObUNYbXdQUmNGYl8xX0RhYmVEYU8wdm1MNXRWRDZwcDY4MHptZkFNUEVYMy1TMlU5UWJ2clFGRExydTNJMl9jQ3U2UjlXWjEtTEhaM1JqZ09iR3Rib2c?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-27T07:00:00+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
-      "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "8a1cf5ebf52290bb",
@@ -174,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-10T07:00:00+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
@@ -185,7 +163,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
     },
     {
@@ -196,7 +174,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
@@ -207,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -218,8 +196,30 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
+    },
+    {
+      "id": "2daf482e2db2cdb5",
+      "title": "4984 Hames Dr, Concord, CA 94521 - Realtor.com",
+      "summary": "4984 Hames Dr, Concord, CA 94521 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSTRUSVNsUlJrU2U4b0JWTEFNM2M5bVlnNGdlQmdpVzhwaG85WFBqLU9EWWVCN3IxZ19kZzViWTdhUXE0NDI3a01RTWs2U3VtckJrVXlQaGVxdUxKeWxvaW5mVjdGYmp5bXBlWVoyRGVlakJUZVdLSUVNM1B2aGpxUkF6YmViYnNaMzlB?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-02-21T01:03:55+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
+      "raw_pub": "Sat, 21 Feb 2026 01:03:55 GMT"
+    },
+    {
+      "id": "fd16a8fec4259a4f",
+      "title": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy obituary",
+      "summary": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy obituary",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5Xb0lXWkpoT1ZmWnJ3eHZnd3NXeEVkb19ZMWZILUplejd4cVBJZUxUNFBNLUFTWEZNT0dpaWpoZm11b09nMmJqLTdhRG5kUUZHS1pFYWREWGRPdFVQZWVBN0xEVmNVZUZTQ2lGb2F4bFoyU1lkU3NDQUlvVEtlZGM?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-02-16T13:13:18+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
+      "raw_pub": "Mon, 16 Feb 2026 13:13:18 GMT"
     },
     {
       "id": "c65a5092a9521e42",
@@ -229,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
     },
     {
@@ -240,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -251,8 +251,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
+    },
+    {
+      "id": "f3cf368b4e87bf3a",
+      "title": "2262 Bonifacio St, Concord, CA 94520 - Realtor.com",
+      "summary": "2262 Bonifacio St, Concord, CA 94520 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc3cwbWxod2tnanA3SXBfdkFPYUVBY1diRkNvblpZZ3A5SUlZX0h6RWctaTliT0NFcU1tNEpZeV9wMGRYYl93V2VnWXh3Um9lLTRRbmctLVFhTFN6QWdIU2k5aFc1cVF3dDFiWEpNamplNkRlaVptR1NOLTZSTExzT2c1U1hoSExfYmFHTS1lZzA?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2025-11-07T01:05:16+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
+      "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
       "id": "868d83896e856033",
@@ -262,7 +273,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "fetched_at": "2026-05-03T13:12:34+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
