@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-03T10:05:41+00:00",
+  "fetched_at": "2026-05-03T11:42:58+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -28,7 +28,7 @@
     "patch": {
       "name": "Concord Patch",
       "ok": true,
-      "count": 5,
+      "count": 4,
       "error": null
     },
     "claycord": {
@@ -53,7 +53,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-02T23:34:53+00:00",
-      "fetched_at": "2026-05-03T10:05:44+00:00",
+      "fetched_at": "2026-05-03T11:43:01+00:00",
       "raw_pub": "Sat, 02 May 2026 19:34:53 -0400"
     },
     {
@@ -64,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-01T21:33:10+00:00",
-      "fetched_at": "2026-05-03T10:05:44+00:00",
+      "fetched_at": "2026-05-03T11:43:01+00:00",
       "raw_pub": "Fri, 01 May 2026 17:33:10 -0400"
     },
     {
@@ -75,7 +75,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T17:54:34+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Fri, 01 May 2026 17:54:34 GMT"
     },
     {
@@ -86,7 +86,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-30T22:28:46+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Thu, 30 Apr 2026 22:28:46 GMT"
     },
     {
@@ -97,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-05-03T10:05:44+00:00",
+      "fetched_at": "2026-05-03T11:43:01+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
     },
     {
@@ -108,7 +108,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-30T15:30:10+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Thu, 30 Apr 2026 15:30:10 GMT"
     },
     {
@@ -119,19 +119,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-29T16:04:29+00:00",
-      "fetched_at": "2026-05-03T10:05:44+00:00",
+      "fetched_at": "2026-05-03T11:43:01+00:00",
       "raw_pub": "Wed, 29 Apr 2026 12:04:29 -0400"
-    },
-    {
-      "id": "ecc5cd30a77607ff",
-      "title": "Carl Burton \"CJ\" Pendleton Jr. Obituary (2026) - Concord, CA - Passalacqua Funeral Chapel - Legacy obituary",
-      "summary": "Carl Burton \"CJ\" Pendleton Jr. Obituary (2026) - Concord, CA - Passalacqua Funeral Chapel Legacy obituary",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQamx6dTdVRHdaaW82MmhucHY0VEZVNTYxTlN2RHZZUUZuNHJodmJzd3ZQeUREeUJmWmxmMjFoSm0zdnZkSkp6OXZ0V1o2czZMbDF4eDl4Zm5oYkJrZVpWbDN2bVI3dHRITjFwazhPaXZaeHhvaE5ibGNCQURUalcyd3B4Yw?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-29T12:26:25+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
-      "raw_pub": "Wed, 29 Apr 2026 12:26:25 GMT"
     },
     {
       "id": "5c862e93d52aecba",
@@ -141,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T07:00:00+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Wed, 29 Apr 2026 07:00:00 GMT"
     },
     {
@@ -152,7 +141,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
@@ -163,19 +152,30 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-28T19:22:29+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Tue, 28 Apr 2026 19:22:29 GMT"
     },
     {
-      "id": "98405102775f1093",
-      "title": "Roommate Fight Leaves East Bay Man Dead Overnight",
-      "summary": "Detectives weigh self-defense claim and await autopsy findings after a man was found dead overnight.",
-      "url": "http://patch.com/california/concord-ca/roommate-fight-leaves-east-bay-man-dead-overnight?utm_source=article-mostrecent&utm_medium=rss&utm_term=crime%20%26%20safety&utm_campaign=recirc&utm_content=normal",
-      "source_key": "patch",
-      "source_name": "Concord Patch",
-      "published_at": "2026-04-27T19:50:34+00:00",
-      "fetched_at": "2026-05-03T10:05:44+00:00",
-      "raw_pub": "Mon, 27 Apr 2026 15:50:34 -0400"
+      "id": "0fabe5ce3908c30d",
+      "title": "1116 Saint Francis Dr, Concord, CA 94518 - Realtor.com",
+      "summary": "1116 Saint Francis Dr, Concord, CA 94518 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPbDZnZmUyaGRJMFZJX0tNdWRudkd0ZTJsb0NaOEE5dGtjaFdQZm1TN0ZfVnZuN1pKT3ZZQVI5aFNObUNYbXdQUmNGYl8xX0RhYmVEYU8wdm1MNXRWRDZwcDY4MHptZkFNUEVYMy1TMlU5UWJ2clFGRExydTNJMl9jQ3U2UjlXWjEtTEhaM1JqZ09iR3Rib2c?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-27T07:00:00+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "raw_pub": "Mon, 27 Apr 2026 07:00:00 GMT"
+    },
+    {
+      "id": "8a1cf5ebf52290bb",
+      "title": "Robert Eugene Lane Obituary - Concord, CA (1933-2026) - East Bay Times",
+      "summary": "Robert Eugene Lane Obituary - Concord, CA (1933-2026) East Bay Times",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9BZ3VDUkRaTjBRVEwzQnR6ZjNOQS1iN1NDSjkzWk54YUs4M1FRYWh4TzlLdnhOOGhKTnduY2J5REVKLS1ONEd1b00xM2VtcDFHeTZmaVI3UkNJbF93d1NSN1ZtY2x2TDJmZ1liellxd1lwSVdyelY3YzZn?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-10T07:00:00+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
+      "raw_pub": "Fri, 10 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "aa856c03b43a1e3a",
@@ -185,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
     },
     {
@@ -196,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
@@ -207,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -218,19 +218,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
-    },
-    {
-      "id": "fd16a8fec4259a4f",
-      "title": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel - Legacy obituary",
-      "summary": "Bruce David Oberg Obituary (2026) - Concord, CA - Ouimet Bros. Concord Funeral Chapel Legacy obituary",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5Xb0lXWkpoT1ZmWnJ3eHZnd3NXeEVkb19ZMWZILUplejd4cVBJZUxUNFBNLUFTWEZNT0dpaWpoZm11b09nMmJqLTdhRG5kUUZHS1pFYWREWGRPdFVQZWVBN0xEVmNVZUZTQ2lGb2F4bFoyU1lkU3NDQUlvVEtlZGM?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-02-16T13:13:18+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
-      "raw_pub": "Mon, 16 Feb 2026 13:13:18 GMT"
     },
     {
       "id": "c65a5092a9521e42",
@@ -240,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
     },
     {
@@ -251,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -262,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     },
     {
@@ -273,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-05-03T10:05:45+00:00",
+      "fetched_at": "2026-05-03T11:43:02+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
