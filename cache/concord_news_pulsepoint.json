@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-05-03T23:47:52+00:00",
+  "fetched_at": "2026-05-04T02:55:35+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "d36c47fa08e08fee",
+      "title": "Hazardous Condition: 1441 DETROIT AVE, STE 162, CONCORD",
+      "summary": "Units: T106 \u00b7 Cleared 2026-05-04T01:40:55+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2466856489",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-04T01:22:36+00:00",
+      "fetched_at": "2026-05-04T02:55:35+00:00",
+      "raw_pub": null,
+      "call_type": "HC",
+      "address": "1441 DETROIT AVE, STE 162, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2466856489"
+    },
     {
       "id": "564b1a044cfb326e",
       "title": "Gas Leak: 2451 OLIVERA RD, CONCORD",
