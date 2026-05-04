@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-05-04T18:16:10+00:00",
+  "fetched_at": "2026-05-04T20:16:30+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "9bdc82de3f2f3841",
+      "title": "[ACTIVE] Expanded Traffic Collision: CLAYTON RD & MARCLAIR DR, CONCORD",
+      "summary": "Units: BC2, E108, EMS8, M11, M4, M7, R10, SOF1, T106",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2467279259",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-04T18:34:26+00:00",
+      "fetched_at": "2026-05-04T20:16:30+00:00",
+      "raw_pub": null,
+      "call_type": "TCE",
+      "address": "CLAYTON RD & MARCLAIR DR, CONCORD, CA",
+      "status": "active",
+      "incident_id": "2467279259"
+    },
     {
       "id": "d36c47fa08e08fee",
       "title": "Hazardous Condition: 1441 DETROIT AVE, STE 162, CONCORD",
