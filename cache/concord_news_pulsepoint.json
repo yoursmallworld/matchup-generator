@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-04T20:16:30+00:00",
+  "fetched_at": "2026-05-04T22:02:30+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
@@ -11,8 +11,8 @@
   "findings": [
     {
       "id": "9bdc82de3f2f3841",
-      "title": "[ACTIVE] Expanded Traffic Collision: CLAYTON RD & MARCLAIR DR, CONCORD",
-      "summary": "Units: BC2, E108, EMS8, M11, M4, M7, R10, SOF1, T106",
+      "title": "Expanded Traffic Collision: CLAYTON RD & MARCLAIR DR, CONCORD",
+      "summary": "Units: BC2, E108, EMS8, M11, M4, M7, R10, SOF1, T106 \u00b7 Cleared 2026-05-04T20:46:08+00:00",
       "url": "https://web.pulsepoint.org/?agencies=07090&incident=2467279259",
       "source_key": "pulsepoint_confire",
       "source_name": "ConFire Dispatch (PulsePoint)",
@@ -21,7 +21,7 @@
       "raw_pub": null,
       "call_type": "TCE",
       "address": "CLAYTON RD & MARCLAIR DR, CONCORD, CA",
-      "status": "active",
+      "status": "recent",
       "incident_id": "2467279259"
     },
     {
