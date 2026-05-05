@@ -1,14 +1,44 @@
 {
-  "fetched_at": "2026-05-04T23:55:00+00:00",
+  "fetched_at": "2026-05-05T02:47:33+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "3edf55818581ce24",
+      "title": "Outside Fire: 3900 SR 4 E TO SR 242 DR S, CONCORD",
+      "summary": "Units: E109, E113, E186 \u00b7 Cleared 2026-05-05T02:23:18+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2467584027",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-05T02:13:00+00:00",
+      "fetched_at": "2026-05-05T02:47:33+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "3900 SR 4 E TO SR 242 DR S, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2467584027"
+    },
+    {
+      "id": "94f4099317abede3",
+      "title": "Commercial Fire: 2222 PACHECO ST, CONCORD",
+      "summary": "Units: BC1, BC2, BS107, CENTMGT, DISP, DST1, E101, E105, E106, E108, E109, E122 (+16 more) \u00b7 Cleared 2026-05-05T02:38:19+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2467575860",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-05T01:58:02+00:00",
+      "fetched_at": "2026-05-05T02:47:33+00:00",
+      "raw_pub": null,
+      "call_type": "CF",
+      "address": "2222 PACHECO ST, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2467575860"
+    },
     {
       "id": "9bdc82de3f2f3841",
       "title": "Expanded Traffic Collision: CLAYTON RD & MARCLAIR DR, CONCORD",
