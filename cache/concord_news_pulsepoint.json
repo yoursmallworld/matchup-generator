@@ -1,14 +1,44 @@
 {
-  "fetched_at": "2026-05-05T17:27:58+00:00",
+  "fetched_at": "2026-05-05T19:22:06+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "637fb0c9f89911f5",
+      "title": "Outside Fire: 2101 MARKET ST, CONCORD",
+      "summary": "Units: E106 \u00b7 Cleared 2026-05-05T19:11:24+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2467989773",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-05T18:56:05+00:00",
+      "fetched_at": "2026-05-05T19:22:06+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "2101 MARKET ST, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2467989773"
+    },
+    {
+      "id": "e4e73da24984aff9",
+      "title": "Outside Fire: 2411 IRON HORSE TRAIL DR, CONCORD",
+      "summary": "Units: E106 \u00b7 Cleared 2026-05-05T18:54:27+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2467952770",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-05T17:59:37+00:00",
+      "fetched_at": "2026-05-05T19:22:06+00:00",
+      "raw_pub": null,
+      "call_type": "OF",
+      "address": "2411 IRON HORSE TRAIL DR, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2467952770"
+    },
     {
       "id": "b370ac1b7ed01b91",
       "title": "Vehicle Fire: SIERRA RD & FOX WAY, CONCORD",
