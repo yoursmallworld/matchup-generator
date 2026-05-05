@@ -15,6 +15,7 @@ import time as time_module
 import smallworld_push
 import concord_news_tab
 import bulk_upload_tab
+import transcribe_tab
 
 # Configuration
 BASE_DIR = Path(__file__).parent
@@ -442,13 +443,14 @@ team_display = {t: format_team_name(t) for t in available_teams}
 # Add option for custom team name
 team_options = sorted(team_display.values())
 
-tab1, tab2, tab4, tab5, tab_bulk, tab_news, tab3 = st.tabs([
+tab1, tab2, tab4, tab5, tab_bulk, tab_news, tab_tx, tab3 = st.tabs([
     "Generate Graphic",
     "Batch Generate",
     "Upcoming Games",
     "Push to Smallworld",
     "Bulk Upload",
     "Concord News",
+    "Transcribe",
     "Manage Logos",
 ])
 
@@ -457,6 +459,9 @@ with tab_bulk:
 
 with tab_news:
     concord_news_tab.render()
+
+with tab_tx:
+    transcribe_tab.render()
 
 with tab1:
     col1, col2 = st.columns(2)
