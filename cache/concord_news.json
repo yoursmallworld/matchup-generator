@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-05T19:21:28+00:00",
+  "fetched_at": "2026-05-05T21:05:32+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -28,23 +28,45 @@
     "patch": {
       "name": "Concord Patch",
       "ok": true,
-      "count": 4,
+      "count": 6,
       "error": null
     },
     "claycord": {
       "name": "Claycord",
-      "ok": false,
-      "count": 0,
-      "error": "fetch failed (https://www.claycord.com/feed/)"
+      "ok": true,
+      "count": 2,
+      "error": null
     },
     "google_news": {
       "name": "Google News — \"Concord, CA\"",
       "ok": true,
-      "count": 14,
+      "count": 15,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "c34d27de225b91a1",
+      "title": "Top Teacher Finalists Announced For Contra Costa County",
+      "summary": "Surprise classroom visits turned spotlight on four standout educators across Contra Costa County.",
+      "url": "http://patch.com/california/concord-ca/top-teacher-finalists-announced-contra-costa-county?utm_source=article-mostrecent&utm_medium=rss&utm_term=schools&utm_campaign=recirc&utm_content=normal",
+      "source_key": "patch",
+      "source_name": "Concord Patch",
+      "published_at": "2026-05-05T20:32:56+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
+      "raw_pub": "Tue, 05 May 2026 16:32:56 -0400"
+    },
+    {
+      "id": "88471ea4cf602b6a",
+      "title": "Lamorinda Teachers Will Compete For 'Top' Award",
+      "summary": "Surprise classroom visits turned spotlight on four standout educators across Contra Costa County.",
+      "url": "http://patch.com/california/concord-ca/top-teacher-finalists-contra-costa-county-announced?utm_source=article-mostrecent&utm_medium=rss&utm_term=schools&utm_campaign=recirc&utm_content=normal",
+      "source_key": "patch",
+      "source_name": "Concord Patch",
+      "published_at": "2026-05-05T20:27:07+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
+      "raw_pub": "Tue, 05 May 2026 16:27:07 -0400"
+    },
     {
       "id": "0f1212b20e2dac5c",
       "title": "Broken Heart Tattoo Sole Clue To Woman's Lonely Death On Train Tracks",
@@ -53,8 +75,30 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-05T14:56:40+00:00",
-      "fetched_at": "2026-05-05T19:21:31+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
       "raw_pub": "Tue, 05 May 2026 10:56:40 -0400"
+    },
+    {
+      "id": "9957c49d92c997b5",
+      "title": "UPDATE: Clayton Rd Blocked Due To Vehicle Collision",
+      "summary": "Clayton Rd in Concord is blocked near Jiffy Lube due to a multi-vehicle collision. Injuries have been reported. Thanks to Emma for… The post UPDATE: Clayton Rd Blocked Due To Vehicle Collision appeared first on CLAYCORD.com .",
+      "url": "https://www.claycord.com/2026/05/04/clayton-rd-blocked-due-to-vehicle-collision/",
+      "source_key": "claycord",
+      "source_name": "Claycord",
+      "published_at": "2026-05-04T19:01:50+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
+      "raw_pub": "Mon, 04 May 2026 19:01:50 +0000"
+    },
+    {
+      "id": "e99eaba0f052bb41",
+      "title": "Concord Offering Up To $60K In Down Payment Assistance For First-Time Homebuyers; Workshop Set For May 19",
+      "summary": "Tuesday, May 19, 2026 6:00 p.m. to 7:30 p.m. Virtual Meeting The City of Concord is currently offering down payment assistance for first-time… The post Concord Offering Up To $60K In Down Payment Assistance For First-Time Homebuyers; Workshop Set For May 19 appeared first on CLAYCORD.com .",
+      "url": "https://www.claycord.com/2026/05/04/concord-offering-up-to-60k-in-down-payment-assistance-for-first-time-homebuyers-workshop-set-for-may-19/",
+      "source_key": "claycord",
+      "source_name": "Claycord",
+      "published_at": "2026-05-04T17:00:13+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
+      "raw_pub": "Mon, 04 May 2026 17:00:13 +0000"
     },
     {
       "id": "7038e667943254ee",
@@ -64,7 +108,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-02T23:34:53+00:00",
-      "fetched_at": "2026-05-05T19:21:31+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
       "raw_pub": "Sat, 02 May 2026 19:34:53 -0400"
     },
     {
@@ -75,7 +119,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-01T21:33:10+00:00",
-      "fetched_at": "2026-05-05T19:21:31+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
       "raw_pub": "Fri, 01 May 2026 17:33:10 -0400"
     },
     {
@@ -86,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T17:54:34+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Fri, 01 May 2026 17:54:34 GMT"
     },
     {
@@ -97,8 +141,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T00:51:02+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Fri, 01 May 2026 00:51:02 GMT"
+    },
+    {
+      "id": "8219f05ad3509593",
+      "title": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products - qsr.mlit.go.jp",
+      "summary": "CBD Gummies Concord CA: What I Learned After Testing 80+ Products qsr.mlit.go.jp",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNOVh1TTJEOUtBUEZ4NXJfbFk5MjZhNFJXYkpCWlQ1WUdKUHpCOGxVR2Zoa25JWlp4bDU3NEVqX05ZZ0hYSVljS0JSR0JkV193eDNVUkhjTm5TbkFjS0tnZVVBeUtZaFE2eVBORUpJeGIxcG02bkFmYU9hYU8xWURuVG1IOU14N3VZWEFzNGd3VHFGd3VsSzFqVHJkakpvc1k?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-30T22:28:46+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
+      "raw_pub": "Thu, 30 Apr 2026 22:28:46 GMT"
     },
     {
       "id": "df9007c5a8e0c315",
@@ -108,8 +163,19 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-05-05T19:21:31+00:00",
+      "fetched_at": "2026-05-05T21:05:35+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
+    },
+    {
+      "id": "81af77e56a8c757f",
+      "title": "North Valley Solar Power, Among Leading Solar Companies in Concord, California, Supports Homeowners with PG&E-Aligned Solar System Design - The Malone Telegram",
+      "summary": "North Valley Solar Power, Among Leading Solar Companies in Concord, California, Supports Homeowners with PG&E-Aligned Solar System Design The Malone Telegram",
+      "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxQSFdZQi1CbWV4UEVZcHpmVHI4a0M1WXcwX010YnN5X1k3cDZJU21aWWRFTEtOS01wYlBlTVVsaUdpeWJCdTBFdHV3V2xJODNWUUJVVDlhdUtDUzBwaS02WEpieks1QzlDT1Q3Ym9RVmpPR2Q5LU55SFNObHpKVWNoM0lENWNfYWJxYlFrbmw4U3paTmxVUTlwWjU5TDhOVWtSNGtnc3lxcGNGVldELXBlb0cxNGxqMXFaaFBOZTc5RFk1VUhkRzJRZklKRFE1dnQ4LWhPZldrN20xYjJFWXNQZW1UZWVKU2g1U3dieGV0Y01QaWdBSU85WU11cnlWNHpDRHQ0SkFkUEZ5SmJfdmNaZVNTSmxLc3JkZjRkVDFBWmJSMWJIZnl4MmRJdWZBNmtROU5yNmt4TEZ6OGdydlNR?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-30T15:30:10+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
+      "raw_pub": "Thu, 30 Apr 2026 15:30:10 GMT"
     },
     {
       "id": "14fac53225f82651",
@@ -119,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T07:00:00+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Wed, 29 Apr 2026 07:00:00 GMT"
     },
     {
@@ -130,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
@@ -141,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
     },
     {
@@ -152,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
@@ -163,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -174,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
     },
     {
@@ -185,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-14T21:04:11+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Sat, 14 Feb 2026 21:04:11 GMT"
     },
     {
@@ -196,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
     },
     {
@@ -207,7 +273,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -218,19 +284,8 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
-    },
-    {
-      "id": "f3cf368b4e87bf3a",
-      "title": "2262 Bonifacio St, Concord, CA 94520 - Realtor.com",
-      "summary": "2262 Bonifacio St, Concord, CA 94520 Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPc3cwbWxod2tnanA3SXBfdkFPYUVBY1diRkNvblpZZ3A5SUlZX0h6RWctaTliT0NFcU1tNEpZeV9wMGRYYl93V2VnWXh3Um9lLTRRbmctLVFhTFN6QWdIU2k5aFc1cVF3dDFiWEpNamplNkRlaVptR1NOLTZSTExzT2c1U1hoSExfYmFHTS1lZzA?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2025-11-07T01:05:16+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
-      "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
       "id": "868d83896e856033",
@@ -240,7 +295,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-05-05T19:21:47+00:00",
+      "fetched_at": "2026-05-05T21:05:36+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
