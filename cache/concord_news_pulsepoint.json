@@ -1,14 +1,29 @@
 {
-  "fetched_at": "2026-05-05T05:45:01+00:00",
+  "fetched_at": "2026-05-05T08:11:37+00:00",
   "sources": {
     "pulsepoint_confire": {
       "name": "ConFire Dispatch (PulsePoint)",
       "ok": true,
-      "count": 2,
+      "count": 3,
       "error": null
     }
   },
   "findings": [
+    {
+      "id": "b370ac1b7ed01b91",
+      "title": "Vehicle Fire: SIERRA RD & FOX WAY, CONCORD",
+      "summary": "Units: E110 \u00b7 Cleared 2026-05-05T08:00:38+00:00",
+      "url": "https://web.pulsepoint.org/?agencies=07090&incident=2467708232",
+      "source_key": "pulsepoint_confire",
+      "source_name": "ConFire Dispatch (PulsePoint)",
+      "published_at": "2026-05-05T07:31:43+00:00",
+      "fetched_at": "2026-05-05T08:11:37+00:00",
+      "raw_pub": null,
+      "call_type": "VF",
+      "address": "SIERRA RD & FOX WAY, CONCORD, CA",
+      "status": "recent",
+      "incident_id": "2467708232"
+    },
     {
       "id": "3edf55818581ce24",
       "title": "Outside Fire: 3900 SR 4 E TO SR 242 DR S, CONCORD",
