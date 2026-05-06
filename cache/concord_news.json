@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-06T02:53:09+00:00",
+  "fetched_at": "2026-05-06T06:06:28+00:00",
   "sources": {
     "city_press": {
       "name": "City of Concord — Press Releases",
@@ -28,7 +28,7 @@
     "patch": {
       "name": "Concord Patch",
       "ok": true,
-      "count": 6,
+      "count": 5,
       "error": null
     },
     "claycord": {
@@ -53,19 +53,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-05T20:32:56+00:00",
-      "fetched_at": "2026-05-06T02:53:15+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Tue, 05 May 2026 16:32:56 -0400"
-    },
-    {
-      "id": "88471ea4cf602b6a",
-      "title": "Lamorinda Teachers Will Compete For 'Top' Award",
-      "summary": "Surprise classroom visits turned spotlight on four standout educators across Contra Costa County.",
-      "url": "http://patch.com/california/concord-ca/top-teacher-finalists-contra-costa-county-announced?utm_source=article-mostrecent&utm_medium=rss&utm_term=schools&utm_campaign=recirc&utm_content=normal",
-      "source_key": "patch",
-      "source_name": "Concord Patch",
-      "published_at": "2026-05-05T20:27:07+00:00",
-      "fetched_at": "2026-05-06T02:53:15+00:00",
-      "raw_pub": "Tue, 05 May 2026 16:27:07 -0400"
     },
     {
       "id": "0f1212b20e2dac5c",
@@ -75,7 +64,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-05T14:56:40+00:00",
-      "fetched_at": "2026-05-06T02:53:15+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Tue, 05 May 2026 10:56:40 -0400"
     },
     {
@@ -86,7 +75,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-05-04T19:01:50+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Mon, 04 May 2026 19:01:50 +0000"
     },
     {
@@ -97,7 +86,7 @@
       "source_key": "claycord",
       "source_name": "Claycord",
       "published_at": "2026-05-04T17:00:13+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Mon, 04 May 2026 17:00:13 +0000"
     },
     {
@@ -108,7 +97,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-02T23:34:53+00:00",
-      "fetched_at": "2026-05-06T02:53:15+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Sat, 02 May 2026 19:34:53 -0400"
     },
     {
@@ -119,7 +108,7 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-05-01T21:33:10+00:00",
-      "fetched_at": "2026-05-06T02:53:15+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Fri, 01 May 2026 17:33:10 -0400"
     },
     {
@@ -130,7 +119,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T17:54:34+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Fri, 01 May 2026 17:54:34 GMT"
     },
     {
@@ -141,7 +130,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-05-01T00:51:02+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Fri, 01 May 2026 00:51:02 GMT"
     },
     {
@@ -152,19 +141,8 @@
       "source_key": "patch",
       "source_name": "Concord Patch",
       "published_at": "2026-04-30T15:32:51+00:00",
-      "fetched_at": "2026-05-06T02:53:15+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Thu, 30 Apr 2026 11:32:51 -0400"
-    },
-    {
-      "id": "14fac53225f82651",
-      "title": "IGNACIO DIAZ Obituary | Diablo Valley Funeral Home | Concord, CA - Tribute Archive",
-      "summary": "IGNACIO DIAZ Obituary | Diablo Valley Funeral Home | Concord, CA Tribute Archive",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBUandocE9YQ3d4MDFsbkNVNGtTUG5mMlhGLTFNMFN4c0JJS3hzaUpIMUVNaHZ5dlhIQlc4N0RuMjgxVmk4UkpGcV9PRnVpcWpfcFk4VEw0Q01PaUJOY0lXdmlxZ292X3c2TTBvSFNRcko?oc=5",
-      "source_key": "google_news",
-      "source_name": "Google News — \"Concord, CA\"",
-      "published_at": "2026-04-29T07:00:00+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
-      "raw_pub": "Wed, 29 Apr 2026 07:00:00 GMT"
     },
     {
       "id": "bad6bdf1ced3fac7",
@@ -174,7 +152,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-29T00:28:31+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Wed, 29 Apr 2026 00:28:31 GMT"
     },
     {
@@ -185,8 +163,19 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-04-09T11:21:52+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Thu, 09 Apr 2026 11:21:52 GMT"
+    },
+    {
+      "id": "af7156e731b1a24e",
+      "title": "1221 Pine Creek Way Apt G, Concord, CA 94520 - Realtor.com",
+      "summary": "1221 Pine Creek Way Apt G, Concord, CA 94520 Realtor.com",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbFZCSkZBbUFyUWxHa0dpeEpBbUo4WG9ET0FTUW1MV2xFa1lLOFBIdmdaNzF0NjNuOVJMSUxVbnZNdXY5NnBUZEk0Ml9vTjNLSmdLbURyV2g4bTFEQ2NSSXFEVngyZkUtcnhsdVpfSXhxYm1RemYzeGxDY0x3QkZ1RVpHSGlNa19RV2JQX1RaT29UbC01UFpDbkdIUQ?oc=5",
+      "source_key": "google_news",
+      "source_name": "Google News — \"Concord, CA\"",
+      "published_at": "2026-04-07T19:03:47+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
+      "raw_pub": "Tue, 07 Apr 2026 19:03:47 GMT"
     },
     {
       "id": "43a17322037b13a1",
@@ -196,7 +185,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-20T10:23:50+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Fri, 20 Mar 2026 10:23:50 GMT"
     },
     {
@@ -207,7 +196,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-15T10:23:48+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Sun, 15 Mar 2026 10:23:48 GMT"
     },
     {
@@ -218,7 +207,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-03-09T07:00:00+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Mon, 09 Mar 2026 07:00:00 GMT"
     },
     {
@@ -229,7 +218,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-16T13:13:18+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Mon, 16 Feb 2026 13:13:18 GMT"
     },
     {
@@ -240,7 +229,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-02-12T08:00:00+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Thu, 12 Feb 2026 08:00:00 GMT"
     },
     {
@@ -251,7 +240,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2026-01-27T08:00:00+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
@@ -262,7 +251,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-12-13T14:38:26+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Sat, 13 Dec 2025 14:38:26 GMT"
     },
     {
@@ -273,7 +262,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-11-07T01:05:16+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Fri, 07 Nov 2025 01:05:16 GMT"
     },
     {
@@ -284,7 +273,7 @@
       "source_key": "google_news",
       "source_name": "Google News — \"Concord, CA\"",
       "published_at": "2025-10-23T21:26:30+00:00",
-      "fetched_at": "2026-05-06T02:53:16+00:00",
+      "fetched_at": "2026-05-06T06:06:32+00:00",
       "raw_pub": "Thu, 23 Oct 2025 21:26:30 GMT"
     }
   ]
